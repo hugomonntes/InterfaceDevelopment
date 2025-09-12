@@ -13,7 +13,7 @@
             Console.Write("Peso: ");
             double peso = Double.Parse(Console.ReadLine());
 
-            Console.WriteLine("Nombre: {0,12}, Edad: {1,4},\n \tPeso: {2,5:F1} \n \"{0}\" \\{1}\\", nombre, edad, peso);
+            Console.WriteLine("Nombre: {0,12}, Edad: {1,4},\n\tPeso: {2,5:F1} \n \"{0}\" \\{1}\\", nombre, edad, peso);
         }
     }
 }
