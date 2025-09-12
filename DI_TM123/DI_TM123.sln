@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36429.23 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DI_TM123", "DI_TM123\DI_TM123.csproj", "{8F3295AB-6E81-4898-955E-3BB8161EE9CC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DI_EX2", "DI_TM123\DI_EX2.csproj", "{8F3295AB-6E81-4898-955E-3BB8161EE9CC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DI_EX1", "DI_EX1\DI_EX1.csproj", "{1347F63F-D0C1-4380-9D83-A82ED43397EE}"
 EndProject
