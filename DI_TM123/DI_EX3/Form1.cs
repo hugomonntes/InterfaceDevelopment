@@ -42,16 +42,20 @@ namespace DI_EX3
             {
                 lblPremio.Text = "WIN 20€";
                 saldo += 20;
+                lblSaldo.Text = saldo + "";
             }
             else if (tx1 == tx2 || tx1 == tx3 || tx2 == tx3)
             {
                 lblPremio.Text = "WIN 5€";
                 saldo += 5;
+                lblSaldo.Text = saldo + "";
+
             }
             else
             {
                 lblPremio.Text = "LOST 2€";
                 saldo -= 2;
+                lblSaldo.Text = saldo + "";
             }
         }
 
