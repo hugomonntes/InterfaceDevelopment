@@ -29,9 +29,9 @@ namespace DI_EX3
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            textBox1.Text = getRandomNumber();
-            textBox2.Text = getRandomNumber();
-            textBox3.Text = getRandomNumber();
+            textBox1.Text = getRandomNumber() + "";
+            textBox2.Text = getRandomNumber() + "";
+            textBox3.Text = getRandomNumber() + "";
 
             int saldo = int.Parse(lblSaldo.Text);
             int tx1 = int.Parse(textBox1.Text);
@@ -55,9 +55,9 @@ namespace DI_EX3
             }
         }
 
-        public static String getRandomNumber()
+        public static int getRandomNumber()
         {
-            return new Random().Next(1,7) + "";
+            return new Random().Next(1,8);
         }
     }
 }
