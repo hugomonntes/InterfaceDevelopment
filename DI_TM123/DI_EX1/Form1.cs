@@ -41,8 +41,9 @@ namespace DI_EX1
         {
             try
             {
-            lblIgual.Text = String.Format("= {0}",Int32.Parse(textBox3.Text) + Int32.Parse(textBox4.Text));
-            } catch(FormatException) {}
+                lblIgual.Text = String.Format("= {0}", Int32.Parse(textBox3.Text) + Int32.Parse(textBox4.Text));
+            }
+            catch (FormatException) { }
         }
     }
 }
