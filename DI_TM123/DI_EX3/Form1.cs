@@ -29,16 +29,16 @@ namespace DI_EX3
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            textBox1.Text = string.Format("{0}",getRandomNumber());
-            textBox2.Text = string.Format("{0}",getRandomNumber());
-            textBox3.Text = string.Format("{0}",getRandomNumber());
+            textBox1.Text = string.Format("{0}",getRandomNumber(1,8).Item1);
+            textBox2.Text = string.Format("{0}",getRandomNumber(1,8).Item2);
+            textBox3.Text = string.Format("{0}",getRandomNumber(1,8).Item3);
 
             int saldo = int.Parse(lblSaldo.Text);
             int tx1 = int.Parse(textBox1.Text);
             int tx2 = int.Parse(textBox2.Text);
             int tx3 = int.Parse(textBox3.Text);
 
-            if (tx1 == tx2 && tx2 == tx3)
+            if (tx1 == tx2 && tx1 == tx3)
             {
                 lblPremio.Text = "WIN 20€";
                 saldo += 20;
@@ -61,9 +61,9 @@ namespace DI_EX3
 
         private static Random random = new Random();
 
-        public static int getRandomNumber()
+        public static (int, int, int) getRandomNumber (int minRange, int maxRange)
         {
-            return random.Next(1, 8);
+            return (random.Next(minRange, maxRange), random.Next(minRange, maxRange), random.Next(minRange, maxRange));
         }
 
     }
