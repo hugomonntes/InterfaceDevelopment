@@ -10,6 +10,7 @@ namespace DI_EX4
     {
         static void Main(string[] args)
         {
+            
         }
     }
 }
