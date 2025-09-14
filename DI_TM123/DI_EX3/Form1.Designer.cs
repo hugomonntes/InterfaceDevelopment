@@ -35,6 +35,7 @@
             this.lblSaldo = new System.Windows.Forms.Label();
             this.lblPremio = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -103,11 +104,22 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Saldo:";
             // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(17, 76);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.TabIndex = 7;
+            this.btnAdd.Text = "ADD 10€";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblPremio);
             this.Controls.Add(this.lblSaldo);
@@ -131,6 +143,7 @@
         private System.Windows.Forms.Label lblSaldo;
         private System.Windows.Forms.Label lblPremio;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnAdd;
     }
 }
 
