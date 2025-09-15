@@ -27,7 +27,6 @@ namespace DI_EX3
 
         }
 
-        int saldoToAdd = 10;
         private void btnPlay_Click(object sender, EventArgs e)
         {
             var randoms = getRandomNumber(1, 8);
@@ -85,5 +84,5 @@ namespace DI_EX3
         {
             lblSaldo.Text = addMoney(10, int.Parse(lblSaldo.Text)).ToString();
         }
-    }
+    }   // TODO separar visualizacion de datos de almacenamineto de datos
 }
