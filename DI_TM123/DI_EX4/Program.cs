@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -36,7 +38,14 @@ namespace DI_EX4
 
         public static void anoBisiesto()
         {
-            Console.WriteLine("Introduce un año");
+            int year;
+            do
+            {
+                Console.WriteLine("Introduce un año");
+                year = int.Parse(Console.ReadLine());
+            }
+            while (year < 0|| year > 1000);
+
         }
     }
 }
