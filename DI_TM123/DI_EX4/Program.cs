@@ -21,31 +21,35 @@ namespace DI_EX4
             option = int.Parse(Console.ReadLine());
         }
 
-        public static void showMenu(int opcion)
+        public static void showMenu(int option)
         {
             switch (option)
             {
                 case 1:
-                    Console.WriteLine("Introducir funcionalidad año bisiesto")
+                    Console.WriteLine("Introducir funcionalidad año bisiesto");
+                    int year;
+                    do
+                    {
+                        Console.WriteLine("Introduce un año");
+                        year = int.Parse(Console.ReadLine());
+                    }
+                    while (year < 0 || year > 1000);
+                    break;
                 case 2:
-                    Console.WriteLine("Introducir funcionalidad suma rangos")
+                    Console.WriteLine("Introducir funcionalidad suma rangos");
+                    break;
                 case 3:
-                    Console.WriteLine("Introducir funcionalidad todas las opciones")
+                    Console.WriteLine("Introducir funcionalidad todas las opciones");
+                    break;
                 case 4:
-                    Console.WriteLine("Salir")
+                    Console.WriteLine("Salir");
+                    break;
             }
         }
 
-        public static void anoBisiesto()
+        public static boolean checkAnoIsBisiesto(int year)
         {
-            int year;
-            do
-            {
-                Console.WriteLine("Introduce un año");
-                year = int.Parse(Console.ReadLine());
-            }
-            while (year < 0|| year > 1000);
-
+            return year % 4 == 0 ? true : !(year % 100 == 0) || !(year % 400 == 0) ? true : false;
         }
     }
 }
