@@ -12,6 +12,7 @@ namespace DI_EX4
     {
         static void Main(string[] args)
         {
+            Console.WriteLine(isBisiesto(4000));
             int option;
             Console.WriteLine("Choose option:");
             Console.WriteLine("1. Año Bisiesto");
