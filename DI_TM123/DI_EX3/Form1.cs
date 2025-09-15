@@ -36,7 +36,7 @@ namespace DI_EX3
 
         private static Random random = new Random();
 
-        public static (int, int, int) getRandomNumber (int minRange, int maxRange)
+        public (int, int, int) getRandomNumber (int minRange, int maxRange)
         {
             return (random.Next(minRange, maxRange), random.Next(minRange, maxRange), random.Next(minRange, maxRange));
         }
