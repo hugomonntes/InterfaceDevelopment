@@ -47,9 +47,9 @@ namespace DI_EX4
             }
         }
 
-        public static boolean checkAnoIsBisiesto(int year)
+        public static bool isBisiesto(int year)
         {
-            return year % 4 == 0 ? true : !(year % 100 == 0) || !(year % 400 == 0) ? true : false;
+            return year % 4 == 0 || (year % 100 != 0 && year % 400 == 0);
         }
     }
 }
