@@ -16,8 +16,7 @@ namespace DI_EX4
             Console.WriteLine("2. Suma de rango de números");
             Console.WriteLine("3. Todas las opciones");
             Console.WriteLine("4. Salir");
-            option = Parse.int(Console.ReadLine());
-
+            option = int.Parse(Console.ReadLine());
         }
 
         public static void showMenu(int opcion)
@@ -32,9 +31,12 @@ namespace DI_EX4
                     Console.WriteLine("Introducir funcionalidad todas las opciones")
                 case 4:
                     Console.WriteLine("Salir")
-
-
             }
+        }
+
+        public static void anoBisiesto()
+        {
+
         }
     }
 }
