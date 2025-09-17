@@ -24,13 +24,17 @@ namespace DI_EX5
         //columnas 1 y 20. Si no se le pasa ningún parámetro dibujará 10 asteriscos(Usa
         //parámetros opcionales, no sobrecarga). Usa Console.SetCursorPosition para la
         //colocación.
+        public static int randomNumber(Random numRandom)
+        {
+            return numRandom.Next(10);
+        }
 
         public static void paintRandomPositions(int quantityAsterisk)
         {
-            for (int i = 1; i <= 20; i++) // Columnas
+            for (int i = 1; i <= quantityAsterisk; i++) // Columnas
             {
                 Console.Write("*");
-                for (int j = 1; j <= 10; j++) // Filas
+                for (int j = 1; j <= quantityAsterisk; j++) // Filas
                 {
                     Console.Write("*");
                 }
@@ -41,6 +45,7 @@ namespace DI_EX5
         static void Main(string[] args)
         {
             paintRandomPositions(10);
+            Console.WriteLine(randomNumber(new Random()));
         }
     }
 }
