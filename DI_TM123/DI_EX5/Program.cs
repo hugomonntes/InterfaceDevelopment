@@ -37,6 +37,7 @@ namespace DI_EX5
         static void Main(string[] args)
         {
             paintRandomPositions();
+            Console.ReadLine();
         }
     }
 }
