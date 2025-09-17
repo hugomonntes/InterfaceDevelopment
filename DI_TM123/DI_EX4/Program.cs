@@ -87,12 +87,9 @@ namespace DI_EX4
                     case 3:
                         flag = true;
                         goto case 1;
-                        break;
-
                     case 4:
                         Console.WriteLine("Gracias por usar el programa.");
                         break;
-
                     default:
                         Console.WriteLine("Elija una opcion entre 1 y 4");
                         break;

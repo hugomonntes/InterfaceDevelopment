@@ -11,17 +11,36 @@ namespace DI_EX5
 
         public static bool factorial(int num, ref int resultado)
         {
+            resultado = num;
             for (int i = num - 1; i > 0; i++)
             {
-                num *= i;
+                resultado *= i;
             }
-            resultado = num;
             return num < 0 || num > 10 ? false : true;
+        }
+
+        //b) Función que dibuja en posiciones aleatorias de la pantalla la cantidad de
+        //asteriscos que se le pasa como parámetro.Lo harán entre las filas 1 y 10 y las
+        //columnas 1 y 20. Si no se le pasa ningún parámetro dibujará 10 asteriscos(Usa
+        //parámetros opcionales, no sobrecarga). Usa Console.SetCursorPosition para la
+        //colocación.
+
+        public static void paintRandomPositions(int quantityAsterisk)
+        {
+            for (int i = 1; i <= 20; i++) // Columnas
+            {
+                Console.Write("*");
+                for (int j = 1; j <= 10; j++) // Filas
+                {
+                    Console.Write("*");
+                }
+                Console.WriteLine();
+            }
         }
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            paintRandomPositions(10);
         }
     }
 }
