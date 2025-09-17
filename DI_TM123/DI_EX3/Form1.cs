@@ -36,19 +36,19 @@ namespace DI_EX3
 
         private static Random random = new Random();
 
-        public (int, int, int) getRandomNumber (int minRange, int maxRange)
+        public (int, int, int) getRandomNumber(int minRange, int maxRange)
         {
             return (random.Next(minRange, maxRange), random.Next(minRange, maxRange), random.Next(minRange, maxRange));
         }
 
-        public void showRandomNumbers(int r1, int r2, int r3) 
+        public void showRandomNumbers(int r1, int r2, int r3)
         {
             textBox1.Text = string.Format("{0}", getRandomNumber(1, 8).Item1);
             textBox2.Text = string.Format("{0}", getRandomNumber(1, 8).Item2);
             textBox3.Text = string.Format("{0}", getRandomNumber(1, 8).Item3);
         }
 
-        public void updateWallet(int saldo) 
+        public void updateWallet(int saldo)
         {
             int tx1 = int.Parse(textBox1.Text);
             int tx2 = int.Parse(textBox2.Text);
@@ -75,9 +75,9 @@ namespace DI_EX3
             }
         }
 
-        public int addMoney(int saldoToAdd,int saldo) 
+        public int addMoney(int saldoToAdd, int saldo)
         {
-          return saldo += saldoToAdd;
+            return saldo += saldoToAdd;
         }
 
         private void button1_Click(object sender, EventArgs e)
