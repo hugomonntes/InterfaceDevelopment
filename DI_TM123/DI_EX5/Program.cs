@@ -16,7 +16,7 @@ namespace DI_EX5
             {
                 resultado *= i;
             }
-            return num < 0 || num > 10 ? false : true;
+            return num > 0 || num < 10;
         }
 
         //b) Función que dibuja en posiciones aleatorias de la pantalla la cantidad de
