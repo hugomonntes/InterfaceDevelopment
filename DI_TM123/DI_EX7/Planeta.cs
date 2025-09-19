@@ -30,9 +30,15 @@ namespace DI_EX7
         //la propiedad gaseoso llamando al primer constructor.Cantidad de satélites a
         //0.
 
+        public Planeta(bool gaseoso, int satelites)
+        {
+            this.gaseoso = gaseoso;
+            this.satelites = satelites;
+        }
+
         public Planeta()
         {
-
+            this.gaseoso = true;
         }
 
     }
