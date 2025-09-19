@@ -25,7 +25,7 @@ namespace DI_EX7
         {
             set
             {
-                radio = radio > 0 ? radio : throw new ArgumentException();
+                radio = value > 0 ? value : throw new ArgumentException();
             }
 
             get
