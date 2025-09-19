@@ -7,7 +7,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace DI_EX7
 {
-    internal class Planeta : Astro
+    internal class Planeta : Astro , ITerraformable
     {
         private bool gaseoso { set; get; }
 
@@ -24,7 +24,7 @@ namespace DI_EX7
             }
         }
 
-        public Planeta(bool gaseoso, int satelites) : base()
+        public Planeta(bool gaseoso, int satelites) : base() // Revisar
         {
             this.gaseoso = gaseoso;
             this.satelites = satelites;
@@ -36,5 +36,9 @@ namespace DI_EX7
             satelites = 0;
         }
 
+        bool ITerraformable.esHabitable()
+        {
+            return gaseoso && ( 1 > 8000 && 1 < 2000);
+        }
     }
 }
