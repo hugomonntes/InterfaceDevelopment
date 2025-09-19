@@ -1,9 +1,8 @@
-﻿using System.Runtime.InteropServices.Marshalling;
+﻿#define OPTION
+using System.Runtime.InteropServices.Marshalling;
 using static System.Runtime.InteropServices.JavaScript.JSType;
-
 namespace DI_EX5
 {
-
     internal class Program
     {
         //a) Función que se le pase un número y calcula el factorial del mismo.Si el número
@@ -37,6 +36,13 @@ namespace DI_EX5
 
         public static void Main(string[] args)
         {
+            int resultado = 0;
+#if OPTION
+            Console.WriteLine(factorial(10,ref resultado));
+#else
+            paintRandomPositions();
+#endif
+            Console.ReadLine();
         }
     }
 }
