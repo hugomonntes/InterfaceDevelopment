@@ -3,6 +3,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace DI_EX5
 {
+
     internal class Program
     {
         //a) Función que se le pase un número y calcula el factorial del mismo.Si el número
@@ -16,7 +17,7 @@ namespace DI_EX5
             {
                 resultado *= i;
             }
-            return num > 0 || num < 10;
+            return !(num < 0 || num > 10);
         }
 
         //b) Función que dibuja en posiciones aleatorias de la pantalla la cantidad de
@@ -29,15 +30,13 @@ namespace DI_EX5
         {
             for (int i = 1; i <= quantityAsterisk; i++)
             {
-                    Console.SetCursorPosition(numRandom.Next(1,11), numRandom.Next(1,21));
-                    Console.WriteLine("*");
+                Console.SetCursorPosition(numRandom.Next(1, 11), numRandom.Next(1, 21));
+                Console.WriteLine("*");
             }
         }
 
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            paintRandomPositions();
-            Console.ReadLine();
         }
     }
 }
