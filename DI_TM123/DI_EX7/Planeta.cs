@@ -24,21 +24,16 @@ namespace DI_EX7
             }
         }
 
-        //        Tendrá dos constructores, uno inicializará todas las propiedades a
-        //parámetros.Inicializa lo que se pueda llamando al constructor de Astro.
-        //• El otro constructor sin parámetros que inicializa a “” nombre, 1 radio y false
-        //la propiedad gaseoso llamando al primer constructor.Cantidad de satélites a
-        //0.
-
-        public Planeta(bool gaseoso, int satelites)
+        public Planeta(bool gaseoso, int satelites) : base()
         {
             this.gaseoso = gaseoso;
             this.satelites = satelites;
         }
 
-        public Planeta()
+        public Planeta() : base("", 1)
         {
-            this.gaseoso = true;
+            gaseoso = false;
+            satelites = 0;
         }
 
     }
