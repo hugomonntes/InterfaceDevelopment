@@ -24,21 +24,30 @@ namespace DI_EX7
             }
         }
 
-        public Planeta(bool gaseoso, int satelites) : base() // Revisar
+        public Planeta(string nombre, int radio, bool gaseoso, int satelites) : base(nombre, radio)
         {
             this.gaseoso = gaseoso;
             this.satelites = satelites;
         }
 
-        public Planeta() : base("", 1)
+        public Planeta() : this("", 1, false, 0)
         {
-            gaseoso = false;
-            satelites = 0;
         }
 
         bool ITerraformable.esHabitable()
         {
-            return gaseoso && ( 1 > 8000 && 1 < 2000);
+            return !gaseoso && (radio >= 2000 && radio <= 8000);
+        }
+
+//        Sobreescribe ToString de forma que devuelva la propiedad Nombre ocupando
+//10 caracteres, la cantidad de satélites ocupando 4 caracteres y el radio con 2
+//decimales(usa string.Format que funciona como Console.Write pero devuelve
+//en vez de mostrar).
+
+
+        public override string ToString()
+        {
+            return string.Format("{0.10}", getNombre());
         }
     }
 }
