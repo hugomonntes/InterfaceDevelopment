@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DI_EX7
 {
-    internal interface ITerraformable
+    public interface ITerraformable
     {
         public bool esHabitable();
     }

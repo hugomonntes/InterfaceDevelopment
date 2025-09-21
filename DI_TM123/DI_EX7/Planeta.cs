@@ -7,27 +7,30 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace DI_EX7
 {
-    internal class Planeta : Astro , ITerraformable
+    public class Planeta : Astro , ITerraformable
     {
-        private bool gaseoso { set; get; }
+        private bool gaseoso;
+        private bool satelites;
 
-        public int satelites
+        private bool Gaseoso { set; get; }
+
+        public int Satelites
         {
             set
             {
-                satelites = value > 0 ? value : 0;
+                Satelites = value > 0 ? value : 0;
             }
 
             get
             {
-                return satelites;
+                return Satelites;
             }
         }
 
         public Planeta(string nombre, int radio, bool gaseoso, int satelites) : base(nombre, radio)
         {
-            this.gaseoso = gaseoso;
-            this.satelites = satelites;
+            this.Gaseoso = gaseoso;
+            this.Satelites = satelites;
         }
 
         public Planeta() : this("", 1, false, 0)
@@ -36,18 +39,12 @@ namespace DI_EX7
 
         bool ITerraformable.esHabitable()
         {
-            return !gaseoso && (radio >= 2000 && radio <= 8000);
+            return !Gaseoso && (Radio >= 2000 && Radio <= 8000);
         }
-
-//        Sobreescribe ToString de forma que devuelva la propiedad Nombre ocupando
-//10 caracteres, la cantidad de satélites ocupando 4 caracteres y el radio con 2
-//decimales(usa string.Format que funciona como Console.Write pero devuelve
-//en vez de mostrar).
-
 
         public override string ToString()
         {
-            return string.Format("{0.10}", getNombre());
+            return string.Format("Nombre: {0,-10}, Satelites: {1,4}, Radio: {2,8:F2}", Nombre, Satelites, Radio);
         }
     }
 }

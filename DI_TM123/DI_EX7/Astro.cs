@@ -2,7 +2,7 @@
 
 namespace DI_EX7
 {
-    internal class Astro
+    public class Astro
     {
         private string nombre;
         private double radio;
