@@ -58,12 +58,14 @@ namespace DI_EX7
 
         public static Planeta operator ++(Planeta p)
         {
-           return p.Satelites++;
+            p.Satelites++;
+            return p;
         }
 
         public static Planeta operator --(Planeta p)
         {
-            return p.Satelites--;
+            p.Satelites--;
+            return p;
         }
     }
 }

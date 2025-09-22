@@ -11,12 +11,18 @@ namespace DI_EX5
 
         public static bool factorial(int num, ref int resultado)
         {
+            if (num < 0 || num > 10)
+            {
+                return false;
+            }
+
             resultado = num;
-            for (int i = num - 1; i > 0; i++)
+            for (int i = 0; i <= num; i++)
             {
                 resultado *= i;
             }
-            return !(num < 0 || num > 10);
+
+            return true;
         }
 
         //b) Función que dibuja en posiciones aleatorias de la pantalla la cantidad de
@@ -38,7 +44,7 @@ namespace DI_EX5
         {
             int resultado = 0;
 #if OPTION
-            Console.WriteLine(factorial(10,ref resultado));
+            Console.WriteLine("{0} {1}",factorial(5,ref resultado), resultado);// Probar resultado, comprobar 0!
 #else
             paintRandomPositions();
 #endif

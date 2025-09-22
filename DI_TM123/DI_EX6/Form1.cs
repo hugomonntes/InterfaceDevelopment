@@ -28,9 +28,9 @@ namespace DI_EX6
         private void button1_Click(object sender, EventArgs e)
         {
             String textFieldContent = txbDatos.Text.Trim();
-            if (textFieldContent.Equals("") || textFieldContent == null)
+            if (textFieldContent==("") || textFieldContent == null)
             {
-                throw new ArgumentException();
+                throw new ArgumentException();//NO
             }
 
             DialogResult option =  MessageBox.Show(String.Format("Quieres poner {0} como título del documento?", textFieldContent), textFieldContent, MessageBoxButtons.YesNo, MessageBoxIcon.Question);

@@ -49,8 +49,9 @@ namespace DI_EX7
         }
 
         public override bool Equals(object? obj) 
-        { 
-            return ((Astro)obj).Nombre == Nombre || ((string)obj) == Nombre; 
+        {
+            return obj is Astro || (obj is string && obj == Nombre);
+            //return ((Astro)obj).Nombre == Nombre || ((string)obj) == Nombre; 
         }
     }
 }

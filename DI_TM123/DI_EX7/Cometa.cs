@@ -1,12 +1,13 @@
 ﻿using System;
 
-public class Cometa : Astro, ITerraformable
+public class Cometa : DI_EX7.Astro, DI_EX7.ITerraformable
 {
     public Cometa()
     {
-        bool ITerraformable.esHabitable()
-        {
-            return false;
-        }
+    }
+
+    public bool esHabitable()
+    {
+        return false;
     }
 }
