@@ -24,6 +24,7 @@ namespace DI_EX7
             //• Salir.Como siempre no sale de la aplicación hasta que se selecciona esta
             //opción.
             List<Astro> coleccionAstros = new List<Astro>();
+            coleccionAstros.Add(new Astro());
             Console.WriteLine("1. Añadir Planeta");
             Console.WriteLine("2. Añade Cometa");
             Console.WriteLine("3. Mostrar Datos");
@@ -61,6 +62,18 @@ namespace DI_EX7
                         foreach (var astro in coleccionAstros)
                         {
                             Console.WriteLine(astro.ToString());
+                        }
+                        break;
+                    case 4:
+                        //• Incrementa / Decrementa n.º de satélites.Pide nombre del Astro y si existe
+                        //(usa IndexOf) y es de tipo Planeta se pregunta si se desea incrementar o
+                        //decrementar en una unidad el n.º de satélites.
+                        foreach (var astro in coleccionAstros)
+                        {
+                            if (astro is Planeta)
+                            {
+                                Console.WriteLine("Incrementar o Decrementar? D/N");
+                            }
                         }
                         break;
                 }
