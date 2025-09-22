@@ -9,11 +9,11 @@ namespace DI_EX7
 {
     public class Planeta : Astro, ITerraformable
     {
+
         private bool gaseoso;
-        private bool satelites;
+        public bool Gaseoso { set; get; }
 
-        private bool Gaseoso { set; get; }
-
+        private int satelites;
         public int Satelites
         {
             set
@@ -64,7 +64,10 @@ namespace DI_EX7
 
         public static Planeta operator --(Planeta p)
         {
-            p.Satelites--;
+            if (p.Satelites > 0) 
+            {
+                p.Satelites--;
+            }
             return p;
         }
     }

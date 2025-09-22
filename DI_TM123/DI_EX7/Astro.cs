@@ -48,10 +48,18 @@ namespace DI_EX7
             return Nombre;
         }
 
-        public override bool Equals(object? obj) 
+        public override bool Equals(object? obj) // No me va el casting bien
         {
-            return obj is Astro || (obj is string && obj == Nombre);
-            //return ((Astro)obj).Nombre == Nombre || ((string)obj) == Nombre; 
+            if (obj is Astro astro) { 
+                return Nombre == astro.Nombre && Radio == astro.Radio;
+            }
+
+            if (obj is string nombreStr) 
+            {
+                return Nombre == nombreStr.ToUpper();
+            }
+
+            return false;
         }
     }
 }
