@@ -49,6 +49,20 @@ namespace DI_EX7
                         Console.WriteLine("Introduce cantidad lunas: ");
                         int numLunas = int.Parse(Console.ReadLine());
                         break;
+                    case 2:
+                        //• Añade Cometa: Pide su nombre y radio.
+                        Cometa cometaToAdd = new Cometa();
+                        Console.WriteLine("Introduce el nombre:");
+                        cometaToAdd.Nombre = Console.ReadLine();
+                        Console.WriteLine("Introduce el nombre:");
+                        cometaToAdd.Radio = int.Parse(Console.ReadLine());
+                        break;
+                    case 3:
+                        foreach (var astro in coleccionAstros)
+                        {
+                            Console.WriteLine(astro.ToString());
+                        }
+                        break;
                 }
             }
             while (opcion != 4);
