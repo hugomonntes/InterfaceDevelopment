@@ -73,6 +73,10 @@ namespace DI_EX7
                             if (astro is Planeta)
                             {
                                 Console.WriteLine("Incrementar o Decrementar? D/N");
+                                if (astro is Planeta)
+                                {
+
+                                }
                             }
                         }
                         break;
