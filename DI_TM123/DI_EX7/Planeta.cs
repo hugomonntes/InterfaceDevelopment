@@ -7,7 +7,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace DI_EX7
 {
-    public class Planeta : Astro , ITerraformable
+    public class Planeta : Astro, ITerraformable
     {
         private bool gaseoso;
         private bool satelites;
@@ -45,6 +45,25 @@ namespace DI_EX7
         public override string ToString()
         {
             return string.Format("Nombre: {0,-10}, Satelites: {1,4}, Radio: {2,8:F2}", Nombre, Satelites, Radio);
+        }
+
+        //Sobrecarga los operadores ++ y -- (mira el apéndice I y deduce como
+        //hacerlo) de forma que si se aplica a un Planeta, incremente o decremente en
+        //una unidad la cantidad de satélites.No debe permitir bajar de 0.
+        //Es decir, si se dispone del siguiente código:
+        //Planeta p = new Planeta();
+        //        p++;
+        //Debe funcionar e incrementar el n.º de satélites de p. Análogamente con p--
+        //debería de disminuir salvo que ya sea 0.
+
+        public static Planeta operator ++(Planeta p)
+        {
+           return p.Satelites++;
+        }
+
+        public static Planeta operator --(Planeta p)
+        {
+            return p.Satelites--;
         }
     }
 }

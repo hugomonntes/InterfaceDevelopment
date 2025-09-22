@@ -14,6 +14,7 @@ namespace TEST_DI_EX7
         [Test]
         public void Test1()
         {
+            //tierra.ToString();
             Assert.Pass();
         }
     }
