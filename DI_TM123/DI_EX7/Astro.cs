@@ -48,7 +48,7 @@ namespace DI_EX7
             return Nombre;
         }
 
-        public override bool Equals(object? obj) // No me va el casting bien
+        public override bool Equals(object? obj)
         {
             if (obj is Astro astro) { 
                 return Nombre == astro.Nombre && Radio == astro.Radio;

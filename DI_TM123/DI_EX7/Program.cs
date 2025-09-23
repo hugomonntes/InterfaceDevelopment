@@ -1,84 +1,80 @@
 ﻿using System;
-using System.Xml.Linq;
+using System.Collections.Generic;
 
 namespace DI_EX7
 {
     public class Program
     {
-        static void Main(string[] args)
+        static void Main(string[] args) 
         {
-            //Haz un programa principal(Mételo en otra clase distinta a las clases anteriores)
-            //se crea una colección de Astros y el siguiente menú(Controls las excepciones de
-            //las opciones de menú con TryParse):
-            //• Añade Planeta: Pregunta si es gaseoso y pide el nombre y radio. También
-            //pregunta cantidad de lunas.
-            //• Añade Cometa: Pide su nombre y radio.
-            //• Mostrar datos: para cada elemento indica si es terraformable.Además en el
-            //caso de Cometa mostrará el nombre y en el caso de Planeta mostrará lo que
-            //devuelva ToString.
-            //• Incrementa / Decrementa n.º de satélites.Pide nombre del Astro y si existe
-            //(usa IndexOf) y es de tipo Planeta se pregunta si se desea incrementar o
-            //decrementar en una unidad el n.º de satélites.
-            //• Eliminar no terraformables: Elimina todos los elementos que no sean
-            //terraformables de la colección.
-            //• Salir.Como siempre no sale de la aplicación hasta que se selecciona esta
-            //opción.
             List<Astro> coleccionAstros = new List<Astro>();
-            coleccionAstros.Add(new Astro());
-            Console.WriteLine("1. Añadir Planeta");
-            Console.WriteLine("2. Añade Cometa");
-            Console.WriteLine("3. Mostrar Datos");
-            Console.WriteLine("4. Incrementa / Decrementa");
-            Console.WriteLine("5. Eliminar no terraformables");
-            Console.WriteLine("6. Salir");
-            int opcion = int.Parse(Console.ReadLine());
-            bool isGaseoso;
+            int opcion = 0;
+
             do
             {
+                Console.WriteLine("1. Añadir Planeta");
+                Console.WriteLine("2. Añadir Cometa");
+                Console.WriteLine("3. Mostrar Datos");
+                Console.WriteLine("4. Incrementa / Decrementa satélites");
+                Console.WriteLine("5. Eliminar no terraformables");
+                Console.WriteLine("6. Salir");
+
+                Console.Write("Elige una opción: ");
+                string entrada = Console.ReadLine();
+                opcion = int.TryParse(entrada, out int valor) ? valor : -1;
+
                 switch (opcion)
                 {
-                    //• Añade Planeta: Pregunta si es gaseoso y pide el nombre y radio. También
-                    //pregunta cantidad de lunas.
                     case 1:
-                        Astro astroToAdd = new Astro();
-                        Console.WriteLine("Es gaseoso? S/N");
-                        isGaseoso = Console.ReadLine().ToUpper() == "S" ? true : false;
-                        Console.WriteLine("Introduce el nombre: ");
-                        astroToAdd.Nombre = Console.ReadLine();
-                        Console.WriteLine("Introduce el radio: ");
-                        astroToAdd.Radio = int.Parse(Console.ReadLine());
-                        Console.WriteLine("Introduce cantidad lunas: ");
-                        int numLunas = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Es gaseoso? (S/N)");
+                        bool isGaseoso = Console.ReadLine().ToUpper() == "S";
+
+                        Console.WriteLine("Introduce el nombre:");
+                        string nombrePlaneta = Console.ReadLine();
+
+                        Console.WriteLine("Introduce el radio:");
+                        int.TryParse(Console.ReadLine(), out int radioPlaneta); 
+
+                        Console.WriteLine("Introduce cantidad de lunas:");
+                        int.TryParse(Console.ReadLine(), out int numLunas);
+
+                        coleccionAstros.Add(new Planeta(nombrePlaneta, radioPlaneta, isGaseoso, numLunas));
                         break;
+
                     case 2:
-                        //• Añade Cometa: Pide su nombre y radio.
-                        Cometa cometaToAdd = new Cometa();
                         Console.WriteLine("Introduce el nombre:");
-                        cometaToAdd.Nombre = Console.ReadLine();
-                        Console.WriteLine("Introduce el nombre:");
-                        cometaToAdd.Radio = int.Parse(Console.ReadLine());
+                        string nombreCometa = Console.ReadLine();
+
+                        Console.WriteLine("Introduce el radio:");
+                        int.TryParse(Console.ReadLine(), out int radioCometa);
+
+                        Cometa c = new Cometa();
+                        coleccionAstros.Add(c);
+                        c.Nombre = nombreCometa;
+                        c.Radio = radioCometa;
                         break;
+
                     case 3:
                         foreach (var astro in coleccionAstros)
                         {
-                            Console.WriteLine(astro.ToString());
+                            if (astro is Planeta planeta)
+                                Console.WriteLine(planeta.ToString());
+                            else if (astro is Cometa cometa)
+                                Console.WriteLine($"Cometa {cometa.Nombre}, Habitable: {cometa.esHabitable()}");
                         }
                         break;
+
                     case 4:
-                        //• Incrementa / Decrementa n.º de satélites.Pide nombre del Astro y si existe
-                        //(usa IndexOf) y es de tipo Planeta se pregunta si se desea incrementar o
-                        //decrementar en una unidad el n.º de satélites.
-                        foreach (var astro in coleccionAstros)
-                        {
-                            if (astro is Planeta)
-                            {
-                                Console.WriteLine("Incrementar o Decrementar? D/N");
-                            }
-                        }
+                        
+                        break;
+
+                    case 5:
+                        
+                        Console.WriteLine("Eliminados los no terraformables.");
                         break;
                 }
-            }
-            while (opcion != 4);
+
+            } while (opcion != 6);
         }
     }
 }
