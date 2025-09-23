@@ -20,17 +20,23 @@ namespace DI_EX7
                 Console.WriteLine("6. Salir");
 
                 Console.Write("Elige una opción: ");
-                string entrada = Console.ReadLine();
+                Console.WriteLine("0" ?? "Hugo");
+                Console.WriteLine(null ?? "Hugo");
+                Console.WriteLine("" ?? "Hugo");
+
+
+
+                string entrada = Console.ReadLine() ?? "";
                 opcion = int.TryParse(entrada, out int valor) ? valor : -1;
 
                 switch (opcion)
                 {
                     case 1:
                         Console.WriteLine("Es gaseoso? (S/N)");
-                        bool isGaseoso = Console.ReadLine().ToUpper() == "S";
+                        bool isGaseoso = (Console.ReadLine() ?? "N").ToUpper() == "S";
 
                         Console.WriteLine("Introduce el nombre:");
-                        string nombrePlaneta = Console.ReadLine();
+                        string nombrePlaneta = Console.ReadLine() ?? "";
 
                         Console.WriteLine("Introduce el radio:");
                         int.TryParse(Console.ReadLine(), out int radioPlaneta); 
@@ -43,7 +49,7 @@ namespace DI_EX7
 
                     case 2:
                         Console.WriteLine("Introduce el nombre:");
-                        string nombreCometa = Console.ReadLine();
+                        string nombreCometa = Console.ReadLine() ?? "";
 
                         Console.WriteLine("Introduce el radio:");
                         int.TryParse(Console.ReadLine(), out int radioCometa);
