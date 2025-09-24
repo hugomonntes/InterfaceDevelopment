@@ -105,7 +105,7 @@ namespace DI_EX7
                     case 5:
                         foreach (var astro in coleccionAstros)
                         {
-                            if (astro is Cometa cometa && !cometa.esHabitable())
+                            if (astro is Cometa || astro is Planeta planeta && !planeta.esHabitable())
                             {
                                 coleccionAstros.Remove(astro);
                             }

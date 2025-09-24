@@ -37,7 +37,7 @@ namespace DI_EX7
         {
         }
 
-        bool ITerraformable.esHabitable()
+        public bool esHabitable()
         {
             return !Gaseoso && (Radio >= 2000 && Radio <= 8000);
         }
