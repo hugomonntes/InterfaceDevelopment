@@ -36,13 +36,13 @@ namespace DI_EX7
                         bool isGaseoso = (Console.ReadLine() ?? "N").ToUpper() == "S";
 
                         Console.WriteLine("Introduce el nombre:");
-                        string nombrePlaneta = Console.ReadLine() ?? "jaime";
+                        string nombrePlaneta = Console.ReadLine() ?? "";
 
                         Console.WriteLine("Introduce el radio:");
-                        int.TryParse(Console.ReadLine() ?? "0", out int radioPlaneta);
+                        int.TryParse(Console.ReadLine(), out int radioPlaneta);
 
                         Console.WriteLine("Introduce cantidad de lunas:");
-                        int.TryParse(Console.ReadLine() ?? "0", out int numLunas);
+                        int.TryParse(Console.ReadLine(), out int numLunas);
 
                         coleccionAstros.Add(new Planeta(nombrePlaneta, radioPlaneta, isGaseoso, numLunas));
                         break;
@@ -106,7 +106,13 @@ namespace DI_EX7
                         break;
 
                     case 5:
-
+                        foreach (var astro in coleccionAstros)
+                        {
+                            if (astro is Cometa cometa && !cometa.esHabitable())
+                            {
+                                coleccionAstros.Remove(astro);
+                            }
+                        }
                         Console.WriteLine("Eliminados los no terraformables.");
                         break;
                 }
