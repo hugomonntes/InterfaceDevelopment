@@ -5,7 +5,7 @@ namespace DI_EX7
 {
     public class Program
     {
-        static void Main(string[] args) 
+        static void Main(string[] args)
         {
             List<Astro> coleccionAstros = new List<Astro>();
             int opcion = 0;
@@ -36,13 +36,13 @@ namespace DI_EX7
                         bool isGaseoso = (Console.ReadLine() ?? "N").ToUpper() == "S";
 
                         Console.WriteLine("Introduce el nombre:");
-                        string nombrePlaneta = Console.ReadLine() ?? "";
+                        string nombrePlaneta = Console.ReadLine() ?? "jaime";
 
                         Console.WriteLine("Introduce el radio:");
-                        int.TryParse(Console.ReadLine(), out int radioPlaneta); 
+                        int.TryParse(Console.ReadLine() ?? "0", out int radioPlaneta);
 
                         Console.WriteLine("Introduce cantidad de lunas:");
-                        int.TryParse(Console.ReadLine(), out int numLunas);
+                        int.TryParse(Console.ReadLine() ?? "0", out int numLunas);
 
                         coleccionAstros.Add(new Planeta(nombrePlaneta, radioPlaneta, isGaseoso, numLunas));
                         break;
@@ -71,11 +71,42 @@ namespace DI_EX7
                         break;
 
                     case 4:
-                        
+                        bool flag = true;
+                        //Incrementa / Decrementa n.º de satélites.Pide nombre del Astro y si existe
+                        //(usa IndexOf) y es de tipo Planeta se pregunta si se desea incrementar o
+                        //decrementar en una unidad el n.º de satélites. && (coleccionAstros.IndexOf(astro) > 0 && coleccionAstros.IndexOf(astro) < coleccionAstros.Count()
+                        do
+                        {
+                            Console.WriteLine("Introduce el nombre del Astro: ");
+                            string nombreAstro = Console.ReadLine() ?? "";
+                            foreach (var astro in coleccionAstros)
+                            {
+                                if (astro is Planeta planetaAstro)
+                                {
+                                    Console.WriteLine("Quieres Incrementar o Decrementar? +/-");
+                                    string eleccion = Console.ReadLine() ?? "";
+                                    if (eleccion == "+")
+                                    {
+                                        planetaAstro.Satelites++;
+                                        flag = true;
+                                    }
+                                    else if (eleccion == "-")
+                                    {
+                                        planetaAstro.Satelites--;
+                                        flag = true;
+                                    }
+                                    else
+                                    {
+                                        flag = false;
+                                    }
+                                }
+                            }
+                        }
+                        while (!flag);
                         break;
 
                     case 5:
-                        
+
                         Console.WriteLine("Eliminados los no terraformables.");
                         break;
                 }

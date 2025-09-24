@@ -43,11 +43,6 @@ namespace DI_EX7
             Radio = radio;
         }
 
-        public string getNombre()
-        {
-            return Nombre;
-        }
-
         public override bool Equals(object? obj)
         {
             if (obj is Astro astro) { 

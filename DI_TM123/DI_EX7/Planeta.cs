@@ -18,12 +18,12 @@ namespace DI_EX7
         {
             set
             {
-                Satelites = value > 0 ? value : 0;
+                satelites = value > 0 ? value : 0;
             }
 
             get
             {
-                return Satelites;
+                return satelites;
             }
         }
 
