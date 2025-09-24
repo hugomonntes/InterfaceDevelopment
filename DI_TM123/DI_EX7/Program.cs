@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace DI_EX7
 {
@@ -71,36 +72,42 @@ namespace DI_EX7
                         break;
 
                     case 4: //Index Of
-                        bool flag = true;
-                        do
+                        Console.WriteLine("Introduce el nombre del Astro: ");
+                        string nombreAstro = Console.ReadLine() ?? "";
+                        int index = -1; // Pongo menos uno para cuando no me encuntre nada
+                        for (int i = 0; i < coleccionAstros.Count(); i++)
                         {
-                            Console.WriteLine("Introduce el nombre del Astro: ");
-                            string nombreAstro = Console.ReadLine() ?? "";
-                            foreach (var astro in coleccionAstros)
+                            if (coleccionAstros[i].Nombre == nombreAstro)
                             {
-                                coleccionAstros.IndexOf(astro);
-                                if (astro is Planeta planetaAstro)
-                                {
-                                    Console.WriteLine("Quieres Incrementar o Decrementar? +/-");
-                                    string eleccion = Console.ReadLine() ?? "";
-                                    if (eleccion == "+")
-                                    {
-                                        planetaAstro++;
-                                        flag = true;
-                                    }
-                                    else if (eleccion == "-")
-                                    {
-                                        planetaAstro--;
-                                        flag = true;
-                                    }
-                                    else
-                                    {
-                                        flag = false;
-                                    }
-                                }
+                                index = coleccionAstros.IndexOf(coleccionAstros[i]);
+                                break;
                             }
                         }
-                        while (!flag);
+
+                        if (index != -1 && coleccionAstros[index] is Planeta planetaAstro)
+                        {
+                            Console.WriteLine("Incrementar o Decrementar? +/-");
+                            string eleccion = Console.ReadLine() ?? "";
+
+                            if (eleccion == "+")
+                            {
+                                planetaAstro++;
+                                coleccionAstros[index] = planetaAstro;
+                            }
+                            else if (eleccion == "-")
+                            {
+                                planetaAstro--;
+                                coleccionAstros[index] = planetaAstro;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Opción no válida.");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("No se encontró el planeta");
+                        }
                         break;
 
                     case 5:
