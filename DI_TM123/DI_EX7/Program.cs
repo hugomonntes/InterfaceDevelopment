@@ -70,7 +70,7 @@ namespace DI_EX7
                         }
                         break;
 
-                    case 4:
+                    case 4: //Index of
                         bool flag = true;
                         do
                         {
@@ -103,12 +103,13 @@ namespace DI_EX7
                         break;
 
                     case 5:
-                        foreach (var astro in coleccionAstros)
+                        for (int i = 0; i < coleccionAstros.Count(); i++)
                         {
-                            if (astro is Cometa || astro is Planeta planeta && !planeta.esHabitable())
+                            if (coleccionAstros[i] is Cometa || coleccionAstros[i] is Planeta planeta && !planeta.esHabitable())
                             {
-                                coleccionAstros.Remove(astro);
+                                coleccionAstros.Remove(coleccionAstros[i]);
                             }
+                            i--;
                         }
                         Console.WriteLine("Eliminados los no terraformables.");
                         break;
