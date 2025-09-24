@@ -2,7 +2,7 @@
 
 namespace DI_EX7
 {
-    abstract class Astro//TODO abstracta
+    abstract class Astro
     {
         private string nombre;
         private double radio;
@@ -11,7 +11,7 @@ namespace DI_EX7
         {
             get 
             { 
-                return string.Format($"\"{nombre}\""); //TODO entre ""
+                return $"\"{nombre}\"";
             }
             set 
             { 
@@ -31,7 +31,7 @@ namespace DI_EX7
             }
         }
 
-        public Astro() : this("Tierra", 6378)//TODO llamar al otro ctor
+        public Astro() : this("Tierra", 6378)
         {
         }
 
