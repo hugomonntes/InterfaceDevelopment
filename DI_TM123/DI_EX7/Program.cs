@@ -70,7 +70,7 @@ namespace DI_EX7
                         }
                         break;
 
-                    case 4: //Index of
+                    case 4: //Index Of
                         bool flag = true;
                         do
                         {
@@ -78,6 +78,7 @@ namespace DI_EX7
                             string nombreAstro = Console.ReadLine() ?? "";
                             foreach (var astro in coleccionAstros)
                             {
+                                coleccionAstros.IndexOf(astro);
                                 if (astro is Planeta planetaAstro)
                                 {
                                     Console.WriteLine("Quieres Incrementar o Decrementar? +/-");

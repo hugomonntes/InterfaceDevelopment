@@ -2,7 +2,7 @@
 
 namespace DI_EX7
 {
-    public class Astro
+    abstract class Astro//TODO abstracta
     {
         private string nombre;
         private double radio;
@@ -11,7 +11,7 @@ namespace DI_EX7
         {
             get 
             { 
-                return nombre; 
+                return string.Format($"\"{nombre}\""); //TODO entre ""
             }
             set 
             { 
@@ -31,10 +31,8 @@ namespace DI_EX7
             }
         }
 
-        public Astro()
+        public Astro() : this("Tierra", 6378)//TODO llamar al otro ctor
         {
-            Nombre = "Tierra";
-            Radio = 6378;
         }
 
         public Astro(string nombre, double radio)
@@ -46,7 +44,7 @@ namespace DI_EX7
         public override bool Equals(object? obj)
         {
             if (obj is Astro astro) { 
-                return Nombre == astro.Nombre && Radio == astro.Radio;
+                return Nombre == astro.Nombre;
             }
 
             if (obj is string nombreStr) 

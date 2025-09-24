@@ -10,7 +10,7 @@ namespace DI_EX7
     public class Planeta : Astro, ITerraformable
     {
 
-        private bool gaseoso;
+        //private bool gaseoso;
         public bool Gaseoso { set; get; }
 
         private int satelites;
@@ -44,7 +44,7 @@ namespace DI_EX7
 
         public override string ToString()
         {
-            return string.Format("Nombre: {0,-10}, Satelites: {1,4}, Radio: {2,8:F2}", Nombre, Satelites, Radio);
+            return string.Format("Nombre: {0,10}, Satelites: {1,4}, Radio: {2,8:F2}", Nombre, Satelites, Radio);
         }
 
         //Sobrecarga los operadores ++ y -- (mira el apéndice I y deduce como
