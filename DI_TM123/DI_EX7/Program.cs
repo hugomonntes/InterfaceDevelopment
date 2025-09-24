@@ -85,12 +85,12 @@ namespace DI_EX7
                                     string eleccion = Console.ReadLine() ?? "";
                                     if (eleccion == "+")
                                     {
-                                        planetaAstro.Satelites++;
+                                        planetaAstro++;
                                         flag = true;
                                     }
                                     else if (eleccion == "-")
                                     {
-                                        planetaAstro.Satelites--;
+                                        planetaAstro--;
                                         flag = true;
                                     }
                                     else
