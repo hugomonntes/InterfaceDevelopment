@@ -72,9 +72,6 @@ namespace DI_EX7
 
                     case 4:
                         bool flag = true;
-                        //Incrementa / Decrementa n.º de satélites.Pide nombre del Astro y si existe
-                        //(usa IndexOf) y es de tipo Planeta se pregunta si se desea incrementar o
-                        //decrementar en una unidad el n.º de satélites. && (coleccionAstros.IndexOf(astro) > 0 && coleccionAstros.IndexOf(astro) < coleccionAstros.Count()
                         do
                         {
                             Console.WriteLine("Introduce el nombre del Astro: ");

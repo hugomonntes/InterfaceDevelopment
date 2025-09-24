@@ -9,20 +9,28 @@ namespace DI_EX5
         //es negativo o mayor de 10 la función devuelve false. En caso contrario devuelve
         //true. El resultado del factorial irá en un parámetro por referencia.
 
-        public static bool factorial(int num, ref int resultado)
+        public static bool factorial(ref int n)
         {
-            if (num < 0 || num > 10)
+            int numValidar = n;
+            if (numValidar >= 0 && numValidar <= 10)
+            {
+                if (n != 0)
+                {
+                    for (int i = n - 1; i > 1; i--)
+                    {
+                        n *= i;
+                    }
+                }
+                else
+                {
+                    n = 1;
+                }
+                return true;
+            }
+            else
             {
                 return false;
             }
-
-            resultado = num;
-            for (int i = 0; i <= num; i++)
-            {
-                resultado *= i;
-            }
-
-            return true;
         }
 
         //b) Función que dibuja en posiciones aleatorias de la pantalla la cantidad de
@@ -42,9 +50,10 @@ namespace DI_EX5
 
         public static void Main(string[] args)
         {
-            int resultado = 0;
 #if OPTION
-            Console.WriteLine("{0} {1}",factorial(5,ref resultado), resultado);// Probar resultado, comprobar 0!
+            int resultado = 0;
+            factorial(ref resultado);
+            Console.WriteLine("{0} {1}",factorial(ref resultado), resultado);// Probar resultado, comprobar 0!
 #else
             paintRandomPositions();
 #endif
