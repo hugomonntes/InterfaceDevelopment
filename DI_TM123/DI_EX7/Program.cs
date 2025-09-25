@@ -77,36 +77,31 @@ namespace DI_EX7
                         int index = -1; // Pongo menos uno para cuando no me encuntre nada
                         for (int i = 0; i < coleccionAstros.Count(); i++)
                         {
-                            if (coleccionAstros[i].Nombre == nombreAstro)
+                            if (coleccionAstros[index] is Planeta planetaAstro && coleccionAstros[i].Nombre == nombreAstro)
                             {
                                 index = coleccionAstros.IndexOf(coleccionAstros[i]);
-                                break;
-                            }
-                        }
+                                Console.WriteLine("Incrementar o Decrementar? +/-");
+                                string eleccion = Console.ReadLine() ?? "";
 
-                        if (index != -1 && coleccionAstros[index] is Planeta planetaAstro)
-                        {
-                            Console.WriteLine("Incrementar o Decrementar? +/-");
-                            string eleccion = Console.ReadLine() ?? "";
-
-                            if (eleccion == "+")
-                            {
-                                planetaAstro++;
-                                coleccionAstros[index] = planetaAstro;
-                            }
-                            else if (eleccion == "-")
-                            {
-                                planetaAstro--;
-                                coleccionAstros[index] = planetaAstro;
+                                if (eleccion == "+")
+                                {
+                                    planetaAstro++;
+                                    coleccionAstros[index] = planetaAstro;
+                                }
+                                else if (eleccion == "-")
+                                {
+                                    planetaAstro--;
+                                    coleccionAstros[index] = planetaAstro;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Opción no válida.");
+                                }
                             }
                             else
                             {
-                                Console.WriteLine("Opción no válida.");
+                                Console.WriteLine("No se encontró el planeta");
                             }
-                        }
-                        else
-                        {
-                            Console.WriteLine("No se encontró el planeta");
                         }
                         break;
 

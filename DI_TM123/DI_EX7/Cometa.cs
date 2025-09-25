@@ -1,13 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public class Cometa : DI_EX7.Astro, DI_EX7.ITerraformable
+namespace DI_EX7
 {
-    public Cometa()
+    public class Cometa : Astro, ITerraformable
     {
-    }
-
-    public bool esHabitable()
-    {
-        return false;
+        public bool esHabitable()
+        {
+            return false;
+        }
     }
 }
+
