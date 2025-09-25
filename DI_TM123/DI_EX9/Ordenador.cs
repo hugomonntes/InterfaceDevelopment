@@ -25,14 +25,18 @@ namespace DI_EX9
 
         public static bool checkIP(string ip)
         {
-            bool flag = true;
+            bool flag = true;  
             string[] ipSplited = ip.Split(".");
-            if (ipSplited.Length != 4)
+            if (ipSplited.Length == 4)
             {
                 foreach (var ipElement in ipSplited)
                 {
-                    return byte.TryParse(ipElement, out byte UniqueByteIp);
+                    if (!byte.TryParse(ipElement, out _))
+                    {
+                        return false;
+                    }
                 }
+                return true;
             }
             return false;
         }
