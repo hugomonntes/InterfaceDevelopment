@@ -15,7 +15,7 @@ namespace DI_EX9
         {
             set
             {
-                memoriaRAM = value < 0 ? value : 100;
+                memoriaRAM = value < 0 ? value : 16;
             }
             get
             {

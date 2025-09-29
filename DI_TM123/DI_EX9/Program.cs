@@ -32,22 +32,21 @@ namespace DI_EX9
                         string ip;
                         do
                         {
-                        Console.WriteLine("Introduce la ip: ");
-                        ip = Console.ReadLine();
-                        if (Ordenador.checkIP(ip))
-                        {
-                            isChecked = true;
-                        }
-                        else
-                        {
-                            isChecked = false;
-                        }
+                            Console.WriteLine("Introduce la ip: ");
+                            ip = Console.ReadLine();
+                            if (Ordenador.checkIP(ip))
+                            {
+                                isChecked = true;
+                            }
+                            else
+                            {
+                                isChecked = false;
+                            }
                         }
                         while (!isChecked);
 
                         Console.WriteLine("Introduce el nombre del pc: ");
-                        string nombrePC = Console.ReadLine();
-                        pc.Nombre = nombrePC;
+                        pc.Nombre = Console.ReadLine();
 
                         Console.WriteLine("Introduce la memoria RAM: ");
                         int.TryParse(Console.ReadLine(), out int memoria);
@@ -55,9 +54,9 @@ namespace DI_EX9
 
                         ipPorOrdenador.Add(ip, pc);
                         break;
-
                     case 2:
-
+                        Dictionary<string, int> ipPorRam = new Dictionary<string, int>();
+                        
                         break;
 
                     case 3:
@@ -65,9 +64,9 @@ namespace DI_EX9
                         break;
 
                     case 4:
-                        foreach (KeyValuePair<string, Ordenador> ips in ipPorOrdenador)
+                        foreach (var ips in ipPorOrdenador)
                         {
-                            Console.WriteLine(ips);
+                            Console.WriteLine(ips.Key);
                         }
                         break;
 
