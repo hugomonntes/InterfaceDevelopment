@@ -14,18 +14,6 @@ namespace DI_EX9
         static void Main(string[] args)
         {
             Dictionary<string, Ordenador> ipPorOrdenador = new Dictionary<string, Ordenador>();
-            ipPorOrdenador.Add("ip", new Ordenador());
-            foreach (KeyValuePair<string, Ordenador> ips in ipPorOrdenador)
-            {
-                Console.WriteLine(ips);
-            }
-
-            //Plantea un menú para nuevo equipos, elimina un dato(por clave), muestra de la
-            //colección entera y muestra de un elemento de la colección(A partir de la clave
-            //muestra el resto de los datos).
-            //Al pedir datos se debe comprobar que la IP es válida y que la cantidad de RAM es
-            //un entero positivo.
-
             int option = 0;
             do
             {
@@ -36,10 +24,36 @@ namespace DI_EX9
                 Console.WriteLine("5.- Muestra un elemento de la coleccion (mostrar RAM o que no existe)");
                 Console.WriteLine("6.- Salir");
                 option = int.Parse(Console.ReadLine());
+                bool isChecked;
                 switch (option)
                 {
                     case 1:
+                        Ordenador pc = new Ordenador();
+                        string ip;
+                        do
+                        {
+                        Console.WriteLine("Introduce la ip: ");
+                        ip = Console.ReadLine();
+                        if (Ordenador.checkIP(ip))
+                        {
+                            isChecked = true;
+                        }
+                        else
+                        {
+                            isChecked = false;
+                        }
+                        }
+                        while (!isChecked);
 
+                        Console.WriteLine("Introduce el nombre del pc: ");
+                        string nombrePC = Console.ReadLine();
+                        pc.Nombre = nombrePC;
+
+                        Console.WriteLine("Introduce la memoria RAM: ");
+                        int.TryParse(Console.ReadLine(), out int memoria);
+                        pc.MemoriaRam = memoria;
+
+                        ipPorOrdenador.Add(ip, pc);
                         break;
 
                     case 2:
@@ -51,7 +65,10 @@ namespace DI_EX9
                         break;
 
                     case 4:
-
+                        foreach (KeyValuePair<string, Ordenador> ips in ipPorOrdenador)
+                        {
+                            Console.WriteLine(ips);
+                        }
                         break;
 
                     case 5:
