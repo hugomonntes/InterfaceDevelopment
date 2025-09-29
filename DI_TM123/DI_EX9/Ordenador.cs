@@ -40,5 +40,10 @@ namespace DI_EX9
             }
             return false;
         }
+
+        public override string ToString()
+        {
+            return $"Nombre: {Nombre}, MemoriaRAM: {MemoriaRam}";
+        }
     }
 }

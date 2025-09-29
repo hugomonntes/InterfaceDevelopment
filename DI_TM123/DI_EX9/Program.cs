@@ -4,6 +4,7 @@ using System.Linq.Expressions;
 using System.Numerics;
 using System.Runtime.ConstrainedExecution;
 using System.Runtime.Intrinsics.Arm;
+using System.Security.Claims;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace DI_EX9
@@ -13,7 +14,26 @@ namespace DI_EX9
         static void Main(string[] args)
         {
             Dictionary<string, Ordenador> ipPorOrdenador = new Dictionary<string, Ordenador>();
-            
+            ipPorOrdenador.Add("ip", new Ordenador());
+            foreach (KeyValuePair<string, Ordenador> ips in ipPorOrdenador)
+            {
+                Console.WriteLine(ips);
+            }
+
+            //Plantea un menú para nuevo equipos, elimina un dato(por clave), muestra de la
+            //colección entera y muestra de un elemento de la colección(A partir de la clave
+            //muestra el resto de los datos).
+            //Al pedir datos se debe comprobar que la IP es válida y que la cantidad de RAM es
+            //un entero positivo.
+
+            int opcion;
+            Console.WriteLine("1- ");
+            switch (opcion)
+            {
+                case 1:
+                    break;
+            }
+
         }
     }
 }
