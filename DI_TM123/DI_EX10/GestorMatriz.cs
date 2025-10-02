@@ -15,6 +15,13 @@ namespace DI_EX10
             Matriz = new int[randomNumber(-5,20), randomNumber(-5, 20)];
         }
 
+        public GestorMatriz() : this(3, 4) { }
+
+        //public (int, bool) sumaFila(int numeroFilas)
+        //{
+        //    return numeroFilas > 0;
+        //}
+
         public int randomNumber(int minRangue, int maxRangue)
         {
             Random random = new Random();
