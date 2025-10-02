@@ -14,21 +14,26 @@ namespace DI_EX9
         static void Main(string[] args)
         {
             Dictionary<string, Ordenador> ipPorOrdenador = new Dictionary<string, Ordenador>();
-            int option = 0;
+            int option;
+            bool optionCheck;
             do
             {
-                Console.WriteLine("1.- Añadir nuevo equipo");
-                Console.WriteLine("2.- Añadir varios equipos");
-                Console.WriteLine("3.- Elimina un dato por clave");
-                Console.WriteLine("4.- Mostrar coleccion completa(solo ips)");
-                Console.WriteLine("5.- Muestra un elemento de la coleccion (mostrar RAM o que no existe)");
-                Console.WriteLine("6.- Salir");
-                option = int.Parse(Console.ReadLine());
-                bool isChecked;
+                do
+                {
+                    Console.WriteLine("1.- Añadir nuevo equipo");
+                    Console.WriteLine("2.- Añadir varios equipos");
+                    Console.WriteLine("3.- Elimina un dato por clave");
+                    Console.WriteLine("4.- Mostrar coleccion completa(solo ips)");
+                    Console.WriteLine("5.- Muestra un elemento de la coleccion (mostrar RAM o que no existe)");
+                    Console.WriteLine("6.- Salir");
+                    optionCheck = int.TryParse(Console.ReadLine(), out option) && (option > 0 && option <= 6);
+                }
+                while (!optionCheck);
+                Ordenador pc = new Ordenador();
                 switch (option)
                 {
                     case 1:
-                        Ordenador pc = new Ordenador();
+                        bool isChecked;
                         string ip;
                         do
                         {
@@ -55,12 +60,41 @@ namespace DI_EX9
                         ipPorOrdenador.Add(ip, pc);
                         break;
                     case 2:
-                        Dictionary<string, int> ipPorRam = new Dictionary<string, int>();
-                        
+                        Console.WriteLine("Introduce la ip y la ram con este formato: xxx.xxx.xxx.xxx:ram,xxx.xxx.xxx.xxx:ram");
+                        string ipRam = Console.ReadLine();
+                        string[] ipConRam = ipRam.Split(",");
+                        string[] ipSeparadoRam;
+                        for (int i = 0; i < ipConRam.Length; i++)
+                        {
+                            ipSeparadoRam = ipConRam[i].Split(":");
+                            bool ramIsNumber = int.TryParse(ipSeparadoRam[1], out int ram) && ram > 0;
+                            if (Ordenador.checkIP(ipSeparadoRam[0]) && ramIsNumber)
+                            {
+                                pc.MemoriaRam = ram;
+                                ipPorOrdenador.Add(ipSeparadoRam[0], pc);
+                            }
+                            else
+                            {
+                                Console.WriteLine("No introduciste el formato correcto!");
+                                goto case 2;
+                            }
+                        }
+
                         break;
 
                     case 3:
-
+                        Console.WriteLine("Introduce la IP a eliminar: ");
+                        string ipToCompare = Console.ReadLine();
+                        bool checkIp = Ordenador.checkIP(ipToCompare);
+                        if (checkIp && ipPorOrdenador.ContainsKey(ipToCompare))
+                        {
+                            ipPorOrdenador.Remove(ipToCompare);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Introduce una ip que exista!");
+                            goto case 3;
+                        }
                         break;
 
                     case 4:
@@ -71,7 +105,21 @@ namespace DI_EX9
                         break;
 
                     case 5:
-
+                        Console.WriteLine("Introduce la IP para buscar la ram: ");
+                        string ipToSearch = Console.ReadLine();
+                        bool checkIpToSearch = Ordenador.checkIP(ipToSearch);
+                        if (checkIpToSearch && ipPorOrdenador.ContainsKey(ipToSearch))
+                        {
+                            foreach (var item in ipPorOrdenador)
+                            {
+                                Console.WriteLine(item.Value);
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Introduce una ip que exista!");
+                            goto case 5;
+                        }
                         break;
 
                     case 6:
