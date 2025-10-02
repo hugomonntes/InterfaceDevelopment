@@ -21,13 +21,6 @@ namespace DI_EX7
                 Console.WriteLine("5. Eliminar no terraformables");
                 Console.WriteLine("6. Salir");
 
-                //Console.Write("Elige una opción: ");
-                //Console.WriteLine("0" ?? "Hugo");
-                //Console.WriteLine(null ?? "Hugo");
-                //Console.WriteLine("" ?? "Hugo");
-
-
-
                 string entrada = Console.ReadLine();
                 opcion = int.TryParse(entrada, out int valor) ? valor : -1;
 

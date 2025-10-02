@@ -33,30 +33,30 @@ namespace DI_EX9
                 switch (option)
                 {
                     case 1:
-                        bool isChecked;
                         string ip;
                         do
                         {
                             Console.WriteLine("Introduce la ip: ");
                             ip = Console.ReadLine();
-                            if (Ordenador.checkIP(ip))
-                            {
-                                isChecked = true;
-                            }
-                            else
-                            {
-                                isChecked = false;
-                            }
                         }
-                        while (!isChecked);
+                        while (!Ordenador.checkIP(ip));
 
                         Console.WriteLine("Introduce el nombre del pc: ");
                         pc.Nombre = Console.ReadLine();
+                        bool memoriaValida;
+                        int memoria;
+                        do
+                        {
+                            Console.WriteLine("Introduce la memoria RAM: ");
+                            memoriaValida = int.TryParse(Console.ReadLine(), out  memoria);
+                            if (!memoriaValida)
+                            { 
+                                Console.WriteLine("Introduce una memoria válida");
+                            }
+                        }
+                        while (!memoriaValida);
 
-                        Console.WriteLine("Introduce la memoria RAM: ");
-                        int.TryParse(Console.ReadLine(), out int memoria);
                         pc.MemoriaRam = memoria;
-
                         ipPorOrdenador.Add(ip, pc);
                         break;
                     case 2:
@@ -72,11 +72,11 @@ namespace DI_EX9
                             {
                                 pc.MemoriaRam = ram;
                                 ipPorOrdenador.Add(ipSeparadoRam[0], pc);
+                                Console.WriteLine($"IP: {ipSeparadoRam[0]} introducida!");
                             }
                             else
                             {
-                                Console.WriteLine("No introduciste el formato correcto!");
-                                goto case 2;
+                                Console.WriteLine($"IP: {ipSeparadoRam[0]} no introducido! Error de formato");
                             }
                         }
 
@@ -89,36 +89,28 @@ namespace DI_EX9
                         if (checkIp && ipPorOrdenador.ContainsKey(ipToCompare))
                         {
                             ipPorOrdenador.Remove(ipToCompare);
+                            Console.WriteLine($"Elemnto {ipToCompare} eliminado.");
                         }
-                        else
-                        {
-                            Console.WriteLine("Introduce una ip que exista!");
-                            goto case 3;
-                        }
+
                         break;
 
                     case 4:
-                        foreach (var ips in ipPorOrdenador)
+                        foreach (var ips in ipPorOrdenador.Keys)
                         {
-                            Console.WriteLine(ips.Key);
+                            Console.WriteLine($"IP: {ips}");
                         }
                         break;
 
                     case 5:
                         Console.WriteLine("Introduce la IP para buscar la ram: ");
                         string ipToSearch = Console.ReadLine();
-                        bool checkIpToSearch = Ordenador.checkIP(ipToSearch);
-                        if (checkIpToSearch && ipPorOrdenador.ContainsKey(ipToSearch))
+                        if (ipPorOrdenador.ContainsKey(ipToSearch))
                         {
-                            foreach (var item in ipPorOrdenador)
-                            {
-                                Console.WriteLine(item.Value);
-                            }
-                        }
+                            Console.WriteLine(ipPorOrdenador[ipToSearch]);
+                        } 
                         else
                         {
                             Console.WriteLine("Introduce una ip que exista!");
-                            goto case 5;
                         }
                         break;
 
