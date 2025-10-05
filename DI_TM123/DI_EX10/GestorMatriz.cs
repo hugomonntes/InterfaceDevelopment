@@ -29,7 +29,7 @@ namespace DI_EX10
         //elementos de la fila. Si no devuelve 0.
         public (int, bool) sumaFila(int indiceFila)
         {
-            if (indiceFila < 0 || indiceFila >= Matriz.GetLength(0))
+            if (indiceFila < 0 || indiceFila >= Matriz.GetLength(0)) // GetLength me devuelve el numero de filas en este caso
             {
                 return (0, false);
             }
@@ -42,10 +42,41 @@ namespace DI_EX10
             return (suma, true);
         }
 
-        public int randomNumber(int minRangue, int maxRangue)
+        //Método SumaColumna.Se le pasa una parámetro entero que representa una
+        //columna y tendrá otro parámetro por referencia pero de salida (out) donde
+        //devuelve el resultado de la suma de los elementos de la columna.Devolverá true si
+        //el índice es correcto o false si no lo es.
+
+        public bool sumaColumna(int indiceColumna, ref int resultadoSuma) 
         {
-            Random random = new Random();
-            return random.Next(minRangue, maxRangue);
+            if (indiceColumna < 0 || indiceColumna >= Matriz.GetLength(1))
+            {
+                return false;
+            }
+
+            resultadoSuma = 0;
+            for (int i = 0; i < Matriz.GetLength(0); i++)
+            {   
+                resultadoSuma += Matriz[i, indiceColumna];
+            }
+            return true;
         }
+
+        //Método SumaMatriz: tiene como parámetro un object. Si el object es un array
+        //bidimensional de int o double o un objeto del tipo GestorMatriz y es del mismo
+        //tamaño que Matriz, se suma elemento a elemento y el resultado se devuelve.En
+        //otro caso lanza una excepción creada por ti denominada MatrizException.
+
+        public void SumaMatriz(object obj)
+        {
+            if (obj is int[,] matrizInts && (obj is GestorMatriz && matrizInts.Length != Matriz.Length))
+            {
+                if ()
+                {
+                    
+                }
+            }
+        }
+
     }
 }
