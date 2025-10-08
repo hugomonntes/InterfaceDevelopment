@@ -8,7 +8,8 @@ namespace DI_EX10
 {
     internal class GestorMatriz
     {
-        public int[,] Matriz;
+        public int[,] Matriz { set; get; }
+
         private static Random random = new Random();
         public GestorMatriz(int numeroFilas, int numeroColumnas)
         {
@@ -68,7 +69,7 @@ namespace DI_EX10
         //bidimensional de int o double o un objeto del tipo GestorMatriz y es del mismo
         //tamaño que Matriz, se suma elemento a elemento y el resultado se devuelve.En
         //otro caso lanza una excepción creada por ti denominada MatrizException.
-        public void SumaMatriz(object obj)
+        public void SumaMatriz(object obj) //TODO pèndiente
         {
             if ((obj is int[,] matrizInts && matrizInts.GetUpperBound(0) == Matriz.GetUpperBound(0) && matrizInts.GetUpperBound(1) == Matriz.GetUpperBound(1)) || (obj is GestorMatriz))
             {
