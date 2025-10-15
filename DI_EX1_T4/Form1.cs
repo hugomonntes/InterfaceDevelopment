@@ -63,21 +63,27 @@ namespace DI_EX1_T4
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            int counter = 1;
-            int counterLocationX = 100;
-            int counterLocationY = 100;
+            int counter = 0;
+            int counterLocationX = 150;
+            int counterLocationY = 200;
             Button[,] buttonsGroup = new Button[4, 5];
             for (int i = 0; i < buttonsGroup.GetLength(0); i++)
             {
                 for (int j = 0; j < buttonsGroup.GetLength(1); j++)
                 {
                     buttonsGroup[i, j] = new Button();
-                    buttonsGroup[i, j].Text = $"Boton{counter}";
+                    buttonsGroup[i, j].Text = $"Boton{counter + 1}";
                     buttonsGroup[i, j].Size = new System.Drawing.Size(75, 23);
                     buttonsGroup[i, j].Location = new System.Drawing.Point(counterLocationX, counterLocationY);
                     counter++;
+
                     counterLocationX += 100;
-                    counterLocationY += 100;
+                    if (counter % 5 == 0)
+                    {
+                        counterLocationX = 150;
+                        counterLocationY += 50;
+                    }
+                    Controls.Add(buttonsGroup[i, j]);
                 }
             }
             //Debajo de los botones, o a un lado, se crearán en tiempo de ejecución
