@@ -41,8 +41,8 @@ namespace DI_EX1_T4
             }
             else
             {
-                button1.BackColor = Color.Azure;
-                button2.BackColor = Color.Azure;
+                button1.BackColor = Color.Orange;
+                button2.BackColor = Color.Orange;
             }
         }
 
@@ -83,14 +83,25 @@ namespace DI_EX1_T4
                         counterLocationX = 150;
                         counterLocationY += 50;
                     }
+
+                    buttonsGroup[i, j].MouseDown += buttonGroup_Down;
+                    buttonsGroup[i, j].MouseUp += buttonGroup_Up;
+                    buttonsGroup[i, j].MouseMove += Form1_MouseMove;
+
+
                     Controls.Add(buttonsGroup[i, j]);
                 }
             }
-            //Debajo de los botones, o a un lado, se crearán en tiempo de ejecución
-            //20 botones en 4 filas y 5 columnas. Dichos botones tendrán en su
-            //campo text los números del 1 al 20. Cuando algún botón es pulsado su
-            //número cambia de color y al soltarlo vuelve a negro. Recuerda que las
-            //coordenadas también deben funcionar en estos botones.
+        }
+
+        public void buttonGroup_Down(object sender, MouseEventArgs e)
+        {
+            ((Button)sender).ForeColor = Color.Red;
+        }
+
+        public void buttonGroup_Up(object sender, MouseEventArgs e)
+        {
+            ((Button)sender).ForeColor = Color.Black;
         }
     }
 }
