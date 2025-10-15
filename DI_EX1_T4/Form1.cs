@@ -38,7 +38,8 @@ namespace DI_EX1_T4
             else if (e.Button is MouseButtons.Right)
             {
                 button2.BackColor = Color.Red;
-            } else
+            }
+            else
             {
                 button1.BackColor = Color.Azure;
                 button2.BackColor = Color.Azure;
@@ -54,10 +55,36 @@ namespace DI_EX1_T4
         private void Form1_KeyPress(object sender, KeyPressEventArgs e)
         {
             this.Text = e.KeyChar.ToString();
-            if (e.KeyChar is (Char)Keys.Escape)
+            if (e.KeyChar is (char)Keys.Escape)
             {
                 Text = originalTitle;
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            int counter = 1;
+            int counterLocationX = 100;
+            int counterLocationY = 100;
+            Button[,] buttonsGroup = new Button[4, 5];
+            for (int i = 0; i < buttonsGroup.GetLength(0); i++)
+            {
+                for (int j = 0; j < buttonsGroup.GetLength(1); j++)
+                {
+                    buttonsGroup[i, j] = new Button();
+                    buttonsGroup[i, j].Text = $"Boton{counter}";
+                    buttonsGroup[i, j].Size = new System.Drawing.Size(75, 23);
+                    buttonsGroup[i, j].Location = new System.Drawing.Point(counterLocationX, counterLocationY);
+                    counter++;
+                    counterLocationX += 100;
+                    counterLocationY += 100;
+                }
+            }
+            //Debajo de los botones, o a un lado, se crearán en tiempo de ejecución
+            //20 botones en 4 filas y 5 columnas. Dichos botones tendrán en su
+            //campo text los números del 1 al 20. Cuando algún botón es pulsado su
+            //número cambia de color y al soltarlo vuelve a negro. Recuerda que las
+            //coordenadas también deben funcionar en estos botones.
         }
     }
 }
