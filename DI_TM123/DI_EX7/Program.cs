@@ -7,11 +7,10 @@ namespace DI_EX7
 #nullable disable
     public class Program
     {
+        public static List<Astro> coleccionAstros = new List<Astro>();
         static void Main(string[] args)
         {
-            List<Astro> coleccionAstros = new List<Astro>();
             int opcion = 0;
-
             do
             {
                 Console.WriteLine("1. Añadir Planeta");
@@ -74,7 +73,7 @@ namespace DI_EX7
                             Nombre = nombreAstro
                         };
                         int index = -1; // Pongo menos uno para cuando no me encuntre nada
-                                index = coleccionAstros.IndexOf(auz);
+                        index = coleccionAstros.IndexOf(auz);
                         for (int i = 0; i < coleccionAstros.Count(); i++)
                         {
                             if (coleccionAstros[index] is Planeta planetaAstro && coleccionAstros[i].Nombre == nombreAstro)
