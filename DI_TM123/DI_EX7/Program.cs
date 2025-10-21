@@ -1,12 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
-
-namespace DI_EX7
+﻿namespace DI_EX7
 {
 #nullable disable
     public class Program
     {
+        public static void readFile(string pathFile) // Devolver Alamacenaje 
+        {
+            using StreamReader sr = new StreamReader(pathFile);
+            sr.ReadLine();
+        }
+
+        public static void writeFile(List<Astro> astros)
+        {
+            try
+            {
+                foreach (Astro astro in astros)
+                {
+                    string appdata = Environment.GetEnvironmentVariable("appdata");
+                    string path = appdata + "\\astros.txt";
+                    using StreamWriter sw = new StreamWriter(path); // variable
+                    sw.WriteLine(astro.ToString());
+                }
+            }
+            catch (IOException)
+            {
+                Console.WriteLine("Ubicación no encontrada");
+            }
+        }
         public static List<Astro> coleccionAstros = new List<Astro>();
         static void Main(string[] args)
         {
@@ -114,8 +133,11 @@ namespace DI_EX7
                         }
                         Console.WriteLine("Eliminados los no terraformables.");
                         break;
+                    case 6:
+                        Console.WriteLine("Saliendo...");
+                        writeFile(coleccionAstros);
+                        break;
                 }
-
             } while (opcion != 6);
         }
     }
