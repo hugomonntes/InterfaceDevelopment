@@ -5,8 +5,12 @@
     {
         public static void readFile(string pathFile) // Devolver Alamacenaje 
         {
+            string? linea;
             using StreamReader sr = new StreamReader(pathFile);
-            sr.ReadLine();
+            while ((linea = sr.ReadLine()) != null)
+            {
+                string[] partes = linea.Split(' '); // Cambiar
+            }
         }
 
         public static void writeFile(List<Astro> astros)
