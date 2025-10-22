@@ -3,27 +3,35 @@
 #nullable disable
     public class Program
     {
-        public static void readFile(string pathFile) // Devolver Alamacenaje 
+        public static string[] readFile(string pathFile) // Devolver Alamacenaje 
         {
             string? linea;
+            string[] lineasSplited;
+            string[] datos = new string[lineasSplited.Length];
             using StreamReader sr = new StreamReader(pathFile);
             while ((linea = sr.ReadLine()) != null)
             {
-                string[] partes = linea.Split(' '); // Cambiar
+                lineasSplited = linea.Split("\n");
+                foreach (var lineaSplited in lineasSplited)
+                {
+                    datos = lineaSplited.Split("|");
+                }
             }
+            return datos;
         }
 
         public static void writeFile(List<Astro> astros)
         {
             try
             {
+                string appdata = Environment.GetEnvironmentVariable("appdata");
+                string path = appdata + "\\astros.txt";
+                using StreamWriter sw = new StreamWriter(path, true);
                 foreach (Astro astro in astros)
                 {
-                    string appdata = Environment.GetEnvironmentVariable("appdata");
-                    string path = appdata + "\\astros.txt";
-                    using StreamWriter sw = new StreamWriter(path); // variable
                     sw.WriteLine(astro.ToString());
                 }
+                Console.WriteLine("Archivo creado en " + path);
             }
             catch (IOException)
             {
@@ -78,13 +86,14 @@
                         break;
 
                     case 3:
-                        foreach (var astro in coleccionAstros)
-                        {
-                            if (astro is Planeta planeta)//TODO habitable para todos y usa {}
-                                Console.WriteLine(planeta.ToString());
-                            else if (astro is Cometa cometa)
-                                Console.WriteLine($"Cometa {cometa.Nombre}, Habitable: {cometa.esHabitable()}");
-                        }
+                        //foreach (var astro in coleccionAstros)
+                        //{
+                        //    if (astro is Planeta planeta)//TODO habitable para todos y usa {}
+                        //        Console.WriteLine(planeta.ToString());
+                        //    else if (astro is Cometa cometa)
+                        //        Console.WriteLine($"Cometa {cometa.Nombre}, Habitable: {cometa.esHabitable()}");
+                        //}
+                        readFile("C:\\Users\\Hugo Montes\\AppData\\Roaming\\astros.txt");
                         break;
 
                     case 4: //Index Of
