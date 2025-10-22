@@ -95,9 +95,16 @@ namespace DI_EX1_T4
                 btn.MouseDown += buttonGroup_Down;
                 btn.MouseUp += buttonGroup_Up;
                 btn.MouseMove += Form1_MouseMove;
-
+                btn.MouseMove += Button_MouseMove;
                 Controls.Add(btn);
             }
+        }
+
+        private void Button_MouseMove(object sender, MouseEventArgs e)
+        {
+            int x = ((Button)sender).Location.X + e.X;
+            int y = ((Button)sender).Location.Y + e.Y;
+            this.Text = $"Coordenadas X: {x}, Coordenadas Y: {y}";
         }
 
         public void buttonGroup_Down(object sender, MouseEventArgs e)
