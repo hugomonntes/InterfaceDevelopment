@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace DI_EX1_T4
 {
-    public partial class Form1 : Form
+    public partial class Form1 : Form//TODO icono(ok). Revisar coordenadas. Liberacion botones(ok). Params messagebox(ok). Codigo Tecla, no char(ok). Quitar array (ok).
     {
         String originalTitle;
         public Form1()
@@ -21,7 +21,7 @@ namespace DI_EX1_T4
 
         private void Form1_MouseMove(object sender, MouseEventArgs e)
         {
-            this.Text = $"Coordenadas X: {MousePosition.X}, Coordenadas Y: {MousePosition.Y}";
+            this.Text = $"Coordenadas X: {e.X}, Coordenadas Y: {e.Y}";
         }
 
         private void Form1_MouseLeave(object sender, EventArgs e)
@@ -48,14 +48,25 @@ namespace DI_EX1_T4
 
         private void Form1_MouseUp(object sender, MouseEventArgs e)
         {
-            button1.BackColor = Color.Empty;
-            button2.BackColor = Color.Empty;
+            if (e.Button is MouseButtons.Left)
+            {
+                button1.BackColor = Color.Empty;
+            }
+            else if (e.Button is MouseButtons.Right)
+            {
+                button2.BackColor = Color.Empty;
+            }
+            else
+            {
+                button1.BackColor = Color.Empty;
+                button2.BackColor = Color.Empty;
+            }
         }
 
-        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            this.Text = e.KeyChar.ToString();
-            if (e.KeyChar is (char)Keys.Escape)
+            this.Text = e.KeyCode.ToString();
+            if (e.KeyCode is Keys.Escape)
             {
                 Text = originalTitle;
             }
@@ -66,31 +77,26 @@ namespace DI_EX1_T4
             int counter = 0;
             int counterLocationX = 150;
             int counterLocationY = 200;
-            Button[,] buttonsGroup = new Button[4, 5];
-            for (int i = 0; i < buttonsGroup.GetLength(0); i++)
+            for (int i = 0; i < 20; i++)
             {
-                for (int j = 0; j < buttonsGroup.GetLength(1); j++)
+                Button btn = new Button();
+                btn.Text = $"Boton{counter + 1}";
+                btn.Size = new System.Drawing.Size(75, 23);
+                btn.Location = new System.Drawing.Point(counterLocationX, counterLocationY);
+                counter++;
+
+                counterLocationX += 100;
+                if (counter % 5 == 0)
                 {
-                    buttonsGroup[i, j] = new Button();
-                    buttonsGroup[i, j].Text = $"Boton{counter + 1}";
-                    buttonsGroup[i, j].Size = new System.Drawing.Size(75, 23);
-                    buttonsGroup[i, j].Location = new System.Drawing.Point(counterLocationX, counterLocationY);
-                    counter++;
-
-                    counterLocationX += 100;
-                    if (counter % 5 == 0)
-                    {
-                        counterLocationX = 150;
-                        counterLocationY += 50;
-                    }
-
-                    buttonsGroup[i, j].MouseDown += buttonGroup_Down;
-                    buttonsGroup[i, j].MouseUp += buttonGroup_Up;
-                    buttonsGroup[i, j].MouseMove += Form1_MouseMove;
-
-
-                    Controls.Add(buttonsGroup[i, j]);
+                    counterLocationX = 150;
+                    counterLocationY += 50;
                 }
+
+                btn.MouseDown += buttonGroup_Down;
+                btn.MouseUp += buttonGroup_Up;
+                btn.MouseMove += Form1_MouseMove;
+
+                Controls.Add(btn);
             }
         }
 
@@ -103,9 +109,14 @@ namespace DI_EX1_T4
         {
             ((Button)sender).ForeColor = Color.Black;
         }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Quieres cerrar el programa?", "Close", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
+            {
+                e.Cancel = true;
+            }
+        }
+
     }
 }
-
-//• Además si se pulsa alguna tecla, dicha tecla debe aparecer como título
-//del formulario. Si se pulsa ESC, entonces se restaura el título del
-//formulario.
