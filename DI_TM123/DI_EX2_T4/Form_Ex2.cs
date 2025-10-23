@@ -29,20 +29,27 @@ namespace DI_EX2_T4
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (!Byte.TryParse(((TextBox)sender).Text.Trim(), out Byte _))
-            {
-                ((TextBox)sender).ForeColor = Color.Red;
-            }
-            else
+            if (validateTextBoxsColor(sender).Item1)
             {
                 ((TextBox)sender).ForeColor = Color.Green;
             }
+            else
+            {
+                ((TextBox)sender).ForeColor = Color.Red;
+            }
         }
 
-        public static bool validateTextBoxsColor(object sender)
+        public static (bool, int) validateTextBoxsColor(object sender)
         {
-            return Byte.TryParse(tx1.Text.Trim(), out Byte rgbTx1);
+            return (Byte.TryParse(((TextBox)sender).Text.Trim(), out Byte valueTxb), int.Parse($"{valueTxb}"));
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (validateTextBoxsColor(sender).Item1)
+            {
+                this.BackColor = Color.FromArgb(validateTextBoxsColor(sender).Item2);
+            }
         }
 
         // Utilizar formClosing
