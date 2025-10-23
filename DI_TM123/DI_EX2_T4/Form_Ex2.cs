@@ -46,9 +46,13 @@ namespace DI_EX2_T4
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (validateTextBoxsColor(sender).Item1)
+            if (validateTextBoxsColor((TextBox)sender).Item1)
             {
-                this.BackColor = Color.FromArgb(validateTextBoxsColor(sender).Item2);
+                this.BackColor = Color.FromArgb(validateTextBoxsColor((TextBox)sender).Item2);
+            }
+            else
+            {
+                MessageBox.Show("Introduce numeros del 0 - 255", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
