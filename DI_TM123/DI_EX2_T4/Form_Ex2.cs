@@ -25,5 +25,13 @@ namespace DI_EX2_T4
                 this.Close();
             }
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if(Byte.TryParse(textBox1.Text, out Byte rgbTx1))
+            {
+                textBox1.ForeColor = Color.Red;
+            };
+        }
     }
 }
