@@ -29,20 +29,22 @@ namespace DI_EX2_T4
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (!Byte.TryParse(textBox1.Text.Trim(), out Byte rgbTx1))
+            if (!Byte.TryParse(((TextBox)sender).Text.Trim(), out Byte _))
             {
-                textBox1.ForeColor = Color.Red;
+                ((TextBox)sender).ForeColor = Color.Red;
             }
             else
             {
-                textBox1.ForeColor = Color.Green;
+                ((TextBox)sender).ForeColor = Color.Green;
             }
         }
 
-        //public static bool validateTextBoxsColor(TextBox tx1, TextBox tx2, TextBox tx3)
-        //{
-        //    return Byte.TryParse(tx1.Text.Trim(), out Byte rgbTx1);
+        public static bool validateTextBoxsColor(object sender)
+        {
+            return Byte.TryParse(tx1.Text.Trim(), out Byte rgbTx1);
 
-        //}
+        }
+
+        // Utilizar formClosing
     }
 }

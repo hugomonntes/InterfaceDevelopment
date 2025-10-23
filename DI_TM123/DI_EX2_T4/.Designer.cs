@@ -60,6 +60,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 2;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox3
             // 
@@ -67,6 +68,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 3;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // button2
             // 
