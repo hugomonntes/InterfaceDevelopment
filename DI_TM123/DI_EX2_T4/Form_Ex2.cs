@@ -29,8 +29,8 @@ namespace DI_EX2_T4
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (validateTextBoxsColor(sender).Item1)
-            {
+            if (validateTextBoxsColor(((TextBox)sender).Text)) 
+            { 
                 ((TextBox)sender).ForeColor = Color.Green;
             }
             else
@@ -39,21 +39,31 @@ namespace DI_EX2_T4
             }
         }
 
-        public static (bool, int) validateTextBoxsColor(object sender)
+        public static (bool, byte) validateTextBoxsColor(string text)
         {
-            return (Byte.TryParse(((TextBox)sender).Text.Trim(), out Byte valueTxb), int.Parse($"{valueTxb}"));
+            bool isChecked = byte.TryParse(text.Trim(), out byte value);
+            return (isChecked, value);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (validateTextBoxsColor((TextBox)sender).Item1)
+            string[] textBoxes = { textBox1.Text, textBox2.Text, textBox3.Text};
+
+            foreach (string txb in textBoxes)
             {
-                this.BackColor = Color.FromArgb(validateTextBoxsColor((TextBox)sender).Item2);
-            }
-            else
-            {
-                MessageBox.Show("Introduce numeros del 0 - 255", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                if (validateTextBoxsColor(txb).Item1)
+                {
+                    byte r = validateTextBoxsColor(txb).Item2;
+                    byte g = validateTextBoxsColor(txb).Item2;
+                    byte b =  validateTextBoxsColor(txb).Item2;
+
+                    this.BackColor = Color.FromArgb(r, g, b);
+                }
+                else
+                {
+                    MessageBox.Show("Introduce números del 0 al 255 en todos los campos.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }                                          
         }
 
         // Utilizar formClosing
