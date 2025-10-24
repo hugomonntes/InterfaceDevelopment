@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace DI_EX1_T4
 {
-    public partial class Form1 : Form//TODO icono(ok). Revisar coordenadas. Liberacion botones(ok). Params messagebox(ok). Codigo Tecla, no char(ok). Quitar array (ok).
+    public partial class Form_Ex1 : Form //TODO Revisar coordenadas. 
     {
         String originalTitle;
-        public Form1()
+        public Form_Ex1()
         {
             InitializeComponent();
             originalTitle = this.Text;
@@ -21,7 +21,15 @@ namespace DI_EX1_T4
 
         private void Form1_MouseMove(object sender, MouseEventArgs e)
         {
-            this.Text = $"Coordenadas X: {e.X}, Coordenadas Y: {e.Y}";
+            int x = e.Location.X;
+            int y = e.Location.Y;
+            if (sender is Button)
+            {   
+                int senderX = ((Button)sender).Location.X + x;
+                int senderY = ((Button)sender).Location.Y + y;
+                this.Text = $"Coordenadas X: {senderX}, Coordenadas Y: {senderY}";
+            }
+            this.Text = $"Coordenadas X: {x}, Coordenadas Y: {y}";
         }
 
         private void Form1_MouseLeave(object sender, EventArgs e)
@@ -95,16 +103,8 @@ namespace DI_EX1_T4
                 btn.MouseDown += buttonGroup_Down;
                 btn.MouseUp += buttonGroup_Up;
                 btn.MouseMove += Form1_MouseMove;
-                btn.MouseMove += Button_MouseMove;
                 Controls.Add(btn);
             }
-        }
-
-        private void Button_MouseMove(object sender, MouseEventArgs e)
-        {
-            int x = ((Button)sender).Location.X + e.X;
-            int y = ((Button)sender).Location.Y + e.Y;
-            this.Text = $"Coordenadas X: {x}, Coordenadas Y: {y}";
         }
 
         public void buttonGroup_Down(object sender, MouseEventArgs e)

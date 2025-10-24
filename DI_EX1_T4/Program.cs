@@ -16,7 +16,7 @@ namespace DI_EX1_T4
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Form_Ex1());
         }
     }
 }
