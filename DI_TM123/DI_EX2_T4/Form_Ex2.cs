@@ -66,6 +66,19 @@ namespace DI_EX2_T4
             }                                          
         }
 
-        // Utilizar formClosing
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+            "¿Seguro que quieres cerrar el programa?",
+            "Confirmar salida",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question
+            );
+
+            if (result == DialogResult.No || e.Cancel)
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }
