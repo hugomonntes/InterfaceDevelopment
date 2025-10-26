@@ -29,7 +29,7 @@ namespace DI_EX2_T4
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (validateTextBoxsColor(((TextBox)sender).Text)) 
+            if (validateTextBoxsColor(((TextBox)sender).Text).Item1) 
             { 
                 ((TextBox)sender).ForeColor = Color.Green;
             }
