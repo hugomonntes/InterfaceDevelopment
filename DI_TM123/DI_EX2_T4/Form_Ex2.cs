@@ -106,5 +106,21 @@ namespace DI_EX2_T4
                 }
             }
         }
+        //FIXME
+        private void Form1_MouseEnter(object sender, EventArgs e)
+        {
+            if (sender is Button)
+            {
+                ((Button)sender).BackColor = Color.Red;
+            }
+        }
+
+        private void Form1_MouseLeave(object sender, EventArgs e)
+        {
+            if (sender is Button)
+            {
+                ((Button)sender).BackColor = Color.Empty;
+            }
+        }
     }
 }
