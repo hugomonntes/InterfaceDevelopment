@@ -5,19 +5,24 @@
     {
         public static string[] readFile(string pathFile) // Devolver Alamacenaje 
         {
-            string? linea;
-            string[] lineasSplited;
-            string[] datos = new string[lineasSplited.Length];
-            using StreamReader sr = new StreamReader(pathFile);
-            while ((linea = sr.ReadLine()) != null)
+            List<string> datos = new List<string>();
+
+            try
             {
-                lineasSplited = linea.Split("\n");
-                foreach (var lineaSplited in lineasSplited)
+                using StreamReader sr = new StreamReader(pathFile);
+                string? linea;
+
+                while ((linea = sr.ReadLine()) != null)
                 {
-                    datos = lineaSplited.Split("|");
+                    datos.Add(linea);
                 }
             }
-            return datos;
+            catch (IOException)
+            {
+                Console.WriteLine("Error al leer el archivo.");
+            }
+
+            return datos.ToArray();
         }
 
         public static void writeFile(List<Astro> astros)
