@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace DI_EX1_T4
 {
-    public partial class Form_Ex1 : Form //TODO Revisar coordenadas. 
+    public partial class Form_Ex1 : Form //TODO Revisar coordenadas. (OK)
     {
         String originalTitle;
         public Form_Ex1()
@@ -21,14 +21,19 @@ namespace DI_EX1_T4
 
         private void Form1_MouseMove(object sender, MouseEventArgs e)
         {
-            int x = e.Location.X;
-            int y = e.Location.Y;
-            if (sender is Button)
-            {   
-                int senderX = ((Button)sender).Location.X + x;
-                int senderY = ((Button)sender).Location.Y + y;
-                this.Text = $"Coordenadas X: {senderX}, Coordenadas Y: {senderY}";
+            int x, y;
+
+            if (sender is Button boton)
+            {
+                x = boton.Location.X + e.Location.X;
+                y = boton.Location.Y + e.Location.Y;
             }
+            else
+            {
+                x = e.Location.X;
+                y = e.Location.Y;
+            }
+
             this.Text = $"Coordenadas X: {x}, Coordenadas Y: {y}";
         }
 
