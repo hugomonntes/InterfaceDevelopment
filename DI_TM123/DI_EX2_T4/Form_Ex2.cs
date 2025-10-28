@@ -106,20 +106,31 @@ namespace DI_EX2_T4
                 }
             }
         }
-        //FIXME
-        private void Form1_MouseEnter(object sender, EventArgs e)
+        
+        private void buttons_MouseEnter(object sender, EventArgs e)
         {
-            if (sender is Button)
+            if(sender is Button btn)
             {
-                ((Button)sender).BackColor = Color.Red;
+                btn.BackColor = Color.Red;
             }
         }
 
-        private void Form1_MouseLeave(object sender, EventArgs e)
+        private void buttons_MouseLeave(object sender, EventArgs e)
         {
-            if (sender is Button)
+            if (sender is Button btn)
             {
-                ((Button)sender).BackColor = Color.Empty;
+                btn.BackColor = Color.Empty;
+            }
+        }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            foreach (Control ctrl in Controls)
+            {
+                if (ctrl is Button btn)
+                {
+                    btn.MouseEnter += buttons_MouseEnter;
+                    btn.MouseLeave += buttons_MouseLeave;
+                }
             }
         }
     }
