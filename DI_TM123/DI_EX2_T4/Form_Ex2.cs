@@ -19,6 +19,7 @@ namespace DI_EX2_T4
             InitializeComponent();
             this.CancelButton = btnExit;
             this.AcceptButton = btnColor;
+            this.ShowInTaskbar = false;
         }
 
         private void button1_MouseClick(object sender, MouseEventArgs e)
