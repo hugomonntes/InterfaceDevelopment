@@ -80,5 +80,25 @@ namespace DI_EX2_T4
                 e.Cancel = true;
             }
         }
+
+        private void btnCargar_Click(object sender, EventArgs e)
+        {
+            if (textBox4.Text == null || textBox4.Text.Trim() == "")
+            {
+                MessageBox.Show($"Introduce una ruta absoluta con la imagen en el textBox", "Error en la imagen", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            else
+            {
+                try
+                {
+                    pictureBox.Image = new Bitmap(textBox4.Text);
+                }
+                catch (Exception ex)//TODO no excepcion genérica
+                {
+                    MessageBox.Show($"No se encuentra la imagen {pictureBox}", "Error en la imagen", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }
