@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -16,7 +17,8 @@ namespace DI_EX2_T4
         public Form1()
         {
             InitializeComponent();
-            this.CancelButton = button1;
+            this.CancelButton = btnExit;
+            this.AcceptButton = btnColor;
         }
 
         private void button1_MouseClick(object sender, MouseEventArgs e)
@@ -68,14 +70,7 @@ namespace DI_EX2_T4
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult result = MessageBox.Show(
-            "¿Seguro que quieres cerrar el programa?",
-            "Confirmar salida",
-            MessageBoxButtons.YesNo,
-            MessageBoxIcon.Question
-            );
-
-            if (result == DialogResult.No || e.Cancel)
+            if (!(MessageBox.Show("Seguro que qieres salir del progrma?", "Salir de la aplicacion", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK))
             {
                 e.Cancel = true;
             }
@@ -86,7 +81,6 @@ namespace DI_EX2_T4
             if (textBox4.Text == null || textBox4.Text.Trim() == "")
             {
                 MessageBox.Show($"Introduce una ruta absoluta con la imagen en el textBox", "Error en la imagen", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             }
             else
             {
@@ -94,9 +88,20 @@ namespace DI_EX2_T4
                 {
                     pictureBox.Image = new Bitmap(textBox4.Text);
                 }
-                catch (Exception ex)//TODO no excepcion genérica
+                catch (FileNotFoundException ex)
                 {
                     MessageBox.Show($"No se encuentra la imagen {pictureBox}", "Error en la imagen", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            foreach (Control ctrl in Controls)
+            {
+                if (ctrl is TextBox)
+                {
+                    ctrl.Text = "";
                 }
             }
         }
