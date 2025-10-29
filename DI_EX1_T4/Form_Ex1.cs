@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace DI_EX1_T4
 {
-    public partial class Form_Ex1 : Form //TODO Revisar coordenadas. (OK)
+    public partial class Form_Ex1 : Form
     {
         String originalTitle;
         public Form_Ex1()
@@ -23,10 +23,10 @@ namespace DI_EX1_T4
         {
             int x, y;
 
-            if (sender is Button boton)
+            if (sender is Control ctrl)
             {
-                x = boton.Location.X + e.Location.X;
-                y = boton.Location.Y + e.Location.Y;
+                x = ctrl.Location.X + e.Location.X;
+                y = ctrl.Location.Y + e.Location.Y;
             }
             else
             {
