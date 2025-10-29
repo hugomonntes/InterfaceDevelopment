@@ -23,10 +23,10 @@ namespace DI_EX1_T4
         {
             int x, y;
 
-            if (sender is Control ctrl)
+            if (sender is Button btn)
             {
-                x = ctrl.Location.X + e.Location.X;
-                y = ctrl.Location.Y + e.Location.Y;
+                x = btn.Location.X + e.Location.X;
+                y = btn.Location.Y + e.Location.Y;
             }
             else
             {
