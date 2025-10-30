@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace DI_EX2_T4
 {
-    public partial class Form1 : Form
+    public partial class Form1 : Form//Etiquetas informativas. ESC. No preguntar dos veces si se pulsa exit. Mensaje error solo 1 vez. Cambio color si error. Gestionas bien accept button. Excepcion imagen. No permitas cambio de tamaño form. Complertar reset.
     {
         public Form1()
         {
@@ -22,18 +22,10 @@ namespace DI_EX2_T4
             this.ShowInTaskbar = false;
         }
 
-        private void button1_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (MessageBox.Show("Quieres cerrar el programa?", "Close", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
-            {
-                this.Close();
-            }
-        }
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (validateTextBoxsColor(((TextBox)sender).Text).Item1) 
-            { 
+            if (validateTextBoxsColor(((TextBox)sender).Text).Item1)
+            {
                 ((TextBox)sender).ForeColor = Color.Green;
             }
             else
@@ -50,7 +42,7 @@ namespace DI_EX2_T4
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string[] textBoxes = { textBox1.Text, textBox2.Text, textBox3.Text};
+            string[] textBoxes = { textBox1.Text, textBox2.Text, textBox3.Text };
 
             foreach (string txb in textBoxes)
             {
@@ -58,7 +50,7 @@ namespace DI_EX2_T4
                 {
                     byte r = validateTextBoxsColor(txb).Item2;
                     byte g = validateTextBoxsColor(txb).Item2;
-                    byte b =  validateTextBoxsColor(txb).Item2;
+                    byte b = validateTextBoxsColor(txb).Item2;
 
                     this.BackColor = Color.FromArgb(r, g, b);
                 }
@@ -66,7 +58,7 @@ namespace DI_EX2_T4
                 {
                     MessageBox.Show("Introduce números del 0 al 255 en todos los campos.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }                                          
+            }
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -106,21 +98,15 @@ namespace DI_EX2_T4
                 }
             }
         }
-        
+
         private void buttons_MouseEnter(object sender, EventArgs e)
         {
-            if(sender is Button btn)
-            {
-                btn.BackColor = Color.Red;
-            }
+            ((Button)sender).BackColor = Color.Red;
         }
 
         private void buttons_MouseLeave(object sender, EventArgs e)
         {
-            if (sender is Button btn)
-            {
-                btn.BackColor = Color.Empty;
-            }
+            ((Button)sender).BackColor = Color.Empty;
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -131,6 +117,14 @@ namespace DI_EX2_T4
                     btn.MouseEnter += buttons_MouseEnter;
                     btn.MouseLeave += buttons_MouseLeave;
                 }
+            }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Quieres cerrar el programa?", "Close", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                this.Close();
             }
         }
     }

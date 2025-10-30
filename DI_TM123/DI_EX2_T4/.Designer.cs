@@ -43,48 +43,43 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(1070, 639);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnExit.Location = new System.Drawing.Point(713, 415);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(112, 35);
+            this.btnExit.Size = new System.Drawing.Size(75, 23);
             this.btnExit.TabIndex = 7;
             this.btnExit.Text = "EXIT";
             this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button1_MouseClick);
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(348, 125);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox1.Location = new System.Drawing.Point(232, 81);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(148, 26);
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 0;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(666, 125);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox2.Location = new System.Drawing.Point(444, 81);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(148, 26);
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 2;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(507, 125);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox3.Location = new System.Drawing.Point(338, 81);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(148, 26);
+            this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 1;
             this.textBox3.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // btnColor
             // 
-            this.btnColor.Location = new System.Drawing.Point(525, 185);
-            this.btnColor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnColor.Location = new System.Drawing.Point(350, 120);
             this.btnColor.Name = "btnColor";
-            this.btnColor.Size = new System.Drawing.Size(112, 35);
+            this.btnColor.Size = new System.Drawing.Size(75, 23);
             this.btnColor.TabIndex = 3;
             this.btnColor.Text = "Color";
             this.btnColor.UseVisualStyleBackColor = true;
@@ -92,18 +87,17 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(348, 251);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox4.Location = new System.Drawing.Point(232, 163);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(466, 26);
+            this.textBox4.Size = new System.Drawing.Size(312, 20);
             this.textBox4.TabIndex = 4;
             // 
             // btnCargar
             // 
-            this.btnCargar.Location = new System.Drawing.Point(525, 308);
-            this.btnCargar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnCargar.Location = new System.Drawing.Point(350, 200);
             this.btnCargar.Name = "btnCargar";
-            this.btnCargar.Size = new System.Drawing.Size(112, 35);
+            this.btnCargar.Size = new System.Drawing.Size(75, 23);
             this.btnCargar.TabIndex = 5;
             this.btnCargar.Text = "Cargar";
             this.btnCargar.UseVisualStyleBackColor = true;
@@ -111,19 +105,18 @@
             // 
             // pictureBox
             // 
-            this.pictureBox.Location = new System.Drawing.Point(348, 375);
-            this.pictureBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox.Location = new System.Drawing.Point(232, 244);
+            this.pictureBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(467, 124);
+            this.pictureBox.Size = new System.Drawing.Size(311, 81);
             this.pictureBox.TabIndex = 7;
             this.pictureBox.TabStop = false;
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(15, 641);
-            this.btnReset.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnReset.Location = new System.Drawing.Point(10, 417);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(112, 35);
+            this.btnReset.Size = new System.Drawing.Size(75, 23);
             this.btnReset.TabIndex = 6;
             this.btnReset.Text = "RESET";
             this.btnReset.UseVisualStyleBackColor = true;
@@ -131,9 +124,9 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.btnCargar);
@@ -145,7 +138,6 @@
             this.Controls.Add(this.btnExit);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
