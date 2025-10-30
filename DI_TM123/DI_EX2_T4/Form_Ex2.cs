@@ -123,10 +123,7 @@ namespace DI_EX2_T4
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Quieres cerrar el programa?", "Close", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
-            {
-                this.Close();
-            }
+            this.Close();
         }
     }
 }
