@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace DI_EX2_T4
 {
-    public partial class Form1 : Form//Etiquetas informativas. ESC. No preguntar dos veces si se pulsa exit. Mensaje error solo 1 vez. Cambio color si error. Gestionas bien accept button. Excepcion imagen. No permitas cambio de tamaño form. Complertar reset.
+    public partial class Form1 : Form//Etiquetas informativas. ESC (OK). No preguntar dos veces si se pulsa exit. Mensaje error solo 1 vez(OK). Cambio color si error. Gestionas bien accept button. Excepcion imagen(OK). No permitas cambio de tamaño form. Complertar reset.
     {
         public Form1()
         {
@@ -57,6 +57,7 @@ namespace DI_EX2_T4
                 else
                 {
                     MessageBox.Show("Introduce números del 0 al 255 en todos los campos.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
                 }
             }
         }
@@ -81,7 +82,7 @@ namespace DI_EX2_T4
                 {
                     pictureBox.Image = new Bitmap(textBox4.Text);
                 }
-                catch (FileNotFoundException ex)
+                catch (ArgumentException ex)
                 {
                     MessageBox.Show($"No se encuentra la imagen {pictureBox}", "Error en la imagen", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
