@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace DI_EX2_T4
 {
-    public partial class Form1 : Form//Etiquetas informativas. ESC (OK). No preguntar dos veces si se pulsa exit. Mensaje error solo 1 vez(OK). Cambio color si error. Gestionas bien accept button. Excepcion imagen(OK). No permitas cambio de tamaño form. Complertar reset.
+    public partial class Form1 : Form//Etiquetas informativas(ok). ESC (OK). No preguntar dos veces si se pulsa exit(ok). Mensaje error solo 1 vez(OK). Cambio color si error. Gestionas bien accept button. Excepcion imagen(OK). No permitas cambio de tamaño form(ok). Complertar reset.
     {
         public Form1()
         {
@@ -20,6 +20,7 @@ namespace DI_EX2_T4
             this.CancelButton = btnExit;
             this.AcceptButton = btnColor;
             this.ShowInTaskbar = false;
+            Color orginalColor = this.BackColor;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -98,6 +99,8 @@ namespace DI_EX2_T4
                     ctrl.Text = "";
                 }
             }
+            this.BackColor = Color.Empty;
+            pictureBox.Image = null;
         }
 
         private void buttons_MouseEnter(object sender, EventArgs e)

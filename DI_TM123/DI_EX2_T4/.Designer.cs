@@ -38,6 +38,10 @@
             this.btnCargar = new System.Windows.Forms.Button();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.btnReset = new System.Windows.Forms.Button();
+            this.R = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,7 +81,7 @@
             // 
             // btnColor
             // 
-            this.btnColor.Location = new System.Drawing.Point(350, 120);
+            this.btnColor.Location = new System.Drawing.Point(350, 107);
             this.btnColor.Name = "btnColor";
             this.btnColor.Size = new System.Drawing.Size(75, 23);
             this.btnColor.TabIndex = 3;
@@ -87,7 +91,7 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(232, 163);
+            this.textBox4.Location = new System.Drawing.Point(232, 161);
             this.textBox4.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(312, 20);
@@ -95,7 +99,7 @@
             // 
             // btnCargar
             // 
-            this.btnCargar.Location = new System.Drawing.Point(350, 200);
+            this.btnCargar.Location = new System.Drawing.Point(350, 187);
             this.btnCargar.Name = "btnCargar";
             this.btnCargar.Size = new System.Drawing.Size(75, 23);
             this.btnCargar.TabIndex = 5;
@@ -105,10 +109,10 @@
             // 
             // pictureBox
             // 
-            this.pictureBox.Location = new System.Drawing.Point(232, 244);
+            this.pictureBox.Location = new System.Drawing.Point(232, 216);
             this.pictureBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(311, 81);
+            this.pictureBox.Size = new System.Drawing.Size(312, 195);
             this.pictureBox.TabIndex = 7;
             this.pictureBox.TabStop = false;
             // 
@@ -122,11 +126,51 @@
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
+            // R
+            // 
+            this.R.AutoSize = true;
+            this.R.Location = new System.Drawing.Point(267, 62);
+            this.R.Name = "R";
+            this.R.Size = new System.Drawing.Size(15, 13);
+            this.R.TabIndex = 8;
+            this.R.Text = "R";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(381, 62);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(15, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "G";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(491, 62);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(14, 13);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "B";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(358, 145);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 13);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Image Path";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.R);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.btnCargar);
@@ -163,6 +207,10 @@
         private System.Windows.Forms.Button btnCargar;
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.Label R;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label1;
     }
 }
 
