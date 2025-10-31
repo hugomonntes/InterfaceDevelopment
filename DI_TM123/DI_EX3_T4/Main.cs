@@ -14,11 +14,12 @@ namespace DI_EX3_T4
     public partial class Main : Form // TODO changue icon
     {
         Modal modal;
-
+        int segundos = 0;
+        int minutos = 0;
         public Main()
         {
             InitializeComponent();
-            this.Text = "Visor de imágenes";
+            timer1.Start();
         }
 
         private void newImage_Click(object sender, EventArgs e)
@@ -46,11 +47,15 @@ namespace DI_EX3_T4
             }
         }
 
-        public string addTimer()
+        private void timer1_Tick(object sender, EventArgs e)
         {
-            Timer timer = new Timer();
-            timer.Start();
-            return "";
+            segundos++;
+            if(segundos == 60)
+            {
+                segundos = 0;
+                minutos++;
+            }
+            this.Text = $"Visor de imágenes {minutos}:{segundos}";
         }
     }
 }
@@ -77,9 +82,10 @@ namespace DI_EX3_T4
 
 //• El título del formulario principal será “Visor de imágenes“ y a
 //continuación el tiempo de uso en minutos y segundos (formato siempre
-//con dos cifras mm:ss).
+//con dos cifras mm:ss).(ok)
 
 //• El título del formulario secundario será el nombre de la imagen (sin el
 //path).
+
 //• Al marcar el Checkbox además se pone la palabra Modal en Rojo. Si se
 //desmarca vuelve a ponerla en negro.

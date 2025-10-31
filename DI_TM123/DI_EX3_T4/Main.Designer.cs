@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.newImage = new System.Windows.Forms.Button();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.cbModal = new System.Windows.Forms.CheckBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // newImage
@@ -61,6 +63,11 @@
             this.cbModal.Text = "Modal";
             this.cbModal.UseVisualStyleBackColor = true;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -80,6 +87,7 @@
         private System.Windows.Forms.Button newImage;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.CheckBox cbModal;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

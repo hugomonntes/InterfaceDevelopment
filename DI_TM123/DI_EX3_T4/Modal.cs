@@ -26,5 +26,10 @@ namespace DI_EX3_T4
         {
             pbModal.SizeMode = PictureBoxSizeMode.Normal;
         }
+
+        private void Modal_Load(object sender, EventArgs e)
+        {
+            //this.Text = ;
+        }
     }
 }

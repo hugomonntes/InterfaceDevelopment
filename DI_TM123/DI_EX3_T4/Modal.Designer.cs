@@ -54,7 +54,7 @@
             this.toolStripMenuItem1,
             this.toolStripMenuItem2});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(183, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(183, 48);
             // 
             // toolStripMenuItem1
             // 
@@ -78,6 +78,7 @@
             this.Controls.Add(this.pbModal);
             this.Name = "Modal";
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.Modal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbModal)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
