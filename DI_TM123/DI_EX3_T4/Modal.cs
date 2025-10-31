@@ -16,5 +16,15 @@ namespace DI_EX3_T4
         {
             InitializeComponent();
         }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            pbModal.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            pbModal.SizeMode = PictureBoxSizeMode.Normal;
+        }
     }
 }
