@@ -23,8 +23,7 @@ namespace DI_EX3_T4
         {
             openFileDialog.ShowDialog();
             modal = new Modal();
-            modal.BackgroundImage = Image.FromFile(openFileDialog.FileName);
-            modal.BackgroundImageLayout = ImageLayout.Stretch;
+            changuePictureBoxModal(modal, openFileDialog.FileName);
             if (cbModal.Checked)
             {
                 modal.ShowDialog();
@@ -33,5 +32,42 @@ namespace DI_EX3_T4
                 modal.Show();
             }
         }
+
+        public void changuePictureBoxModal(Form modal,string fileName)
+        {
+            foreach (Control item in modal.Controls)
+            {
+                if (item is PictureBox ptb && ptb.Name == "pbModal")
+                {
+                    ptb.Image = Image.FromFile(fileName);
+                }
+            }
+        }
     }
 }
+
+//Se desea realizar un visor de imágenes simple. Para ello en el formulario
+//principal se dispone de un botón “Nueva Imagen” que, al ser pulsado, sale un
+//componente OpenFileDialog (Ver Apéndice III) en el que se verán diversos
+//archivos de imagen (al menos jpg y png) además del filtro “todos los
+//archivos”.
+//Debe haber también un checkbox con la palabra Modal como texto.
+//Una vez que el usuario seleccione una imagen y le de Aceptar en el
+//OpenFileDialog se deben hacer las siguientes tareas:
+
+//• Se saca un segundo formulario en el que quepa la imagen entera y
+//ocupándolo todo. Si cambias el tamaño del formulario debe cambiar
+//también el de la imagen de fondo deformándose (Usa un picturebox).
+
+//• El formulario secundario será modal si el checkbox está marcado y no
+//modal en caso contrario.
+//• Habrá en el PictureBox del secundario un menú contextual para elegir si
+//la imagen se ajusta perfectamente al PictureBox o lo hace sin
+//deformarse.
+//• El título del formulario principal será “Visor de imágenes“ y a
+//continuación el tiempo de uso en minutos y segundos (formato siempre
+//con dos cifras mm:ss).
+//• El título del formulario secundario será el nombre de la imagen (sin el
+//path).
+//• Al marcar el Checkbox además se pone la palabra Modal en Rojo. Si se
+//desmarca vuelve a ponerla en negro.
