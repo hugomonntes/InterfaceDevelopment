@@ -61,14 +61,14 @@
             this.cbModal.Text = "Modal";
             this.cbModal.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.cbModal);
             this.Controls.Add(this.newImage);
-            this.Name = "Form1";
+            this.Name = "Main";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();

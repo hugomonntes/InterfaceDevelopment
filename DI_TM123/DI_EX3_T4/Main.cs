@@ -12,6 +12,8 @@ namespace DI_EX3_T4
 {
     public partial class Main : Form
     {
+        Modal modal;
+
         public Main()
         {
             InitializeComponent();
@@ -20,10 +22,16 @@ namespace DI_EX3_T4
         private void newImage_Click(object sender, EventArgs e)
         {
             openFileDialog.ShowDialog();
-            Modal modal = new Modal();
+            modal = new Modal();
             modal.BackgroundImage = Image.FromFile(openFileDialog.FileName);
             modal.BackgroundImageLayout = ImageLayout.Stretch;
-            modal.Show();
+            if (cbModal.Checked)
+            {
+                modal.ShowDialog();
+            } else
+            {
+                modal.Show();
+            }
         }
     }
 }
