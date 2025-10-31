@@ -50,6 +50,7 @@ namespace DI_EX3_T4
         {
             Timer timer = new Timer();
             timer.Start();
+            return "";
         }
     }
 }
