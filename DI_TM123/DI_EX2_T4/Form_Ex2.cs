@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace DI_EX2_T4
 {
-    public partial class Form1 : Form//Etiquetas informativas(ok). ESC (OK). No preguntar dos veces si se pulsa exit(ok). Mensaje error solo 1 vez(OK). Cambio color si error(OK). Gestionas bien accept button. Excepcion imagen(OK). No permitas cambio de tamaño form(ok). Complertar reset(OK).
+    public partial class Form1 : Form//Etiquetas informativas(ok). ESC (OK). No preguntar dos veces si se pulsa exit(ok). Mensaje error solo 1 vez(OK). Cambio color si error(OK). Gestionas bien accept button(ok). Excepcion imagen(OK). No permitas cambio de tamaño form(ok). Complertar reset(OK).
     {
         public Form1()
         {
