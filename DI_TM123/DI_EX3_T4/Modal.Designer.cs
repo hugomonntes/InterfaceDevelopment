@@ -78,7 +78,6 @@
             this.Controls.Add(this.pbModal);
             this.Name = "Modal";
             this.Text = "Form2";
-            this.Load += new System.EventHandler(this.Modal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbModal)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);

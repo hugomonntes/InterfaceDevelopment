@@ -25,7 +25,8 @@ namespace DI_EX3_T4
         private void newImage_Click(object sender, EventArgs e)
         {
             openFileDialog.ShowDialog();
-            modal = new Modal();
+            String[] pathSplited = openFileDialog.FileName.Split('\\');
+            modal = new Modal(pathSplited[pathSplited.Length - 1]);
             changuePictureBoxModal(modal, openFileDialog.FileName);
             if (cbModal.Checked)
             {

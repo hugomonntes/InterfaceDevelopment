@@ -12,9 +12,10 @@ namespace DI_EX3_T4
 {
     public partial class Modal : Form
     {
-        public Modal()
+        public Modal(string path)
         {
             InitializeComponent();
+            this.Text = path;
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
@@ -25,11 +26,6 @@ namespace DI_EX3_T4
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
             pbModal.SizeMode = PictureBoxSizeMode.Normal;
-        }
-
-        private void Modal_Load(object sender, EventArgs e)
-        {
-            //this.Text = ;
         }
     }
 }
