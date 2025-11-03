@@ -62,6 +62,7 @@
             this.cbModal.TabIndex = 1;
             this.cbModal.Text = "Modal";
             this.cbModal.UseVisualStyleBackColor = true;
+            this.cbModal.CheckedChanged += new System.EventHandler(this.cbModal_CheckedChanged);
             // 
             // timer1
             // 

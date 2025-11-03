@@ -58,6 +58,18 @@ namespace DI_EX3_T4
             }
             this.Text = $"Visor de imágenes {minutos}:{segundos}";
         }
+
+        private void cbModal_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox senderCasted = ((CheckBox)sender);
+            if (senderCasted.Checked)
+            {
+                senderCasted.ForeColor = Color.Red;
+            } else
+            {
+                senderCasted.ForeColor = Color.Black;
+            }
+        }
     }
 }
 
