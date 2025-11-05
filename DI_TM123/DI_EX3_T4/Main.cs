@@ -20,6 +20,7 @@ namespace DI_EX3_T4
         {
             InitializeComponent();
             timer1.Start();
+            this.Text = "Visor de imágenes 00:00";
         }
 
         private void newImage_Click(object sender, EventArgs e)

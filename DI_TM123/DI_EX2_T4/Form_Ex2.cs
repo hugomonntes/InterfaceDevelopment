@@ -9,10 +9,11 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DI_EX2_T4
 {
-    public partial class Form1 : Form//      Gestionas bien accept button (entrar en un componente o salir)(ok). TITULO.(ok) Revisar break
+    public partial class Form1 : Form//      Gestionas bien accept button (entrar en un componente o salir)(ok). TITULO.(ok) Revisar break(ok)
     {
         public Form1()
         {
@@ -26,7 +27,7 @@ namespace DI_EX2_T4
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (validateTextBoxsColor(((TextBox)sender).Text).Item1)
+            if (validateTextBoxsColor(((TextBox)sender).Text))
             {
                 ((TextBox)sender).ForeColor = Color.Green;
             }
@@ -36,38 +37,30 @@ namespace DI_EX2_T4
             }
         }
 
-        public static (bool, byte) validateTextBoxsColor(string text)
+        public static bool validateTextBoxsColor(string text)
         {
-            bool isChecked = byte.TryParse(text.Trim(), out byte value);
-            return (isChecked, value);
+            return byte.TryParse(text.Trim(), out _);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             string[] textBoxes = { textBox1.Text, textBox2.Text, textBox3.Text };
-            List<byte> values = new List<byte>();
-            bool allChecked = false;
+            List<byte> rgb = new List<byte>();
             foreach (string txb in textBoxes)
             {
-                if (validateTextBoxsColor(txb).Item1)
+                if (byte.TryParse(txb.Trim(), out byte value))
                 {
-                    allChecked = true;
-                    //values.Add()
-                    byte r = validateTextBoxsColor(txb).Item2;
-                    byte g = validateTextBoxsColor(txb).Item2;
-                    byte b = validateTextBoxsColor(txb).Item2;
-
+                    rgb.Add(value);
                 }
                 else
                 {
-                    allChecked = false;
                     MessageBox.Show("Introduce números del 0 al 255 en todos los campos.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
                 }
             }
-            if (allChecked)
+            if (rgb.Count() == textBoxes.Count())
             {
-               this.BackColor = Color.FromArgb(r, g, b);
+                this.BackColor = Color.FromArgb(rgb[0], rgb[1], rgb[2]);
             }
         }
 
