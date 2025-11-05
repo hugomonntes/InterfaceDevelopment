@@ -45,7 +45,7 @@ namespace DI_EX2_T4
         private void button2_Click(object sender, EventArgs e)
         {
             string[] textBoxes = { textBox1.Text, textBox2.Text, textBox3.Text };
-            List<byte> rgb = new List<byte>();
+            List<byte> rgb = new List<byte>();//TODO contador
             foreach (string txb in textBoxes)
             {
                 if (byte.TryParse(txb.Trim(), out byte value))
