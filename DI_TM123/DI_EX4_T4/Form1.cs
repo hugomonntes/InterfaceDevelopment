@@ -15,6 +15,7 @@ namespace DI_EX4_T4
         public Form1()
         {
             InitializeComponent();
+            this.AcceptButton = btnAñadir;
         }
 
         private void btnAñadir_Click(object sender, EventArgs e)
@@ -23,6 +24,14 @@ namespace DI_EX4_T4
             if (textToAdd != null && textToAdd != "" && !listBox1.Items.Contains(textToAdd))
             {
                 listBox1.Items.Add(textToAdd);
+            }
+        }
+
+        private void btnQuitar_Click(object sender, EventArgs e)
+        {
+            if(EliminarList1.Checked && listBox1.Items.Count > 0)
+            {
+                listBox1.Items.Remove(listBox1.SelectedItems[1]);
             }
         }
     }

@@ -36,8 +36,8 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.EliminarList1 = new System.Windows.Forms.RadioButton();
+            this.EliminarList2 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
@@ -47,6 +47,7 @@
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(12, 12);
             this.listBox1.Name = "listBox1";
+            this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.listBox1.Size = new System.Drawing.Size(120, 82);
             this.listBox1.TabIndex = 0;
             // 
@@ -76,6 +77,7 @@
             this.btnQuitar.TabIndex = 3;
             this.btnQuitar.Text = "Quitar";
             this.btnQuitar.UseVisualStyleBackColor = true;
+            this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
             // 
             // btnTraspasar
             // 
@@ -97,7 +99,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(494, 12);
+            this.label1.Location = new System.Drawing.Point(494, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 6;
@@ -106,33 +108,33 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(494, 41);
+            this.label2.Location = new System.Drawing.Point(494, 70);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 7;
             this.label2.Text = "label2";
             // 
-            // radioButton1
+            // EliminarList1
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(552, 12);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(85, 17);
-            this.radioButton1.TabIndex = 8;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "radioButton1";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.EliminarList1.AutoSize = true;
+            this.EliminarList1.Location = new System.Drawing.Point(552, 12);
+            this.EliminarList1.Name = "EliminarList1";
+            this.EliminarList1.Size = new System.Drawing.Size(89, 17);
+            this.EliminarList1.TabIndex = 8;
+            this.EliminarList1.TabStop = true;
+            this.EliminarList1.Text = "Eliminar List 1";
+            this.EliminarList1.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // EliminarList2
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(552, 35);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(85, 17);
-            this.radioButton2.TabIndex = 9;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "radioButton2";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.EliminarList2.AutoSize = true;
+            this.EliminarList2.Location = new System.Drawing.Point(552, 35);
+            this.EliminarList2.Name = "EliminarList2";
+            this.EliminarList2.Size = new System.Drawing.Size(89, 17);
+            this.EliminarList2.TabIndex = 9;
+            this.EliminarList2.TabStop = true;
+            this.EliminarList2.Text = "Eliminar List 2";
+            this.EliminarList2.UseVisualStyleBackColor = true;
             // 
             // radioButton3
             // 
@@ -163,8 +165,8 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.radioButton4);
             this.Controls.Add(this.radioButton3);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.EliminarList2);
+            this.Controls.Add(this.EliminarList1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
@@ -190,8 +192,8 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton EliminarList1;
+        private System.Windows.Forms.RadioButton EliminarList2;
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton4;
     }

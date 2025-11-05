@@ -12,11 +12,12 @@ using System.Windows.Forms;
 
 namespace DI_EX2_T4
 {
-    public partial class Form1 : Form//Etiquetas informativas(ok). ESC (OK). No preguntar dos veces si se pulsa exit(ok). Mensaje error solo 1 vez(OK). Cambio color si error(OK). Gestionas bien accept button.(ok) Excepcion imagen(OK). No permitas cambio de tamaño form(ok). Complertar reset(OK).
+    public partial class Form1 : Form//      Gestionas bien accept button (entrar en un componente o salir)(ok). TITULO.(ok) Revisar break
     {
         public Form1()
         {
             InitializeComponent();
+            this.Text = "Ejercicio 2";
             this.CancelButton = btnExit;
             this.AcceptButton = btnColor;
             this.ShowInTaskbar = false;
@@ -44,22 +45,29 @@ namespace DI_EX2_T4
         private void button2_Click(object sender, EventArgs e)
         {
             string[] textBoxes = { textBox1.Text, textBox2.Text, textBox3.Text };
-
+            List<byte> values = new List<byte>();
+            bool allChecked = false;
             foreach (string txb in textBoxes)
             {
                 if (validateTextBoxsColor(txb).Item1)
                 {
+                    allChecked = true;
+                    //values.Add()
                     byte r = validateTextBoxsColor(txb).Item2;
                     byte g = validateTextBoxsColor(txb).Item2;
                     byte b = validateTextBoxsColor(txb).Item2;
 
-                    this.BackColor = Color.FromArgb(r, g, b);
                 }
                 else
                 {
+                    allChecked = false;
                     MessageBox.Show("Introduce números del 0 al 255 en todos los campos.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
                 }
+            }
+            if (allChecked)
+            {
+               this.BackColor = Color.FromArgb(r, g, b);
             }
         }
 
@@ -129,12 +137,14 @@ namespace DI_EX2_T4
             this.Close();
         }
 
-        private void textBox4_TextChanged(object sender, EventArgs e)
+        private void textBox4_Enter(object sender, EventArgs e)
         {
-            if(textBox4.Text != "" || textBox4.Text != null)
-            {
-                this.AcceptButton = btnCargar;
-            }
+            this.AcceptButton = btnCargar;
+        }
+
+        private void textBox1_Enter(object sender, EventArgs e)
+        {
+            this.AcceptButton = btnColor;
         }
     }
 }

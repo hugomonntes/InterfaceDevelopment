@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace DI_EX3_T4
 {
-    public partial class Main : Form // TODO changue icon
+    public partial class Main : Form // TODO Titulo al inicio. formato 00:00. Gestionar cancel en OpenFile. Ajuste sin deformación. Todos los archivos. Revisar filtro. Imagen corrupta. Revisar constructor secundario msin bucle
     {
         Modal modal;
         int segundos = 0;
