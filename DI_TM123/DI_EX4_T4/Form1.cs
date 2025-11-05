@@ -19,11 +19,11 @@ namespace DI_EX4_T4
 
         private void btnAñadir_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //string textToAdd = textBox1.Text;
-            //listBox1.Text = textToAdd;
-            //} catch (NullPointer)
+            string textToAdd = textBox1.Text.Trim();
+            if (textToAdd != null && textToAdd != "" && !listBox1.Items.Contains(textToAdd))
+            {
+                listBox1.Items.Add(textToAdd);
+            }
         }
     }
 }
