@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace DI_EX2_T4
 {
-    public partial class Form1 : Form//Etiquetas informativas(ok). ESC (OK). No preguntar dos veces si se pulsa exit(ok). Mensaje error solo 1 vez(OK). Cambio color si error(OK). Gestionas bien accept button(ok). Excepcion imagen(OK). No permitas cambio de tamaño form(ok). Complertar reset(OK).
+    public partial class Form1 : Form//Etiquetas informativas(ok). ESC (OK). No preguntar dos veces si se pulsa exit(ok). Mensaje error solo 1 vez(OK). Cambio color si error(OK). Gestionas bien accept button.(ok) Excepcion imagen(OK). No permitas cambio de tamaño form(ok). Complertar reset(OK).
     {
         public Form1()
         {
@@ -85,7 +85,7 @@ namespace DI_EX2_T4
                 }
                 catch (ArgumentException ex)
                 {
-                    MessageBox.Show($"No se encuentra la imagen {pictureBox}", "Error en la imagen", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"No se encuentra la imagen", "Error en la imagen", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -127,6 +127,14 @@ namespace DI_EX2_T4
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+            if(textBox4.Text != "" || textBox4.Text != null)
+            {
+                this.AcceptButton = btnCargar;
+            }
         }
     }
 }

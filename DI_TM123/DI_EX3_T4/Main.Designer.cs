@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.newImage = new System.Windows.Forms.Button();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.cbModal = new System.Windows.Forms.CheckBox();
@@ -76,6 +77,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.cbModal);
             this.Controls.Add(this.newImage);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
             this.Text = "Form1";
             this.ResumeLayout(false);
