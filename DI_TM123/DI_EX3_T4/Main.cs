@@ -12,11 +12,11 @@ using System.Windows.Forms;
 
 namespace DI_EX3_T4
 {
-    public partial class Main : Form // TODO Titulo al inicio(ok). formato 00:00(ok). Gestionar cancel en OpenFile. Ajuste sin deformación(ok). Todos los archivos(ok). Revisar filtro(ok). Imagen corrupta. Revisar constructor secundario sin bucle
+    public partial class Main : Form // TODO Titulo al inicio(ok). formato 00:00(ok). Gestionar cancel en OpenFile(ok). Ajuste sin deformación(ok). Todos los archivos(ok). Revisar filtro(ok). Imagen corrupta(ok). Revisar constructor secundario sin bucle(ok)
     {
-        Modal modal;
         int segundos = 0;
         int minutos = 0;
+        string nombreArchivo;
         public Main()
         {
             InitializeComponent();
@@ -26,45 +26,39 @@ namespace DI_EX3_T4
 
         private void newImage_Click(object sender, EventArgs e)
         {
-            openFileDialog.ShowDialog();
-            String[] pathSplited = openFileDialog.FileName.Split('\\');
-            modal = new Modal(pathSplited[pathSplited.Length - 1]);
-            bool isImageSelected = false;
-            do
+            string path = "";
+            DialogResult openFile = openFileDialog.ShowDialog();
+            if (openFile == DialogResult.OK)
             {
-                try // FIXME
-                {
-                    OpenFileDialog op = new OpenFileDialog();
-                    changuePictureBoxModal(modal, openFileDialog.FileName);
-                    isImageSelected = true;
-                }
-                catch (FileNotFoundException)
-                {
-                    isImageSelected = false;
-                } catch (OutOfMemoryException)
-                {
-                    isImageSelected = false;
-                }
+                path = openFileDialog.FileName;
+                nombreArchivo = Path.GetFileName(path); // Si curro no me deja lo hago con el split
             }
-            while (!isImageSelected);
-            if (cbModal.Checked)
+            try
             {
-                modal.ShowDialog();
-            }
-            else
-            {
-                modal.Show();
-            }
-        }
+                Modal modal = new Modal();
+                modal.Text = nombreArchivo;
+                modal.cargarImagen(path);
 
-        public void changuePictureBoxModal(Form modal, string fileName)
-        {
-            foreach (Control item in modal.Controls)
-            {
-                if (item is PictureBox ptb)
+                if (cbModal.Checked)
                 {
-                    ptb.Image = Image.FromFile(fileName); // TODO System.IO.FileNotFoundException: 'openFileDialog1' OutOfMemoryException
+                    modal.ShowDialog();
                 }
+                else
+                {
+                    modal.Show();
+                }
+            }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show("El archivo no se encontró.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (OutOfMemoryException)
+            {
+                MessageBox.Show("La imagen no tiene un formato válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (ArgumentException)
+            {
+                // No aviso de nada ya que el user quiere salir (Preguntrar curro que informar o no en este caso)
             }
         }
 

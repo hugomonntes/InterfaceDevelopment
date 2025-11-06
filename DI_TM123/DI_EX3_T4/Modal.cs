@@ -12,10 +12,14 @@ namespace DI_EX3_T4
 {
     public partial class Modal : Form
     {
-        public Modal(string path)
+        public Modal()
         {
             InitializeComponent();
-            this.Text = path;
+        }
+
+        public void cargarImagen(string path)
+        {
+            pbModal.Image = Image.FromFile(path);
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
