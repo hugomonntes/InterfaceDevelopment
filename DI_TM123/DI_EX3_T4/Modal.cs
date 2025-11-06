@@ -25,7 +25,7 @@ namespace DI_EX3_T4
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            pbModal.SizeMode = PictureBoxSizeMode.Normal;
+            pbModal.SizeMode = PictureBoxSizeMode.Zoom;
         }
     }
 }

@@ -49,7 +49,7 @@
             // openFileDialog
             // 
             this.openFileDialog.FileName = "openFileDialog1";
-            this.openFileDialog.Filter = "*.jpg|*.png";
+            this.openFileDialog.Filter = "(*.PNG;*.JPG)|*.PNG;*.JPG|(*.*)|*.*";
             // 
             // cbModal
             // 

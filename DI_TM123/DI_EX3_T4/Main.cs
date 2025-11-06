@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,7 @@ using System.Windows.Forms;
 
 namespace DI_EX3_T4
 {
-    public partial class Main : Form // TODO Titulo al inicio(ok). formato 00:00(ok). Gestionar cancel en OpenFile. Ajuste sin deformación. Todos los archivos. Revisar filtro. Imagen corrupta. Revisar constructor secundario msin bucle
+    public partial class Main : Form // TODO Titulo al inicio(ok). formato 00:00(ok). Gestionar cancel en OpenFile. Ajuste sin deformación(ok). Todos los archivos(ok). Revisar filtro(ok). Imagen corrupta. Revisar constructor secundario sin bucle
     {
         Modal modal;
         int segundos = 0;
@@ -28,23 +29,41 @@ namespace DI_EX3_T4
             openFileDialog.ShowDialog();
             String[] pathSplited = openFileDialog.FileName.Split('\\');
             modal = new Modal(pathSplited[pathSplited.Length - 1]);
-            changuePictureBoxModal(modal, openFileDialog.FileName);
+            bool isImageSelected = false;
+            do
+            {
+                try // FIXME
+                {
+                    OpenFileDialog op = new OpenFileDialog();
+                    changuePictureBoxModal(modal, openFileDialog.FileName);
+                    isImageSelected = true;
+                }
+                catch (FileNotFoundException)
+                {
+                    isImageSelected = false;
+                } catch (OutOfMemoryException)
+                {
+                    isImageSelected = false;
+                }
+            }
+            while (!isImageSelected);
             if (cbModal.Checked)
             {
                 modal.ShowDialog();
-            } else
+            }
+            else
             {
                 modal.Show();
             }
         }
 
-        public void changuePictureBoxModal(Form modal,string fileName)
+        public void changuePictureBoxModal(Form modal, string fileName)
         {
             foreach (Control item in modal.Controls)
             {
-                if (item is PictureBox ptb && ptb.Name == "pbModal")
+                if (item is PictureBox ptb)
                 {
-                    ptb.Image = Image.FromFile(fileName);
+                    ptb.Image = Image.FromFile(fileName); // TODO System.IO.FileNotFoundException: 'openFileDialog1' OutOfMemoryException
                 }
             }
         }
@@ -52,7 +71,7 @@ namespace DI_EX3_T4
         private void timer1_Tick(object sender, EventArgs e)
         {
             segundos++;
-            if(segundos == 60)
+            if (segundos == 60)
             {
                 segundos = 0;
                 minutos++;
@@ -66,7 +85,8 @@ namespace DI_EX3_T4
             if (senderCasted.Checked)
             {
                 senderCasted.ForeColor = Color.Red;
-            } else
+            }
+            else
             {
                 senderCasted.ForeColor = Color.Black;
             }
