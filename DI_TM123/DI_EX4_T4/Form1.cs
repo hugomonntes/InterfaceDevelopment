@@ -31,7 +31,7 @@ namespace DI_EX4_T4
         {
             if(EliminarList1.Checked && listBox1.Items.Count > 0)
             {
-                listBox1.Items.Remove(listBox1.SelectedItems[1]);
+                listBox1.Items.RemoveAt(listBox1.SelectedIndex);
             }
         }
     }
