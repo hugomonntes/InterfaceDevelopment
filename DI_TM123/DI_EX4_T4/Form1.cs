@@ -68,6 +68,14 @@ namespace DI_EX4_T4
                 }
                 listBox1.Items.Clear();
             }
+            else if (rbIntercambio2.Checked)
+            {
+                foreach (var item in listBox2.Items)
+                {
+                    listBox1.Items.Add(item);
+                }
+                listBox2.Items.Clear();
+            }
         }
     }
 }
