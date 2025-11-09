@@ -87,6 +87,7 @@
             this.btnTraspasar.TabIndex = 4;
             this.btnTraspasar.Text = "Traspasar";
             this.btnTraspasar.UseVisualStyleBackColor = true;
+            this.btnTraspasar.Click += new System.EventHandler(this.btnTraspasar_Click);
             // 
             // textBox1
             // 

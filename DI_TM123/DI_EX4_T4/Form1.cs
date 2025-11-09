@@ -24,7 +24,8 @@ namespace DI_EX4_T4
             if (textToAdd != null && textToAdd != "" && !listBox1.Items.Contains(textToAdd))
             {
                 listBox1.Items.Add(textToAdd);
-            } else if (textToAdd != null && textToAdd != "" && !listBox2.Items.Contains(textToAdd))
+            }
+            else if (textToAdd != null && textToAdd != "" && !listBox2.Items.Contains(textToAdd))
             {
                 listBox2.Items.Add(textToAdd);
             }
@@ -50,9 +51,22 @@ namespace DI_EX4_T4
             if (EliminarList1.Checked)
             {
                 btnQuitar.Text = "Eliminar de 1";
-            } else if (EliminarList2.Checked)
+            }
+            else if (EliminarList2.Checked)
             {
                 btnQuitar.Text = "Eliminar de 2";
+            }
+        }
+
+        private void btnTraspasar_Click(object sender, EventArgs e)
+        {
+            if (rbIntercambio1.Checked)
+            {
+                foreach (var item in listBox1.Items)
+                {
+                    listBox2.Items.Add(item);
+                }
+                listBox1.Items.Clear();
             }
         }
     }
