@@ -62,25 +62,21 @@ namespace DI_EX4_T4
                 btnQuitar.Text = "Eliminar de 2";
             }
         }
-
+        public void traspasarListas(ListBox origen, ListBox destino, RadioButton rb)
+        {
+            if (rb.Checked && origen.Items.Count > 0)
+            {
+                foreach (var item in origen.Items)
+                {
+                    destino.Items.Add(item);
+                }
+                origen.Items.Clear();
+            }
+        }
         private void btnTraspasar_Click(object sender, EventArgs e)
         {
-            if (rbIntercambio1.Checked)
-            {
-                foreach (var item in listBox1.Items)
-                {
-                    listBox2.Items.Add(item);
-                }
-                listBox1.Items.Clear();
-            }
-            else if (rbIntercambio2.Checked)
-            {
-                foreach (var item in listBox2.Items)
-                {
-                    listBox1.Items.Add(item);
-                }
-                listBox2.Items.Clear();
-            }
+            traspasarListas(listBox1, listBox2, rbIntercambio1);
+            traspasarListas(listBox2, listBox1, rbIntercambio2);
         }
     }
 }
