@@ -24,6 +24,7 @@ namespace DI_EX4_T4
             if (textToAdd != null && textToAdd != "" && !listBox1.Items.Contains(textToAdd))
             {
                 listBox1.Items.Add(textToAdd);
+                label1.Text = listBox1.Items.Count.ToString();
             }
             else if (textToAdd != null && textToAdd != "" && !listBox2.Items.Contains(textToAdd))
             {
@@ -35,12 +36,10 @@ namespace DI_EX4_T4
         {
             if (EliminarList1.Checked && listBox1.Items.Count > 0)
             {
-                //btnQuitar.Text = "Eliminar de 1";
                 listBox1.Items.RemoveAt(listBox1.SelectedIndex);
             }
             else if (EliminarList2.Checked && listBox2.Items.Count > 0)
             {
-                //btnQuitar.Text = "Eliminar de 2";
                 listBox2.Items.RemoveAt(listBox2.SelectedIndex);
             }
 
