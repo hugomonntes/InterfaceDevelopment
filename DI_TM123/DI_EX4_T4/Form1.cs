@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -26,23 +27,28 @@ namespace DI_EX4_T4
                 listBox1.Items.Add(textToAdd);
                 label1.Text = listBox1.Items.Count.ToString();
             }
-            else if (textToAdd != null && textToAdd != "" && !listBox2.Items.Contains(textToAdd))
+        }
+
+        public void removeFromList(ListBox lb, RadioButton rb)
+        {
+            if (rb.Checked && lb.Items.Count > 0)
             {
-                listBox2.Items.Add(textToAdd);
+                try // Creo que puedo optimizarlo con un if comparando psociion a -1 (igual es mas eficiente)
+                {
+                    lb.Items.RemoveAt(lb.SelectedIndex);
+                }
+                catch (ArgumentOutOfRangeException)
+                {
+                    MessageBox.Show("Selecciona algún item para elimniar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
+
         }
 
         private void btnQuitar_Click(object sender, EventArgs e)
         {
-            if (EliminarList1.Checked && listBox1.Items.Count > 0)
-            {
-                listBox1.Items.RemoveAt(listBox1.SelectedIndex);
-            }
-            else if (EliminarList2.Checked && listBox2.Items.Count > 0)
-            {
-                listBox2.Items.RemoveAt(listBox2.SelectedIndex);
-            }
-
+            removeFromList(listBox1, EliminarList1);
+            removeFromList(listBox2, EliminarList2);
         }
 
         private void EliminarList1_CheckedChanged(object sender, EventArgs e)
