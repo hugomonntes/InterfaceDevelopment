@@ -38,8 +38,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.EliminarList1 = new System.Windows.Forms.RadioButton();
             this.EliminarList2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.rbIntercambio1 = new System.Windows.Forms.RadioButton();
+            this.rbIntercambio2 = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // listBox1
@@ -124,6 +124,7 @@
             this.EliminarList1.TabStop = true;
             this.EliminarList1.Text = "Eliminar List 1";
             this.EliminarList1.UseVisualStyleBackColor = true;
+            this.EliminarList1.CheckedChanged += new System.EventHandler(this.EliminarList1_CheckedChanged);
             // 
             // EliminarList2
             // 
@@ -136,35 +137,35 @@
             this.EliminarList2.Text = "Eliminar List 2";
             this.EliminarList2.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // rbIntercambio1
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(552, 58);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(85, 17);
-            this.radioButton3.TabIndex = 10;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "radioButton3";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rbIntercambio1.AutoSize = true;
+            this.rbIntercambio1.Location = new System.Drawing.Point(552, 58);
+            this.rbIntercambio1.Name = "rbIntercambio1";
+            this.rbIntercambio1.Size = new System.Drawing.Size(89, 17);
+            this.rbIntercambio1.TabIndex = 10;
+            this.rbIntercambio1.TabStop = true;
+            this.rbIntercambio1.Text = "Intercambio 1";
+            this.rbIntercambio1.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // rbIntercambio2
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(552, 81);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(85, 17);
-            this.radioButton4.TabIndex = 11;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "radioButton4";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.rbIntercambio2.AutoSize = true;
+            this.rbIntercambio2.Location = new System.Drawing.Point(552, 81);
+            this.rbIntercambio2.Name = "rbIntercambio2";
+            this.rbIntercambio2.Size = new System.Drawing.Size(89, 17);
+            this.rbIntercambio2.TabIndex = 11;
+            this.rbIntercambio2.TabStop = true;
+            this.rbIntercambio2.Text = "Intercambio 2";
+            this.rbIntercambio2.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.radioButton4);
-            this.Controls.Add(this.radioButton3);
+            this.Controls.Add(this.rbIntercambio2);
+            this.Controls.Add(this.rbIntercambio1);
             this.Controls.Add(this.EliminarList2);
             this.Controls.Add(this.EliminarList1);
             this.Controls.Add(this.label2);
@@ -194,8 +195,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RadioButton EliminarList1;
         private System.Windows.Forms.RadioButton EliminarList2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.RadioButton rbIntercambio1;
+        private System.Windows.Forms.RadioButton rbIntercambio2;
     }
 }
 
