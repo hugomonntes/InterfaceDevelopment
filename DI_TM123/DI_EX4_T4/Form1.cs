@@ -21,6 +21,8 @@ namespace DI_EX4_T4
             this.AcceptButton = btnAñadir;
             timer1.Start();
             this.Text = "";
+            ToolTip tip = new ToolTip(); //TODO Tengo que moverlo de aquí
+            tip.SetToolTip(listBox1, $"Hay {listBox1.Items.Count.ToString()} en la lista");
         }
 
         private void btnAñadir_Click(object sender, EventArgs e)
@@ -87,30 +89,17 @@ namespace DI_EX4_T4
         {
             label2.Text = listBox1.SelectedIndices.Count.ToString();
         }
-
+        string titulo = "abcdefghijk";
+        int i = 0;
         private void timer1_Tick(object sender, EventArgs e)
         {
-            eachChar("abcdefghi");
-            //this.Text += ;
-        }
-
-        public void eachChar(string word)
-        {
-            for (int i = 0; i < word.Length; i++)
+            this.Text = titulo.Substring(titulo.Length - i - 1);
+            i++;
+            if (i >= titulo.Length)
             {
-                this.Text += word[i];
+                i = 0;
             }
         }
-
-        //private void toolTip_Popup(object sender, PopupEventArgs e)
-        //{
-        //    TextBox txb = (TextBox)sender;
-        //    if (txb.Name == "textBox1")
-        //    {
-        //        ToolTip a = new ToolTip();
-        //        a.ToolTipTitle = listBox1.Items.Count.ToString();
-        //    }
-        //}
     }
 }
 
