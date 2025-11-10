@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.btnAñadir = new System.Windows.Forms.Button();
@@ -40,6 +41,7 @@
             this.EliminarList2 = new System.Windows.Forms.RadioButton();
             this.rbIntercambio1 = new System.Windows.Forms.RadioButton();
             this.rbIntercambio2 = new System.Windows.Forms.RadioButton();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // listBox1
@@ -50,6 +52,7 @@
             this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.listBox1.Size = new System.Drawing.Size(120, 82);
             this.listBox1.TabIndex = 0;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // listBox2
             // 
@@ -102,18 +105,18 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(494, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(32, 13);
             this.label1.TabIndex = 6;
-            this.label1.Text = "label1";
+            this.label1.Text = "Items";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(494, 70);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(41, 13);
             this.label2.TabIndex = 7;
-            this.label2.Text = "label2";
+            this.label2.Text = "Indices";
             // 
             // EliminarList1
             // 
@@ -160,6 +163,11 @@
             this.rbIntercambio2.Text = "Intercambio 2";
             this.rbIntercambio2.UseVisualStyleBackColor = true;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -198,6 +206,7 @@
         private System.Windows.Forms.RadioButton EliminarList2;
         private System.Windows.Forms.RadioButton rbIntercambio1;
         private System.Windows.Forms.RadioButton rbIntercambio2;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

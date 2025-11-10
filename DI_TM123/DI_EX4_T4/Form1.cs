@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Forms;
 
 namespace DI_EX4_T4
@@ -17,6 +18,8 @@ namespace DI_EX4_T4
         {
             InitializeComponent();
             this.AcceptButton = btnAñadir;
+            timer1.Start();
+            this.Text = "";
         }
 
         private void btnAñadir_Click(object sender, EventArgs e)
@@ -78,5 +81,30 @@ namespace DI_EX4_T4
             traspasarListas(listBox1, listBox2, rbIntercambio1);
             traspasarListas(listBox2, listBox1, rbIntercambio2);
         }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            label2.Text = listBox1.SelectedIndices.Count.ToString();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            string title = "AAABBBCCC";
+            for (int i = 0; i < title.Length; i++)
+            {
+                char letra = title[i];
+                this.Text += letra;
+                if(i == title.Length)
+                {
+                    i = 0;
+                }
+            }
+
+        }
     }
 }
+
+//El título del formulario debe ser animado, apareciendo una letra del
+//título empezando por el final (efecto scroll) cada 200 ms y cuando se
+//complete, volviendo a empezar. Además debe cambiar también el icono
+//del formulario. Se debe hacer sólo con un timer.
