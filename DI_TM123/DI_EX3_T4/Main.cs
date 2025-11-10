@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace DI_EX3_T4
 {
-    public partial class Main : Form // TODO Titulo al inicio(ok). formato 00:00(ok). Gestionar cancel en OpenFile(ok). Ajuste sin deformación(ok). Todos los archivos(ok). Revisar filtro(ok). Imagen corrupta(ok). Revisar constructor secundario sin bucle(ok)
+    public partial class Main : Form
     {
         int segundos = 0;
         int minutos = 0;
@@ -32,33 +32,33 @@ namespace DI_EX3_T4
             {
                 path = openFileDialog.FileName;
                 nombreArchivo = Path.GetFileName(path); // Si curro no me deja lo hago con el split
-            }
-            try
-            {
-                Modal modal = new Modal();
-                modal.Text = nombreArchivo;
-                modal.cargarImagen(path);
+                try
+                {
+                    Modal modal = new Modal();
+                    modal.Text = nombreArchivo;
+                    modal.cargarImagen(path);
 
-                if (cbModal.Checked)
-                {
-                    modal.ShowDialog();
+                    if (cbModal.Checked)
+                    {
+                        modal.ShowDialog();
+                    }
+                    else
+                    {
+                        modal.Show();
+                    }
                 }
-                else
+                catch (FileNotFoundException)
                 {
-                    modal.Show();
+                    MessageBox.Show("El archivo no se encontró.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-            catch (FileNotFoundException)
-            {
-                MessageBox.Show("El archivo no se encontró.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (OutOfMemoryException)
-            {
-                MessageBox.Show("La imagen no tiene un formato válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (ArgumentException)
-            {
-                // No aviso de nada ya que el user quiere salir (Preguntrar curro que informar o no en este caso)
+                catch (OutOfMemoryException)
+                {
+                    MessageBox.Show("La imagen no tiene un formato válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (ArgumentException)
+                {
+                    // No aviso de nada ya que el user quiere salir (Preguntrar curro que informar o no en este caso)
+                }
             }
         }
 

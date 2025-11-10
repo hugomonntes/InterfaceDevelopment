@@ -70,6 +70,7 @@
             this.btnAñadir.Size = new System.Drawing.Size(75, 23);
             this.btnAñadir.TabIndex = 2;
             this.btnAñadir.Text = "Añadir";
+            this.toolTip.SetToolTip(this.btnAñadir, "Boton Añadir");
             this.btnAñadir.UseVisualStyleBackColor = true;
             this.btnAñadir.Click += new System.EventHandler(this.btnAñadir_Click);
             // 
@@ -100,7 +101,7 @@
             this.textBox1.Location = new System.Drawing.Point(368, 12);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(104, 81);
+            this.textBox1.Size = new System.Drawing.Size(104, 23);
             this.textBox1.TabIndex = 5;
             // 
             // label1
