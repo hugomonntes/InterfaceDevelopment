@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
@@ -89,18 +90,27 @@ namespace DI_EX4_T4
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            string title = "AAABBBCCC";
-            for (int i = 0; i < title.Length; i++)
-            {
-                char letra = title[i];
-                this.Text += letra;
-                if(i == title.Length)
-                {
-                    i = 0;
-                }
-            }
-
+            eachChar("abcdefghi");
+            //this.Text += ;
         }
+
+        public void eachChar(string word)
+        {
+            for (int i = 0; i < word.Length; i++)
+            {
+                this.Text += word[i];
+            }
+        }
+
+        //private void toolTip_Popup(object sender, PopupEventArgs e)
+        //{
+        //    TextBox txb = (TextBox)sender;
+        //    if (txb.Name == "textBox1")
+        //    {
+        //        ToolTip a = new ToolTip();
+        //        a.ToolTipTitle = listBox1.Items.Count.ToString();
+        //    }
+        //}
     }
 }
 
@@ -108,3 +118,7 @@ namespace DI_EX4_T4
 //título empezando por el final (efecto scroll) cada 200 ms y cuando se
 //complete, volviendo a empezar. Además debe cambiar también el icono
 //del formulario. Se debe hacer sólo con un timer.
+
+//Meter ToolTip para los botones. También para la lista secundaria, en este
+//caso el ToolTip debe mostrar la cantidad de elementos que hay en esta
+//lista.

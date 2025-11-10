@@ -42,6 +42,7 @@
             this.rbIntercambio1 = new System.Windows.Forms.RadioButton();
             this.rbIntercambio2 = new System.Windows.Forms.RadioButton();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // listBox1
@@ -79,6 +80,7 @@
             this.btnQuitar.Size = new System.Drawing.Size(75, 23);
             this.btnQuitar.TabIndex = 3;
             this.btnQuitar.Text = "Quitar";
+            this.toolTip.SetToolTip(this.btnQuitar, "Boton Quitar");
             this.btnQuitar.UseVisualStyleBackColor = true;
             this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
             // 
@@ -89,6 +91,7 @@
             this.btnTraspasar.Size = new System.Drawing.Size(75, 23);
             this.btnTraspasar.TabIndex = 4;
             this.btnTraspasar.Text = "Traspasar";
+            this.toolTip.SetToolTip(this.btnTraspasar, "Boton Traspasar");
             this.btnTraspasar.UseVisualStyleBackColor = true;
             this.btnTraspasar.Click += new System.EventHandler(this.btnTraspasar_Click);
             // 
@@ -168,6 +171,10 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // toolTip
+            // 
+            this.toolTip.ToolTipTitle = "Help";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -207,6 +214,7 @@
         private System.Windows.Forms.RadioButton rbIntercambio1;
         private System.Windows.Forms.RadioButton rbIntercambio2;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ToolTip toolTip;
     }
 }
 
