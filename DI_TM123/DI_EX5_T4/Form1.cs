@@ -35,6 +35,10 @@ namespace DI_EX5_T4
                     coordX = 10;
                     coordY += 50;
                 }
+                newButton.MouseMove += (sender, e) =>
+                {
+
+                };
                 this.Controls.Add(newButton);
             }
         }
@@ -45,3 +49,11 @@ namespace DI_EX5_T4
         }
     }
 }
+
+//Los botones deben ser creados e inicializados en tiempo de ejecución en
+//el evento Load o en el Constructor del Formulario. 
+
+//Las pulsaciones de los botones escriben su contenido en el TextBox.
+//Además cuando el ratón pase por encima de cada uno, este cambiará de
+//color resaltándolo y volviendo al color original al salir. Si se aprieta,
+//cambiará a un tercer color que ya no se restaura.
