@@ -21,8 +21,6 @@ namespace DI_EX4_T4
             this.AcceptButton = btnAñadir;
             timer1.Start();
             this.Text = "";
-            ToolTip tip = new ToolTip(); //TODO Tengo que moverlo de aquí
-            tip.SetToolTip(listBox1, $"Hay {listBox1.Items.Count.ToString()} en la lista");
         }
 
         private void btnAñadir_Click(object sender, EventArgs e)
@@ -99,6 +97,12 @@ namespace DI_EX4_T4
             {
                 i = 0;
             }
+        }
+
+        private void listBox1_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip tip = new ToolTip();
+            tip.SetToolTip(listBox1, $"Hay {listBox1.Items.Count.ToString()} en la lista");
         }
     }
 }

@@ -54,6 +54,7 @@
             this.listBox1.Size = new System.Drawing.Size(120, 82);
             this.listBox1.TabIndex = 0;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.listBox1.MouseHover += new System.EventHandler(this.listBox1_MouseHover);
             // 
             // listBox2
             // 
