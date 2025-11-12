@@ -88,12 +88,17 @@ namespace DI_EX4_T4
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            label2.Text = listBox1.SelectedIndices.Count.ToString();
+            string textAux = ""; // FIXME
+            foreach (var item in listBox1.SelectedItems)
+            {
+                textAux += $"{item}";
+            }
         }
-        string titulo = "abcdefghijk";
-        int i = 0;
+
         private void timer1_Tick(object sender, EventArgs e)
         {
+            string titulo = "abcdefghijk";
+            int i = 0;
             this.Text = titulo.Substring(titulo.Length - i - 1);
             i++;
             if (i >= titulo.Length)
