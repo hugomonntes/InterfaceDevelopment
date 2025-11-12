@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DI_EX5_T4
 {
@@ -80,7 +81,6 @@ namespace DI_EX5_T4
         {
             InitializeComponent();
             initButtons();
-            MenuStrip menuStrip = new MenuStrip();
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -95,3 +95,11 @@ namespace DI_EX5_T4
 //separador y Salir (Finaliza la aplicación). Acerca de dará información de
 //la app y el autor en un MessageBox con icono de información y botón
 //único.
+
+//Grabar número: Saca un formulario secundario donde se pide un
+//nombre. Tendrá botón Aceptar. Al pulsarlo añade a un archivo de
+//texto predefinido el nombre que hay en el TextBox del secundario y
+//al lado el número que haya en el TextBox del principal (la única
+//comprobación es que haya algo en ambos textboxes). No debe haber
+//código en el secundario.
+//En el archivo cada par nombre:numero estará en una línea. 
