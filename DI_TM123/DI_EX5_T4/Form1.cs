@@ -80,6 +80,7 @@ namespace DI_EX5_T4
         {
             InitializeComponent();
             initButtons();
+            MenuStrip menuStrip = new MenuStrip();
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -89,8 +90,8 @@ namespace DI_EX5_T4
     }
 }
 
-//Al pulsar las teclas, si son números, * o #, también aparecen en el
-//TextBox.
-
-//• Debe existir también un botón de Reset (este creado en tiempo de
-//diseño) que borra el TextBox y deja todos los botones del color original
+//Tendrá un pequeño menú con dos encabezados: Archivo y Acerca de...
+//En Archivo habrá las opciones Grabar número, Mostrar agenda, Reset,
+//separador y Salir (Finaliza la aplicación). Acerca de dará información de
+//la app y el autor en un MessageBox con icono de información y botón
+//único.
