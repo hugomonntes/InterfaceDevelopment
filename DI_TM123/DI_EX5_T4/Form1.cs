@@ -25,6 +25,7 @@ namespace DI_EX5_T4
 
             for (int i = 0; i < buttonText.Length; i++)
             {
+                bool isPressed = false;
                 Button newButton = new Button();
                 newButton.Text = buttonText[i];
                 newButton.Left = coordX;
@@ -39,29 +40,54 @@ namespace DI_EX5_T4
                 {
                     newButton.BackColor = Color.BurlyWood;
                 };
-                newButton.MouseLeave += (sender, e) =>
-                {
-                    newButton.BackColor = Color.Empty;
-                };
+
                 newButton.MouseDown += (sender, e) =>
                 {
-                    newButton.BackColor = Color.Chocolate;
+                    newButton.BackColor = Color.DarkOrchid;
+                    isPressed = true;
                 };
+
+                if (!isPressed)
+                {
+                    newButton.MouseLeave += (sender, e) =>
+                    {
+                        newButton.BackColor = Color.Empty;
+                    };
+                }
+
+                newButton.Click += (sender, e) =>
+                {
+                    textBox1.Text += newButton.Text; 
+                };
+
                 this.Controls.Add(newButton);
             }
         }
+
+        public void resetItems(Control.ControlCollection Controls)
+        {
+            foreach (Control ctrl in Controls)
+            {
+                ctrl.Text = ""; // TODO
+                ctrl.BackColor = Color.Empty;
+            }
+        }
+
         public Form1()
         {
             InitializeComponent();
             initButtons();
         }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            resetItems(Controls);
+        }
     }
 }
 
-//Los botones deben ser creados e inicializados en tiempo de ejecución en
-//el evento Load o en el Constructor del Formulario. 
+//Al pulsar las teclas, si son números, * o #, también aparecen en el
+//TextBox.
 
-//Las pulsaciones de los botones escriben su contenido en el TextBox.
-//Además cuando el ratón pase por encima de cada uno, este cambiará de
-//color resaltándolo y volviendo al color original al salir. Si se aprieta,
-//cambiará a un tercer color que ya no se restaura.
+//• Debe existir también un botón de Reset (este creado en tiempo de
+//diseño) que borra el TextBox y deja todos los botones del color original

@@ -35,16 +35,19 @@ namespace DI_EX4_T4
 
         public void removeFromList(ListBox lb, RadioButton rb)
         {
-            try
+            if (rb.Checked)
             {
-                while (rb.Checked && lb.SelectedItems.Count > 0)
+                try
                 {
-                    lb.Items.Remove(lb.SelectedItem);
+                    while (lb.SelectedItems.Count > 0)
+                    {
+                        lb.Items.Remove(lb.SelectedItem);
+                    }
                 }
-            }
-            catch (ArgumentOutOfRangeException)
-            {
-                MessageBox.Show("Selecciona algún item para elimniar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                catch (ArgumentOutOfRangeException)
+                {
+                    MessageBox.Show("Selecciona algún item para elimniar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -67,16 +70,19 @@ namespace DI_EX4_T4
         }
         public void traspasarListas(ListBox origen, ListBox destino, RadioButton rb)
         {
-            try
+            if (rb.Checked)
             {
-                while (rb.Checked && origen.SelectedItems.Count > 0)
+                try
                 {
-                    destino.Items.Add(origen.SelectedItem);
-                    origen.Items.Remove(origen.SelectedItem);
+                    while (origen.SelectedItems.Count > 0)
+                    {
+                        destino.Items.Add(origen.SelectedItem);
+                        origen.Items.Remove(origen.SelectedItem);
+                    }
                 }
-            }
-            catch (ArgumentException)
-            {
+                catch (ArgumentException)
+                {
+                }
             }
         }
 
