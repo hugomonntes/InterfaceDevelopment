@@ -35,24 +35,17 @@ namespace DI_EX4_T4
 
         public void removeFromList(ListBox lb, RadioButton rb)
         {
-            if (rb.Checked && lb.Items.Count > 0)
+            try
             {
-                try // Creo que puedo optimizarlo con un if comparando psociion a -1 (igual es mas eficiente)
+                while (rb.Checked && lb.SelectedItems.Count > 0)
                 {
-                    while (lb.SelectedItems.Count > 0)
-                    {
-                        for (int j = 0; j < lb.SelectedItems.Count; j++)
-                        {
-                            lb.Items.Remove(lb.SelectedItems[j]);
-                        }
-                    }
-                }
-                catch (ArgumentOutOfRangeException)
-                {
-                    MessageBox.Show("Selecciona algún item para elimniar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    lb.Items.Remove(lb.SelectedItem);
                 }
             }
-
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Selecciona algún item para elimniar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnQuitar_Click(object sender, EventArgs e)
@@ -74,24 +67,19 @@ namespace DI_EX4_T4
         }
         public void traspasarListas(ListBox origen, ListBox destino, RadioButton rb)
         {
-            if (rb.Checked && origen.Items.Count > 0)
+            try
             {
-                try
+                while (rb.Checked && origen.SelectedItems.Count > 0)
                 {
-                    while (origen.SelectedItems.Count > 0)
-                    {
-                        for (int j = 0; j < origen.SelectedItems.Count; j++)
-                        {
-                            destino.Items.Add(origen.SelectedItems[j]);
-                            origen.Items.Remove(origen.SelectedItems[j]);
-                        }
-                    }
-                }
-                catch (ArgumentException)
-                {
+                    destino.Items.Add(origen.SelectedItem);
+                    origen.Items.Remove(origen.SelectedItem);
                 }
             }
+            catch (ArgumentException)
+            {
+            }
         }
+
         private void btnTraspasar_Click(object sender, EventArgs e)
         {
             traspasarListas(listBox1, listBox2, rbIntercambio1);
