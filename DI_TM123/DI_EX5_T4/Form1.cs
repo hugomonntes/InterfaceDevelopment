@@ -47,7 +47,7 @@ namespace DI_EX5_T4
                     isPressed = true;
                 };
 
-                if (!isPressed)
+                if (!isPressed) // FIXME
                 {
                     newButton.MouseLeave += (sender, e) =>
                     {
@@ -57,7 +57,7 @@ namespace DI_EX5_T4
 
                 newButton.Click += (sender, e) =>
                 {
-                    textBox1.Text += newButton.Text; 
+                    textBox1.Text += newButton.Text;
                 };
 
                 this.Controls.Add(newButton);
@@ -68,7 +68,10 @@ namespace DI_EX5_T4
         {
             foreach (Control ctrl in Controls)
             {
-                ctrl.Text = ""; // TODO
+                if (ctrl is TextBox)
+                {
+                    ctrl.Text = "";
+                }
                 ctrl.BackColor = Color.Empty;
             }
         }
