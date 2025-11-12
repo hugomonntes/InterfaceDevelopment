@@ -43,6 +43,10 @@ namespace DI_EX5_T4
                 {
                     newButton.BackColor = Color.Empty;
                 };
+                newButton.MouseDown += (sender, e) =>
+                {
+                    //newButton.BackColor = Color.
+                }
                 this.Controls.Add(newButton);
             }
         }

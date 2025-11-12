@@ -39,7 +39,13 @@ namespace DI_EX4_T4
             {
                 try // Creo que puedo optimizarlo con un if comparando psociion a -1 (igual es mas eficiente)
                 {
-                    lb.Items.RemoveAt(lb.SelectedIndex);
+                    while (lb.SelectedItems.Count > 0)
+                    {
+                        for (int j = 0; j < lb.SelectedItems.Count; j++)
+                        {
+                            lb.Items.Remove(lb.SelectedItems[j]);
+                        }
+                    }
                 }
                 catch (ArgumentOutOfRangeException)
                 {
