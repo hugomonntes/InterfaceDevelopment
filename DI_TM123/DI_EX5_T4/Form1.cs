@@ -35,9 +35,13 @@ namespace DI_EX5_T4
                     coordX = 10;
                     coordY += 50;
                 }
-                newButton.MouseMove += (sender, e) =>
+                newButton.MouseEnter += (sender, e) =>
                 {
-
+                    newButton.BackColor = Color.BurlyWood;
+                };
+                newButton.MouseLeave += (sender, e) =>
+                {
+                    newButton.BackColor = Color.Empty;
                 };
                 this.Controls.Add(newButton);
             }

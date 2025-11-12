@@ -70,11 +70,20 @@ namespace DI_EX4_T4
         {
             if (rb.Checked && origen.Items.Count > 0)
             {
-                foreach (var item in origen.Items)
+                try
                 {
-                    destino.Items.Add(item);
+                    while (origen.SelectedItems.Count > 0)
+                    {
+                        for (int j = 0; j < origen.SelectedItems.Count; j++)
+                        {
+                            destino.Items.Add(origen.SelectedItems[j]);
+                            origen.Items.Remove(origen.SelectedItems[j]);
+                        }
+                    }
                 }
-                origen.Items.Clear();
+                catch (ArgumentException)
+                {
+                }
             }
         }
         private void btnTraspasar_Click(object sender, EventArgs e)
