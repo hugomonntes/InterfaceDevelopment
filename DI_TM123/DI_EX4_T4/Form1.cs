@@ -13,14 +13,16 @@ using System.Windows.Forms;
 
 namespace DI_EX4_T4
 {
-    public partial class Form1 : Form
+    public partial class Form1 : Form // TODO icono,  grouboxex,  Salidas de rango con if
     {
+        ToolTip tip = new ToolTip();
         public Form1()
         {
             InitializeComponent();
             this.AcceptButton = btnAñadir;
             timer1.Start();
             this.Text = "";
+            tip.SetToolTip(listBox2, $"Hay {listBox2.Items.Count.ToString()} en la lista");
         }
 
         private void btnAñadir_Click(object sender, EventArgs e)
@@ -30,6 +32,7 @@ namespace DI_EX4_T4
             {
                 listBox1.Items.Add(textToAdd);
                 label1.Text = listBox1.Items.Count.ToString();
+               
             }
         }
 
@@ -37,17 +40,15 @@ namespace DI_EX4_T4
         {
             if (rb.Checked)
             {
-                try
-                {
+                 
                     while (lb.SelectedItems.Count > 0)
                     {
                         lb.Items.Remove(lb.SelectedItem);
                     }
-                }
-                catch (ArgumentOutOfRangeException)
-                {
-                    MessageBox.Show("Selecciona algún item para elimniar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                    label1.Text = listBox1.Items.Count.ToString();
+                    tip.SetToolTip(listBox2, $"Hay {listBox2.Items.Count.ToString()} en la lista");
+                
+             
             }
         }
 
@@ -79,6 +80,8 @@ namespace DI_EX4_T4
                         destino.Items.Add(origen.SelectedItem);
                         origen.Items.Remove(origen.SelectedItem);
                     }
+                    label1.Text = listBox1.Items.Count.ToString();
+                    tip.SetToolTip(listBox2, $"Hay {listBox2.Items.Count.ToString()} en la lista");
                 }
                 catch (ArgumentException)
                 {
@@ -94,29 +97,25 @@ namespace DI_EX4_T4
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string textAux = ""; // FIXME
-            foreach (var item in listBox1.SelectedItems)
+            string textAux = "";
+            foreach (var indice in listBox1.SelectedIndices)
             {
-                textAux += $"{item}";
+                textAux += $"{indice}, ";
             }
+            label2.Text = textAux;
         }
 
+        string titulo = "abcdefghijk";
+        int i = 0;
         private void timer1_Tick(object sender, EventArgs e)
         {
-            string titulo = "abcdefghijk";
-            int i = 0;
             this.Text = titulo.Substring(titulo.Length - i - 1);
+           // this.Icon = Properties.Resources.apple;
             i++;
             if (i >= titulo.Length)
             {
                 i = 0;
             }
-        }
-
-        private void listBox1_MouseHover(object sender, EventArgs e)
-        {
-            ToolTip tip = new ToolTip();
-            tip.SetToolTip(listBox1, $"Hay {listBox1.Items.Count.ToString()} en la lista");
         }
     }
 }
