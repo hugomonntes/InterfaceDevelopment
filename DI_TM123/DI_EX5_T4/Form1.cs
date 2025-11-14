@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Button = System.Windows.Forms.Button;
+using TextBox = System.Windows.Forms.TextBox;
 
 namespace DI_EX5_T4
 {
@@ -37,6 +40,7 @@ namespace DI_EX5_T4
                     coordX = 10;
                     coordY += 50;
                 }
+
                 newButton.MouseEnter += (sender, e) =>
                 {
                     newButton.BackColor = Color.BurlyWood;
@@ -48,13 +52,14 @@ namespace DI_EX5_T4
                     isPressed = true;
                 };
 
-                if (!isPressed) // FIXME
+                newButton.MouseLeave += (sender, e) =>
                 {
-                    newButton.MouseLeave += (sender, e) =>
+                    if (!isPressed)
                     {
                         newButton.BackColor = Color.Empty;
-                    };
-                }
+                    }
+                    isPressed = false; // FIXME
+                };
 
                 newButton.Click += (sender, e) =>
                 {
@@ -86,6 +91,50 @@ namespace DI_EX5_T4
         private void btnReset_Click(object sender, EventArgs e)
         {
             resetItems(Controls);
+        }
+
+        public void grabarEnArchivo(String pathFile, String numero, String nombre)
+        {
+            try
+            {
+                using (StreamWriter str = new StreamWriter(pathFile))
+                {
+                    str.Write($"{nombre}, {numero}");
+                }
+            }
+            catch (FileNotFoundException)
+            {
+
+            }
+        }
+
+        public string getNumberForm2(FormPedirNumero formPedirNumero)
+        {
+            string nombre = "";
+            foreach (Control ctrl in formPedirNumero.Controls)
+            {
+                if (ctrl is TextBox txb && txb.Name == "txbNombre")
+                {
+                    return nombre = ctrl.Text;
+                }
+            }
+            return nombre;
+        }
+
+        //public void clickBtnAceptar(Control ctrl)
+        //{
+        //    if (ctrl is Button btn && btn.Name == "btnAceptar")
+        //    {
+        //        btn.Click += (sender, e) =>
+        //        {
+        //            grabarEnArchivo("C:\\Users\\Hugo Montes\\source\\repos\\hugomonntes\\InterfaceDevelopment\\DI_TM123\\DI_EX5_T4\\archivo.txt", getNumberForm2(frmPedirNumero), this.textBox1.Text);
+        //        };
+        //    }
+        //}
+
+        private void grabarNúmeroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormPedirNumero frmPedirNumero = new FormPedirNumero();
         }
     }
 }
