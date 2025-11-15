@@ -55,6 +55,7 @@
             this.btnJugar.TabIndex = 1;
             this.btnJugar.Text = "Jugar";
             this.btnJugar.UseVisualStyleBackColor = true;
+            this.btnJugar.Click += new System.EventHandler(this.btnJugar_Click);
             // 
             // btnReset
             // 
@@ -64,6 +65,7 @@
             this.btnReset.TabIndex = 2;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnSalir
             // 
@@ -74,6 +76,7 @@
             this.btnSalir.TabStop = false;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // LstNombres
             // 
@@ -127,6 +130,7 @@
             this.resetToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F6;
             this.resetToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.resetToolStripMenuItem.Text = "Reset";
+            this.resetToolStripMenuItem.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // salirToolStripMenuItem
             // 
@@ -134,6 +138,7 @@
             this.salirToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // toolStripSeparator1
             // 
@@ -169,6 +174,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmPrincipal";
             this.Text = "Loteria SImple";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmPrincipal_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
