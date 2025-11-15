@@ -15,6 +15,8 @@ namespace DI_EX_1EVAL
 {
     public partial class FrmPrincipal : Form
     {
+        List<int> numerosPremiados = new List<int>();
+        List<int> cbMarcados = new List<int>();
         int counterCbMarcados = 0;
         public void initCheckBoxes(int numeroDeCheckBoxes)
         {
@@ -35,17 +37,20 @@ namespace DI_EX_1EVAL
                     x = 30;
                     y += 40;
                 }
+                int.TryParse(newCb.Text, out int number);
                 newCb.CheckedChanged += (sender, e) =>
                 {
                     if (newCb.Checked)
                     {
                         tooltip.SetToolTip(newCb, "Activado");
                         counterCbMarcados++;
+                        cbMarcados.Add(number);
                     }
                     else
                     {
                         tooltip.SetToolTip(newCb, "Desactivado");
                         counterCbMarcados--;
+                        cbMarcados.Remove(number);
                     }
                 };
                 this.Controls.Add(newCb);
@@ -96,11 +101,14 @@ namespace DI_EX_1EVAL
                     cb.BackColor = Color.Empty;
                 }
 
-                if (ctrl is TextBox txb)
+                if (ctrl is Label lbl)
                 {
-                    txb.Text = "Resultado";
+                    lbl.Text = "Resultado";
                 }
             }
+            numerosPremiados.Clear();
+            cbMarcados.Clear();
+            counterCbMarcados = 0;
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -135,13 +143,45 @@ namespace DI_EX_1EVAL
             {
                 MessageBox.Show("Error no has seleccionado 6 numeros", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            else
+            {
+                while (numerosPremiados.Count != 6)
+                {
+                    almacenarNumerosAleatorios(numerosPremiados);
+                }
+                foreach (int item in numerosPremiados)
+                {
+                    LblResultados.Text += $" {item} ";
+                }
+                pintarNumerosPremiados();
+            }
         }
 
         Random r = new Random();
-        public List<int> almacenarNumerosAleatorios(List<int> listaNumerosAleatorios)
+        public void almacenarNumerosAleatorios(List<int> listaNumerosAleatorios)
         {
-            listaNumerosAleatorios.Add(r.Next(1,49));
-            return listaNumerosAleatorios;
+            int numero = r.Next(1, 49);
+            if (!listaNumerosAleatorios.Contains(numero))
+            {
+                listaNumerosAleatorios.Add(numero);
+            }
         }
+        private void pintarNumerosPremiados()
+        {
+            foreach (Control ctrl in Controls)
+            {
+                if (ctrl is CheckBox cb && cb.Checked)
+                {
+                    int.TryParse(cb.Text, out int number);
+
+                    if (numerosPremiados.Contains(number))
+                    {
+                        cb.BackColor = Color.Gold;
+                    }
+                }
+            }
+        }
+
+
     }
 }
