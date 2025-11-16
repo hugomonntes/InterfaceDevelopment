@@ -213,29 +213,30 @@ namespace DI_EX_1EVAL
                             btn.Click += btnReset_Click;
                             this.Close();
                         }
-                        else
+                        else // FIXME
                         {
                             string nombre = "";
                             int edad = 0;
                             btn.Click += btnReset_Click;
                             foreach (var ctrl in frmDatos.Controls)
                             {
-                                if (ctrl is TextBox txb && txb.Text != "" && txb.Text != null)
+                                if (ctrl is TextBox txb)
                                 {
                                     nombre = txb.Text;
                                 }
-                                else
-                                {
-                                    MessageBox.Show("Introduce un nombre", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                }
+                                //else
+                                //{
+                                //    MessageBox.Show("Introduce un nombre", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                //}
 
-                                if (ctrl is ComboBox cbEdad)
+                                if (ctrl is ComboBox cbEdad && ctrl != null)
                                 {
                                     edad = (int)cbEdad.SelectedItem;
                                 }
 
                             }
                             Record r = new Record(nombre, edad, pintarContarNumerosPremiados());
+                            LstNombres.Items.Add(r);
                         }
                     }
                 }
