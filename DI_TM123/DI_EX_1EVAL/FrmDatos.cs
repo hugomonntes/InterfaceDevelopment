@@ -12,9 +12,17 @@ namespace DI_EX_1EVAL
 {
     public partial class FrmDatos : Form
     {
+        public void initCombo()
+        {
+            for (int i = 18; i <= 100; i++)
+            {
+                comboBox1.Items.Add(i);
+            }
+        }
         public FrmDatos()
         {
             InitializeComponent();
+            initCombo();
         }
     }
 }

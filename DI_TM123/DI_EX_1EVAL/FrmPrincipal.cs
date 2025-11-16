@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Runtime.Remoting.Channels;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -153,7 +154,8 @@ namespace DI_EX_1EVAL
                 {
                     LblResultados.Text += $" {item} ";
                 }
-                pintarNumerosPremiados();
+                pintarContarNumerosPremiados();
+                lanzarFormModal();
             }
         }
 
@@ -166,8 +168,9 @@ namespace DI_EX_1EVAL
                 listaNumerosAleatorios.Add(numero);
             }
         }
-        private void pintarNumerosPremiados()
+        private int pintarContarNumerosPremiados()
         {
+            int contadorAcertados = 0;
             foreach (Control ctrl in Controls)
             {
                 if (ctrl is CheckBox cb && cb.Checked)
@@ -177,6 +180,34 @@ namespace DI_EX_1EVAL
                     if (numerosPremiados.Contains(number))
                     {
                         cb.BackColor = Color.Gold;
+                        contadorAcertados++;
+                    }
+                }
+            }
+            return contadorAcertados;
+        }
+
+        private void lanzarFormModal()
+        {
+            if (pintarContarNumerosPremiados() >= 1)
+            {
+                FrmDatos frmDatos = new FrmDatos();
+                frmDatos.MaximizeBox = false;
+                frmDatos.MinimizeBox = true;
+                frmDatos.ShowDialog();
+                foreach (var item in frmDatos.Controls)
+                {
+                    if (item is Button btn)
+                    {
+                        btn.MouseEnter += (sender, e) =>
+                        {
+                            btn.BackColor = Color.Blue;
+                        };
+
+                        btn.MouseLeave += (sender, e) =>
+                        {
+                            btn.BackColor = Color.Blue;
+                        };
                     }
                 }
             }
