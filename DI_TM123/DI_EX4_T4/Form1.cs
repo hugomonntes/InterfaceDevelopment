@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DI_EX4_T4.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +14,7 @@ using System.Windows.Forms;
 
 namespace DI_EX4_T4
 {
-    public partial class Form1 : Form // TODO icono,  grouboxex,  Salidas de rango con if
+    public partial class Form1 : Form // TODO icono
     {
         ToolTip tip = new ToolTip();
         public Form1()
@@ -32,7 +33,7 @@ namespace DI_EX4_T4
             {
                 listBox1.Items.Add(textToAdd);
                 label1.Text = listBox1.Items.Count.ToString();
-               
+
             }
         }
 
@@ -40,15 +41,12 @@ namespace DI_EX4_T4
         {
             if (rb.Checked)
             {
-                 
-                    while (lb.SelectedItems.Count > 0)
-                    {
-                        lb.Items.Remove(lb.SelectedItem);
-                    }
-                    label1.Text = listBox1.Items.Count.ToString();
-                    tip.SetToolTip(listBox2, $"Hay {listBox2.Items.Count.ToString()} en la lista");
-                
-             
+                while (lb.SelectedItems.Count > 0)
+                {
+                    lb.Items.Remove(lb.SelectedItem);
+                }
+                label1.Text = listBox1.Items.Count.ToString();
+                tip.SetToolTip(listBox2, $"Hay {listBox2.Items.Count.ToString()} en la lista");
             }
         }
 
@@ -107,14 +105,22 @@ namespace DI_EX4_T4
 
         string titulo = "abcdefghijk";
         int i = 0;
+        int j = 0;
+        List<Icon> iconos = new List<Icon>() { Resources.icon1, Resources.icon2, Resources.icon3 };
         private void timer1_Tick(object sender, EventArgs e)
         {
             this.Text = titulo.Substring(titulo.Length - i - 1);
-           // this.Icon = Properties.Resources.apple;
+            this.Icon = iconos[j];
             i++;
+            j++;
             if (i >= titulo.Length)
             {
                 i = 0;
+            }
+
+            if (j >= iconos.Count())
+            {
+                j = 0;
             }
         }
     }

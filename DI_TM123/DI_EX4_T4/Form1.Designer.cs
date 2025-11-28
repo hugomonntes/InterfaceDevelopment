@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.btnAñadir = new System.Windows.Forms.Button();
@@ -43,6 +44,10 @@
             this.rbIntercambio2 = new System.Windows.Forms.RadioButton();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBox1
@@ -125,7 +130,7 @@
             // EliminarList1
             // 
             this.EliminarList1.AutoSize = true;
-            this.EliminarList1.Location = new System.Drawing.Point(552, 12);
+            this.EliminarList1.Location = new System.Drawing.Point(6, 19);
             this.EliminarList1.Name = "EliminarList1";
             this.EliminarList1.Size = new System.Drawing.Size(89, 17);
             this.EliminarList1.TabIndex = 8;
@@ -137,7 +142,7 @@
             // EliminarList2
             // 
             this.EliminarList2.AutoSize = true;
-            this.EliminarList2.Location = new System.Drawing.Point(552, 35);
+            this.EliminarList2.Location = new System.Drawing.Point(6, 42);
             this.EliminarList2.Name = "EliminarList2";
             this.EliminarList2.Size = new System.Drawing.Size(89, 17);
             this.EliminarList2.TabIndex = 9;
@@ -148,7 +153,7 @@
             // rbIntercambio1
             // 
             this.rbIntercambio1.AutoSize = true;
-            this.rbIntercambio1.Location = new System.Drawing.Point(552, 58);
+            this.rbIntercambio1.Location = new System.Drawing.Point(6, 19);
             this.rbIntercambio1.Name = "rbIntercambio1";
             this.rbIntercambio1.Size = new System.Drawing.Size(89, 17);
             this.rbIntercambio1.TabIndex = 10;
@@ -159,7 +164,7 @@
             // rbIntercambio2
             // 
             this.rbIntercambio2.AutoSize = true;
-            this.rbIntercambio2.Location = new System.Drawing.Point(552, 81);
+            this.rbIntercambio2.Location = new System.Drawing.Point(6, 42);
             this.rbIntercambio2.Name = "rbIntercambio2";
             this.rbIntercambio2.Size = new System.Drawing.Size(89, 17);
             this.rbIntercambio2.TabIndex = 11;
@@ -176,15 +181,35 @@
             // 
             this.toolTip.ToolTipTitle = "Help";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.EliminarList1);
+            this.groupBox1.Controls.Add(this.EliminarList2);
+            this.groupBox1.Location = new System.Drawing.Point(558, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(200, 71);
+            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Eliminar";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.rbIntercambio1);
+            this.groupBox2.Controls.Add(this.rbIntercambio2);
+            this.groupBox2.Location = new System.Drawing.Point(558, 89);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(200, 68);
+            this.groupBox2.TabIndex = 13;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Intercambiar";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.rbIntercambio2);
-            this.Controls.Add(this.rbIntercambio1);
-            this.Controls.Add(this.EliminarList2);
-            this.Controls.Add(this.EliminarList1);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
@@ -193,8 +218,13 @@
             this.Controls.Add(this.btnAñadir);
             this.Controls.Add(this.listBox2);
             this.Controls.Add(this.listBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Form1";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,6 +246,8 @@
         private System.Windows.Forms.RadioButton rbIntercambio2;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ToolTip toolTip;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }
 

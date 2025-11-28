@@ -89,5 +89,14 @@
   <ItemGroup>
     <None Include="Resources\github.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\youtube.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\spotify_logo_icon_229290.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

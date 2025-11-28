@@ -61,31 +61,31 @@ namespace DI_EX4_T4.Properties {
         }
         
         /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        ///   Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
         /// </summary>
-        internal static System.Drawing.Bitmap apple {
+        internal static System.Drawing.Icon icon1 {
             get {
-                object obj = ResourceManager.GetObject("apple", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap dc {
-            get {
-                object obj = ResourceManager.GetObject("dc", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("icon1", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
         /// </summary>
-        internal static System.Drawing.Icon github {
+        internal static System.Drawing.Icon icon2 {
             get {
-                object obj = ResourceManager.GetObject("github", resourceCulture);
+                object obj = ResourceManager.GetObject("icon2", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
+        /// </summary>
+        internal static System.Drawing.Icon icon3 {
+            get {
+                object obj = ResourceManager.GetObject("icon3", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
