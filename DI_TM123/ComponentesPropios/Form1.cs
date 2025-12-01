@@ -22,7 +22,7 @@ namespace ComponentesPropios
         {
             string texto = labelTextBox1.TextLbl;
             Console.WriteLine(texto);
-            labelTextBox1.Posicion = NuevosProgramas.EPosicion.DERECHA;
+            labelTextBox1.Posicion = labelTextBox1.Posicion == NuevosProgramas.EPosicion.IZQUIERDA ? NuevosProgramas.EPosicion.DERECHA : NuevosProgramas.EPosicion.IZQUIERDA;
         }
 
         private void labelTextBox1_Paint(object sender, PaintEventArgs e)
