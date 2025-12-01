@@ -48,10 +48,11 @@
             this.labelTextBox1.Name = "labelTextBox1";
             this.labelTextBox1.Posicion = NuevosProgramas.EPosicion.IZQUIERDA;
             this.labelTextBox1.Separacion = 0;
-            this.labelTextBox1.Size = new System.Drawing.Size(603, 24);
+            this.labelTextBox1.Size = new System.Drawing.Size(681, 20);
             this.labelTextBox1.TabIndex = 0;
             this.labelTextBox1.TextLbl = "Nombre";
             this.labelTextBox1.TextTxt = "";
+            this.labelTextBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.labelTextBox1_Paint);
             // 
             // Form1
             // 

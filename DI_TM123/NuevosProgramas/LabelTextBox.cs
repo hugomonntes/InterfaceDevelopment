@@ -127,8 +127,18 @@ namespace NuevosProgramas
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            base.OnPaint(e);
+             base.OnPaint(e);
             recolocar();
+        }
+
+        public event EventHandler PosicionChanged;
+
+        protected virtual void OnPosicionChanged(EventArgs e)
+        {
+            if (PosicionChanged != null)
+            {
+                PosicionChanged(this, e);
+            }
         }
     }
 }
