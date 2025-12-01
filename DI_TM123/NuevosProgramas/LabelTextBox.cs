@@ -26,6 +26,7 @@ namespace NuevosProgramas
                 if (Enum.IsDefined(typeof(EPosicion), value))
                 {
                     posicion = value;
+                    OnPosicionChanged(EventArgs.Empty);
                     recolocar();
                 }
                 else
