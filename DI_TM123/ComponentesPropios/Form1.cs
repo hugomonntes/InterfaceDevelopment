@@ -22,11 +22,17 @@ namespace ComponentesPropios
         {
             string texto = labelTextBox1.TextLbl;
             Console.WriteLine(texto);
+            labelTextBox1.Posicion = NuevosProgramas.EPosicion.DERECHA;
         }
 
         private void labelTextBox1_Paint(object sender, PaintEventArgs e)
         {
             Debug.WriteLine("Estoy paint del Label Text Box");
+        }
+
+        private void labelTextBox1_PosicionChanged(object sender, EventArgs e)
+        {
+            Debug.WriteLine("cambia posicion");
         }
     }
 }

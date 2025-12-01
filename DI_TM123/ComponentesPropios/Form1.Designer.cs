@@ -52,6 +52,7 @@
             this.labelTextBox1.TabIndex = 0;
             this.labelTextBox1.TextLbl = "Nombre";
             this.labelTextBox1.TextTxt = "";
+            this.labelTextBox1.PosicionChanged += new System.EventHandler(this.labelTextBox1_PosicionChanged);
             this.labelTextBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.labelTextBox1_Paint);
             // 
             // Form1
