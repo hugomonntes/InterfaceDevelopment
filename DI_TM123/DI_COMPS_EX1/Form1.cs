@@ -22,7 +22,6 @@ namespace DI_COMPS_EX1
         private void btnPosición_Click(object sender, EventArgs e)
         {
             labelTextBox1.Posicion = labelTextBox1.Posicion == NuevosProgramas.EPosicion.IZQUIERDA ? NuevosProgramas.EPosicion.DERECHA : NuevosProgramas.EPosicion.IZQUIERDA;
-            labelTextBox1_PosicionChanged(sender, e);
         }
 
         private void btnMas_Click(object sender, EventArgs e)
@@ -47,7 +46,7 @@ namespace DI_COMPS_EX1
 
         private void labelTextBox1_PosicionChanged(object sender, EventArgs e)
         {
-            this.Text = labelTextBox1.Posicion == NuevosProgramas.EPosicion.IZQUIERDA ? "IZQUIERDA" : "DERECHA";
+            this.Text = labelTextBox1.Posicion.ToString();
         }
     }
 }
