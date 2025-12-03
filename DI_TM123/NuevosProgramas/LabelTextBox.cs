@@ -93,6 +93,20 @@ namespace NuevosProgramas
             }
         }
 
+        [Category("Nuevas")]
+        [Description("Propiedad PasswordChar del Textbox interno")]
+        public char PswChr
+        {
+            set
+            {
+                txt.PasswordChar = value;
+            }
+            get
+            {
+                return txt.PasswordChar;
+            }
+        }
+
         void recolocar()
         {
             switch (posicion)
@@ -128,7 +142,7 @@ namespace NuevosProgramas
 
         protected override void OnPaint(PaintEventArgs e)
         {
-             base.OnPaint(e);
+            base.OnPaint(e);
             recolocar();
         }
 
@@ -140,6 +154,38 @@ namespace NuevosProgramas
             {
                 PosicionChanged(this, e);
             }
+        }
+
+        private void txt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            this.OnKeyPress(e);
+        }
+
+        private void txt_KeyUp(object sender, KeyEventArgs e)
+        {
+            this.OnKeyUp(e);
+        }
+
+        public event EventHandler SeparationChanged;
+        protected virtual void OnSeparationChanged(EventArgs e)
+        {
+            if(SeparationChanged != null)
+            {
+                SeparationChanged(this, e);
+            }
+        }
+
+        public event EventHandler TxtChanged;
+        protected virtual void OnTxtChanged(EventArgs e)
+        {
+            if (TxtChanged != null)
+            {
+                TxtChanged(this, e);
+            }
+        }
+        private void txt_txtChanged(object sender, EventArgs e)
+        {
+            this.OnTxtChanged(e);
         }
     }
 }
