@@ -24,6 +24,11 @@ namespace DI_COMPS_EX1
             labelTextBox1.Posicion = labelTextBox1.Posicion == NuevosProgramas.EPosicion.IZQUIERDA ? NuevosProgramas.EPosicion.DERECHA : NuevosProgramas.EPosicion.IZQUIERDA;
         }
 
+        private void labelTextBox1_PosicionChanged(object sender, EventArgs e)
+        {
+            this.Text = labelTextBox1.Posicion.ToString();
+        }
+
         private void btnMas_Click(object sender, EventArgs e)
         {
             labelTextBox1.Separacion += 10;
@@ -44,9 +49,6 @@ namespace DI_COMPS_EX1
             Debug.WriteLine("Texto cambiado");
         }
 
-        private void labelTextBox1_PosicionChanged(object sender, EventArgs e)
-        {
-            this.Text = labelTextBox1.Posicion.ToString();
-        }
+        
     }
 }

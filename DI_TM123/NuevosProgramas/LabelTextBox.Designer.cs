@@ -37,9 +37,9 @@
             this.lbl.AutoSize = true;
             this.lbl.Location = new System.Drawing.Point(33, 30);
             this.lbl.Name = "lbl";
-            this.lbl.Size = new System.Drawing.Size(35, 13);
+            this.lbl.Size = new System.Drawing.Size(179, 13);
             this.lbl.TabIndex = 0;
-            this.lbl.Text = "label1";
+            this.lbl.Text = "label1354453457357657336556734";
             // 
             // txt
             // 
@@ -59,7 +59,7 @@
             this.Controls.Add(this.txt);
             this.Controls.Add(this.lbl);
             this.Name = "LabelTextBox";
-            this.Size = new System.Drawing.Size(341, 77);
+            this.Size = new System.Drawing.Size(271, 77);
             this.ResumeLayout(false);
             this.PerformLayout();
 
