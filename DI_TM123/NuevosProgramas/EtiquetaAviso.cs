@@ -31,7 +31,7 @@ namespace NuevosProgramas
             base.OnPaint(pe);
             Graphics graphics = pe.Graphics;
             SolidBrush solidBrush = new SolidBrush(this.ForeColor);
-            graphics.DrawString(this.Text, this.Font, solidBrush, 0, 0);
+            graphics.DrawString(this.Text, this.Font, solidBrush, 0, 0); 
             this.Size = graphics.MeasureString(this.Text, this.Font).ToSize();
         }
 
