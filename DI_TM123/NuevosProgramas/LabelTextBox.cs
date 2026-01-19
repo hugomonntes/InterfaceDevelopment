@@ -118,26 +118,21 @@ namespace NuevosProgramas
                     txt.Location = new Point(lbl.Width + Separacion, 0);
                     //Establecemos ancho del Textbox
                     //(la label tiene ancho por autosize)
-                    txt.Width = this.Width - lbl.Width - Separacion;
-                    lbl.Width = lbl.Width + Separacion; // TODO
-                    lbl.BackColor = Color.Red;
-                    txt.BackColor = Color.Green;
+                    //txt.Width = this.Width - lbl.Width - Separacion;
+                    this.Width = lbl.Width + txt.Width + separacion;
                     //Establecemos altura del componente
                     this.Height = Math.Max(txt.Height, lbl.Height);
-                    //this.Width = Math.Max(lbl.Width + txt.Width, lbl.Width + txt.Width + Separacion);
                     break;
                 case EPosicion.DERECHA:
                     //Establecemos posición del componente txt
                     txt.Location = new Point(0, 0);
                     //Establecemos ancho del Textbox
-                    txt.Width = this.Width - lbl.Width - Separacion;
-                    lbl.Width = lbl.Width + Separacion; // TODO
+                    //txt.Width = this.Width - lbl.Width - Separacion;
                     //Establecemos posición del componente lbl
                     lbl.Location = new Point(txt.Width + Separacion, 0);
-                    lbl.BackColor = Color.Red;
                     //Establecemos altura del componente (Puede sacarse del switch)
+                    this.Width = lbl.Width + txt.Width + separacion;
                     this.Height = Math.Max(txt.Height, lbl.Height);
-                    this.Width = lbl.Width + txt.Width + Separacion;
                     break;
             }
         }
