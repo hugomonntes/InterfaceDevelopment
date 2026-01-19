@@ -17,13 +17,21 @@ namespace NuevosProgramas
         Circulo
     }
     public partial class EtiquetaAviso : Control
-    {   
+    {
         public EtiquetaAviso()
         {
             InitializeComponent();
         }
 
-        private EMarca marca = EMarca.Nada;
+        private enum EMarca
+        {
+            NADA, CIRCULO, CRUZ, IMAGEN
+        }
+
+        private bool gradient = false;
+        private Color colorSkyBlue = Color.SkyBlue;
+        private Color colorPink = Color.Pink;
+
         [Category("Appearance")]
 
         protected override void OnPaint(PaintEventArgs pe)
@@ -31,7 +39,7 @@ namespace NuevosProgramas
             base.OnPaint(pe);
             Graphics graphics = pe.Graphics;
             SolidBrush solidBrush = new SolidBrush(this.ForeColor);
-            graphics.DrawString(this.Text, this.Font, solidBrush, 0, 0); 
+            graphics.DrawString(this.Text, this.Font, solidBrush, 0, 0);
             this.Size = graphics.MeasureString(this.Text, this.Font).ToSize();
         }
 
