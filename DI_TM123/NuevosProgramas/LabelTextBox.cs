@@ -120,9 +120,11 @@ namespace NuevosProgramas
                     //(la label tiene ancho por autosize)
                     txt.Width = this.Width - lbl.Width - Separacion;
                     lbl.Width = lbl.Width + Separacion; // TODO
+                    lbl.BackColor = Color.Red;
+                    txt.BackColor = Color.Green;
                     //Establecemos altura del componente
                     this.Height = Math.Max(txt.Height, lbl.Height);
-                    //this.Width = lbl.Width + txt.Width + Separacion;
+                    //this.Width = Math.Max(lbl.Width + txt.Width, lbl.Width + txt.Width + Separacion);
                     break;
                 case EPosicion.DERECHA:
                     //Establecemos posición del componente txt
