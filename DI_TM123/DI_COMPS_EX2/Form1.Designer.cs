@@ -28,13 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            this.etiquetaAviso1 = new NuevosProgramas.EtiquetaAviso();
+            this.SuspendLayout();
+            // 
+            // etiquetaAviso1
+            // 
+            this.etiquetaAviso1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.etiquetaAviso1.Gradient = true;
+            this.etiquetaAviso1.ImagenMarca = ((System.Drawing.Image)(resources.GetObject("etiquetaAviso1.ImagenMarca")));
+            this.etiquetaAviso1.Location = new System.Drawing.Point(12, 12);
+            this.etiquetaAviso1.Marca = NuevosProgramas.EMarca.IMAGEN;
+            this.etiquetaAviso1.Name = "etiquetaAviso1";
+            this.etiquetaAviso1.Size = new System.Drawing.Size(78, 13);
+            this.etiquetaAviso1.TabIndex = 0;
+            this.etiquetaAviso1.Text = "etiquetaAviso1";
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.etiquetaAviso1);
+            this.Name = "Form1";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private NuevosProgramas.EtiquetaAviso etiquetaAviso1;
     }
 }
 
