@@ -51,6 +51,7 @@ namespace NuevosProgramas
                 if (value >= 0)
                 {
                     separacion = value;
+                    OnSeparacionChanged(EventArgs.Empty);
                     recolocar();
                 }
                 else
@@ -106,8 +107,49 @@ namespace NuevosProgramas
                 return txt.PasswordChar;
             }
         }
+        [Category("Mis Propiedades")]
+        [Description("Booleana que determina si la label esta subrayada")]
+        public bool Subrayado
+        {
+            set
+            {
+                flag = value;
+                Refresh();
+            }
+            get
+            {
+                return flag;
+            }
+        }
+        [Category("Mis Propiedades")]
+        [Description("Color del subrayado de la label")]
+        public Color ColorSubrayado
+        {
+            set
+            {
+                colorPorDefecto = value;
+                Refresh();
+            }
+            get
+            {
+                return colorPorDefecto;
+            }
+        }
+        bool flag = true;
+        Color colorPorDefecto = Color.Black;
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+            Recolocar();
+            if (flag)
+            {
+                e.Graphics.DrawLine(new Pen(colorPorDefecto), 
+                lbl.Left, this.Height - 1,
+                lbl.Left + lbl.Width, this.Height - 1);
+            }
+        }
 
-        void recolocar()
+        private void Recolocar()
         {
             switch (posicion)
             {
@@ -137,19 +179,15 @@ namespace NuevosProgramas
             }
         }
 
-        public LabelTextBox()
+
+        private void txt_KeyPress(object sender, KeyPressEventArgs e)
         {
-            InitializeComponent();
+            OnKeyPress(e);
         }
 
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            base.OnPaint(e);
-            recolocar();
-        }
-
-        public event EventHandler PosicionChanged;
-
+        [Category("La propiedad cambió")]
+        [Description("Se lanza cuando la propiedad Posicion cambia")]
+        public event System.EventHandler PosicionChanged;
         protected virtual void OnPosicionChanged(EventArgs e)
         {
             if (PosicionChanged != null)
@@ -157,37 +195,41 @@ namespace NuevosProgramas
                 PosicionChanged(this, e);
             }
         }
-
-        private void txt_KeyPress(object sender, KeyPressEventArgs e)
+        [Category("La propiedad cambió")]
+        [Description("Se lanza cuando la propiedad Separacion cambia")]
+        public event System.EventHandler SeparacionChanged;
+        protected virtual void OnSeparacionChanged(EventArgs e)
         {
-            this.OnKeyPress(e);
+            if (SeparacionChanged != null)
+            {
+                SeparacionChanged(this, e);
+            }
+        }
+
+        [Category("La propiedad cambió")]
+        [Description("Se lanza cuando la propiedad text del textbox cambia")]
+        public event System.EventHandler TxtTextChanged;
+        protected virtual void OnTxtTextChanged(EventArgs e)
+        {
+            if (TxtTextChanged != null)
+            {
+                TxtTextChanged(this, e);
+            }
         }
 
         private void txt_KeyUp(object sender, KeyEventArgs e)
         {
-            this.OnKeyUp(e);
+            OnKeyUp(e);
         }
 
-        public event EventHandler SeparationChanged;
-        protected virtual void OnSeparationChanged(EventArgs e)
+        private void txt_TextChanged(object sender, EventArgs e)
         {
-            if(SeparationChanged != null)
-            {
-                SeparationChanged(this, e);
-            }
+            OnTxtTextChanged(e);
         }
 
-        public event EventHandler TxtChanged;
-        protected virtual void OnTxtChanged(EventArgs e)
+        private void lbl_SizeChanged(object sender, EventArgs e)
         {
-            if (TxtChanged != null)
-            {
-                TxtChanged(this, e);
-            }
-        }
-        private void txt_txtChanged(object sender, EventArgs e)
-        {
-            this.OnTxtChanged(e);
+            Recolocar();
         }
     }
 }
