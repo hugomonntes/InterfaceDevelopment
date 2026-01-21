@@ -27,7 +27,7 @@ namespace NuevosProgramas
                 {
                     posicion = value;
                     OnPosicionChanged(EventArgs.Empty);
-                    recolocar();
+                    Recolocar();
                 }
                 else
                 {
@@ -52,7 +52,7 @@ namespace NuevosProgramas
                 {
                     separacion = value;
                     OnSeparacionChanged(EventArgs.Empty);
-                    recolocar();
+                    Recolocar();
                 }
                 else
                 {
