@@ -16,5 +16,10 @@ namespace DI_COMPS_EX2
         {
             InitializeComponent();
         }
+
+        private void etiquetaAviso1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

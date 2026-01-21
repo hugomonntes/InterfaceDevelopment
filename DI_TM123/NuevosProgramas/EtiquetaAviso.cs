@@ -138,5 +138,19 @@ namespace NuevosProgramas
             base.OnTextChanged(e);
             this.Refresh();
         }
+
+        protected override void OnClick(EventArgs e)
+        {
+            base.OnClick(e);
+            ClickEnMarca();
+        }
+
+        private void ClickEnMarca()
+        {
+            if (marca != EMarca.NADA && Cursor.Position.Y < 500)
+            {
+                MessageBox.Show("PULSADO", "PULSADO", MessageBoxButtons.OK);
+            }
+        }
     }
 }

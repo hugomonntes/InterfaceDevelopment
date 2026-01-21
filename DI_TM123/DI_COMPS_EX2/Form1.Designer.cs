@@ -40,9 +40,10 @@
             this.etiquetaAviso1.Location = new System.Drawing.Point(12, 12);
             this.etiquetaAviso1.Marca = NuevosProgramas.EMarca.IMAGEN;
             this.etiquetaAviso1.Name = "etiquetaAviso1";
-            this.etiquetaAviso1.Size = new System.Drawing.Size(78, 13);
+            this.etiquetaAviso1.Size = new System.Drawing.Size(117, 39);
             this.etiquetaAviso1.TabIndex = 0;
             this.etiquetaAviso1.Text = "etiquetaAviso1";
+            this.etiquetaAviso1.Click += new System.EventHandler(this.etiquetaAviso1_Click);
             // 
             // Form1
             // 
