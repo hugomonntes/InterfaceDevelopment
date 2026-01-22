@@ -19,7 +19,7 @@ namespace DI_COMPS_EX2
 
         private void etiquetaAviso1_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("CLICK", "CLICK", MessageBoxButtons.OK);
         }
     }
 }

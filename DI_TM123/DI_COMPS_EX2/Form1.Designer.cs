@@ -34,15 +34,19 @@
             // 
             // etiquetaAviso1
             // 
+            this.etiquetaAviso1.ColorFinalGradiente = System.Drawing.Color.DeepSkyBlue;
+            this.etiquetaAviso1.ColorInicioGradiente = System.Drawing.Color.LawnGreen;
+            this.etiquetaAviso1.FondoGradiente = true;
             this.etiquetaAviso1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.etiquetaAviso1.Gradient = true;
             this.etiquetaAviso1.ImagenMarca = ((System.Drawing.Image)(resources.GetObject("etiquetaAviso1.ImagenMarca")));
             this.etiquetaAviso1.Location = new System.Drawing.Point(12, 12);
-            this.etiquetaAviso1.Marca = NuevosProgramas.EMarca.IMAGEN;
+            this.etiquetaAviso1.Marca = NuevosProgramas.EMarca.Imagen;
             this.etiquetaAviso1.Name = "etiquetaAviso1";
-            this.etiquetaAviso1.Size = new System.Drawing.Size(117, 39);
+            this.etiquetaAviso1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.etiquetaAviso1.Size = new System.Drawing.Size(104, 25);
             this.etiquetaAviso1.TabIndex = 0;
             this.etiquetaAviso1.Text = "etiquetaAviso1";
+            this.etiquetaAviso1.ClickEnMarca += new System.EventHandler(this.etiquetaAviso1_Click);
             this.etiquetaAviso1.Click += new System.EventHandler(this.etiquetaAviso1_Click);
             // 
             // Form1

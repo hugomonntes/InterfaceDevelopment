@@ -69,7 +69,7 @@ namespace NuevosProgramas
                 return fondoGradiente;
             }
         }
-        private Color colorInicioGradiente = Color.White;
+        private Color colorInicioGradiente = Color.Pink;
         [Category("Appearance")]
         [Description("Indica el color inicial del fondo gradiente en caso de tenerlo")]
         public Color ColorInicioGradiente
@@ -85,7 +85,7 @@ namespace NuevosProgramas
             }
         }
 
-        private Color colorFinalGradiente = Color.White;
+        private Color colorFinalGradiente = Color.SkyBlue;
         [Category("Appearance")]
         [Description("Indica el color final del fondo gradiente en caso de tenerlo")]
         public Color ColorFinalGradiente
@@ -106,7 +106,7 @@ namespace NuevosProgramas
             InitializeComponent();
         }
 
-        
+
         [Category("Acción")]
         [Description("Se lanza cuando se hace clic en la marca")]
         public event EventHandler ClickEnMarca;
@@ -187,10 +187,11 @@ namespace NuevosProgramas
                     }
                     else
                     {
-                        EMarca marca = EMarca.Nada; 
+                        EMarca marca = EMarca.Nada;
                     }
                     break;
             }
+
             //Finalmente pintamos el Texto; desplazado si fuera necesario
             SolidBrush b = new SolidBrush(this.ForeColor);
             g.DrawString(this.Text, this.Font, b, offsetX + grosor, offsetY);
