@@ -42,7 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EtiquetaAviso.cs" />
+    <Compile Include="EtiquetaAviso.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="EtiquetaAviso.Designer.cs">
       <DependentUpon>EtiquetaAviso.cs</DependentUpon>
     </Compile>
