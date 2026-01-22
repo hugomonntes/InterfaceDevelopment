@@ -76,7 +76,6 @@
             this.labelTextBox1.TextLbl = "label146365644563433n737n3";
             this.labelTextBox1.TextTxt = "";
             this.labelTextBox1.PosicionChanged += new System.EventHandler(this.labelTextBox1_PosicionChanged);
-            this.labelTextBox1.TxtChanged += new System.EventHandler(this.labelTextBox1_TxtChanged);
             this.labelTextBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.labelTextBox1_KeyUp);
             // 
             // Form1
