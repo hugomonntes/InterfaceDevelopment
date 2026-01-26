@@ -187,7 +187,7 @@ namespace NuevosProgramas
                     }
                     else
                     {
-                        EMarca marca = EMarca.Nada;
+                         marca = EMarca.Nada;
                     }
                     break;
             }
