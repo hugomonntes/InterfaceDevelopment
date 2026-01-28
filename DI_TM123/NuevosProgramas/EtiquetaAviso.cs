@@ -193,7 +193,7 @@ namespace NuevosProgramas
                     }
                     else
                     {
-                        EMarca marca = EMarca.Nada; //Cambio la propiedad privada, a vista del usuario la propiedad Marca está en imagen pero realmente ya se comporta como 'nada'
+                        marca = EMarca.Nada;
                     }
                     break;
             }
