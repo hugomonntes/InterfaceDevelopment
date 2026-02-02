@@ -30,21 +30,38 @@
         {
             this.components = new System.ComponentModel.Container();
             this.reproductorMultimedia1 = new NuevosProgramas.ReproductorMultimedia(this.components);
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // reproductorMultimedia1
             // 
             this.reproductorMultimedia1.Location = new System.Drawing.Point(12, 12);
+            this.reproductorMultimedia1.Minutos = 0;
             this.reproductorMultimedia1.Name = "reproductorMultimedia1";
-            this.reproductorMultimedia1.Size = new System.Drawing.Size(252, 96);
+            this.reproductorMultimedia1.Segundos = 0;
+            this.reproductorMultimedia1.Size = new System.Drawing.Size(170, 56);
             this.reproductorMultimedia1.TabIndex = 0;
-            this.reproductorMultimedia1.PlayClick += new System.EventHandler(this.reproductorMultimedia1_PlayClick);
+            this.reproductorMultimedia1.DesbordaTiempo += new System.EventHandler(this.reproductorMultimedia1_DesbordaTiempo);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(27, 74);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 1;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.reproductorMultimedia1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -55,6 +72,8 @@
         #endregion
 
         private NuevosProgramas.ReproductorMultimedia reproductorMultimedia1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 

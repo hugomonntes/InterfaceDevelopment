@@ -60,7 +60,7 @@ namespace NuevosProgramas
                 }
                 else
                 {
-                    throw new ArgumentException();
+                    //throw new ArgumentException();
                 }
             }
             get { return minutos; }
@@ -73,18 +73,34 @@ namespace NuevosProgramas
         {
             set
             {
-                if(segundos > 59)
+                if (segundos > 59)
                 {
+                    OnDesbordaTiempo(this, EventArgs.Empty);
                     segundos = value % 60;
                     this.Refresh();
-                } else if (segundos > 0 && segundos < 59)
+                }
+                else if (segundos > 0 && segundos < 59)
                 {
-                    // TODO lanzar evento
-                } else
+                    segundos = value;
+                    this.Refresh();
+                }
+                else
                 {
-                    throw new ArgumentException();
+                    //throw new ArgumentException();
                 }
             }
             get { return segundos; }
         }
+
+        [Category("Event")]
+        [Description("Maximo de tiempo superado")]
+        public event EventHandler DesbordaTiempo;
+        protected virtual void OnDesbordaTiempo(object sender, EventArgs e)
+        {
+            if (DesbordaTiempo != null)
+            {
+                DesbordaTiempo(this, EventArgs.Empty);
+            }
+        }
     }
+}

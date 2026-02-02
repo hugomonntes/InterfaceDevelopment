@@ -15,9 +15,13 @@ namespace DI_EX3_T5
         public Form1()
         {
             InitializeComponent();
+            for (int i = 1; i <= 20; i++)
+            {
+                comboBox1.Items.Add(i);
+            }
         }
 
-        private void reproductorMultimedia1_PlayClick(object sender, EventArgs e)
+        private void reproductorMultimedia1_DesbordaTiempo(object sender, EventArgs e)
         {
 
         }
