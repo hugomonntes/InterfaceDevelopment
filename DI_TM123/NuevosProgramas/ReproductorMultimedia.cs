@@ -31,7 +31,7 @@ namespace NuevosProgramas
         }
 
         [Category("Play")]
-        [Description("Cambia el texto del boton")]
+        [Description("Cambiar texto boton")]
         public event EventHandler PlayClick;
         protected virtual void OnPlayClick(object sender, EventArgs e)
         {
@@ -41,10 +41,50 @@ namespace NuevosProgramas
             }
         }
 
-
-        private void label1_Click(object sender, EventArgs e)
+        [Category("Props Label")]
+        [Description("Minutos formato label")]
+        private int minutos;
+        public int Minutos
         {
+            set
+            {
+                if (minutos > 59)
+                {
+                    minutos = 0;
+                    this.Refresh();
+                }
+                else if (minutos > 0 && minutos < 59)
+                {
+                    minutos = value;
+                    this.Refresh();
+                }
+                else
+                {
+                    throw new ArgumentException();
+                }
+            }
+            get { return minutos; }
+        }
 
+        [Category("Props label")]
+        [Description("Segundos formato label")]
+        private int segundos;
+        public int Segundos
+        {
+            set
+            {
+                if(segundos > 59)
+                {
+                    segundos = value % 60;
+                    this.Refresh();
+                } else if (segundos > 0 && segundos < 59)
+                {
+                    // TODO lanzar evento
+                } else
+                {
+                    throw new ArgumentException();
+                }
+            }
+            get { return segundos; }
         }
     }
-}
