@@ -50,7 +50,6 @@
             this.button2.TabIndex = 0;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label1
             // 
@@ -66,7 +65,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Name = "ReproductorMultimedia";
-            this.Size = new System.Drawing.Size(630, 171);
+            this.Size = new System.Drawing.Size(144, 52);
+            this.Click += new System.EventHandler(this.ReproductorMultimedia_Click);
             this.ResumeLayout(false);
             this.PerformLayout();
 

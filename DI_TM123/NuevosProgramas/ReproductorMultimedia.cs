@@ -19,15 +19,7 @@ namespace NuevosProgramas
         public ReproductorMultimedia(IContainer container)
         {
             container.Add(this);
-
             InitializeComponent();
-        }
-
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            button2.Text = button2.Text == "Play" ? "Stop" : "Play";
-            OnPlayClick(sender, e);
         }
 
         [Category("Play")]
@@ -35,6 +27,7 @@ namespace NuevosProgramas
         public event EventHandler PlayClick;
         protected virtual void OnPlayClick(object sender, EventArgs e)
         {
+            button2.Text = button2.Text == "Play" ? "Stop" : "Play";
             if (PlayClick != null)
             {
                 PlayClick(this, EventArgs.Empty);
@@ -101,6 +94,11 @@ namespace NuevosProgramas
             {
                 DesbordaTiempo(this, EventArgs.Empty);
             }
+        }
+
+        private void ReproductorMultimedia_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
