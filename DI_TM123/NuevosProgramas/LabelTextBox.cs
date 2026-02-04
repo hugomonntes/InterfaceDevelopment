@@ -16,7 +16,12 @@ namespace NuevosProgramas
     }
     public partial class LabelTextBox : UserControl
     {
-        private EPosicion posicion = EPosicion.IZQUIERDA;
+        public LabelTextBox()
+        {
+            InitializeComponent();
+        }
+
+        public EPosicion posicion = EPosicion.IZQUIERDA;
         [Category("Nuevas")]
         [Description("Indica si la Label se sitúa a la IZQUIERDA o DERECHA del Textbox")]
         public EPosicion Posicion

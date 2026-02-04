@@ -1,8 +1,8 @@
-﻿using NuevosProgramas;
+﻿using LabelTextBox;
 
-namespace DI_COMPS_EX1
+namespace ComponentesPropios
 {
-    partial class Form1
+    partial class Form_Principal
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -102,11 +102,8 @@ namespace DI_COMPS_EX1
             this.labelTextBox1.TextLbl = "label1";
             this.labelTextBox1.TextTxt = "";
             this.labelTextBox1.PosicionChanged += new System.EventHandler(this.labelTextBox1_PosicionChanged);
-<<<<<<< HEAD
-=======
             this.labelTextBox1.SeparacionChanged += new System.EventHandler(this.labelTextBox1_SeparacionChanged);
             this.labelTextBox1.TxtTextChanged += new System.EventHandler(this.labelTextBox1_TxtTextChanged);
->>>>>>> 5da58e5c3ed703d02ba39afb8edb877977e374b4
             this.labelTextBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.labelTextBox1_KeyUp);
             // 
             // Formulario_LabelTextBox
@@ -132,7 +129,6 @@ namespace DI_COMPS_EX1
         private System.Windows.Forms.Button btnSeparacionMas;
         private System.Windows.Forms.Button btnSeparacionMenos;
         private System.Windows.Forms.Button btnPrueba;
-        private LabelTextBox.LabelTextBox labelTextBox1;
         private System.Windows.Forms.Button btn_pintar;
     }
 }

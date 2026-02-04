@@ -1,5 +1,4 @@
-﻿using NuevosProgramas;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,10 +17,22 @@ namespace DI_COMPS_EX1
         {
             InitializeComponent();
         }
-        
-        private void btnPosición_Click(object sender, EventArgs e)
+
+        private void labelTextBox1_Paint(object sender, PaintEventArgs e)
         {
-            labelTextBox1.Posicion = labelTextBox1.Posicion == NuevosProgramas.EPosicion.IZQUIERDA ? NuevosProgramas.EPosicion.DERECHA : NuevosProgramas.EPosicion.IZQUIERDA;
+            Debug.WriteLine("estoy en el paint del txtbox");
+        }
+
+        private void btnPosicion_Click(object sender, EventArgs e)
+        {
+            if (labelTextBox1.Posicion == LabelTextBox.EPosicion.DERECHA)
+            {
+                labelTextBox1.Posicion = LabelTextBox.EPosicion.IZQUIERDA;
+            }
+            else
+            {
+                labelTextBox1.Posicion = LabelTextBox.EPosicion.DERECHA;
+            }
         }
 
         private void labelTextBox1_PosicionChanged(object sender, EventArgs e)
@@ -29,26 +40,74 @@ namespace DI_COMPS_EX1
             this.Text = labelTextBox1.Posicion.ToString();
         }
 
-        private void btnMas_Click(object sender, EventArgs e)
+        private void btnSeparacionMas_Click(object sender, EventArgs e)
         {
-            labelTextBox1.Separacion += 10;
+            flagSeparacion = true;
+            labelTextBox1.Separacion += 5;
         }
 
-        private void btnMenos_Click(object sender, EventArgs e)
+        private void btnSeparacionMenos_Click(object sender, EventArgs e)
         {
-            labelTextBox1.Separacion -= 10; // Controlar excepcion de rangos
+            if (labelTextBox1.Separacion >= 5)
+            {
+                flagSeparacion = false;
+                labelTextBox1.Separacion -= 5;
+            }
+        }
+
+        private void labelTextBox1_SeparacionChanged(object sender, EventArgs e)
+        {
+            if (flagSeparacion)
+            {
+                this.Text = "La separacion aumentó";
+            }
+            else
+            {
+                this.Text = "La separación disminuyó";
+            }
         }
 
         private void labelTextBox1_KeyUp(object sender, KeyEventArgs e)
         {
-            Debug.WriteLine("Evento KeyUp Lanzado");
+            labelTextBox1.TextLbl = "Tecla:" + e.KeyValue.ToString();
         }
 
-        private void labelTextBox1_TxtChanged(object sender, EventArgs e)
+        private void labelTextBox1_TxtTextChanged(object sender, EventArgs e)
         {
-            Debug.WriteLine("Texto cambiado");
+            this.Text = labelTextBox1.TextTxt.ToString();
         }
 
-        
+        private void btnPrueba_Click(object sender, EventArgs e)
+        {
+            labelTextBox1.TextLbl = "Prueba de si va bien el ancho del componente";
+        }
+
+        private void Formulario_LabelTextBox_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.FillEllipse(Brushes.Aquamarine, 5, 10, 130, 50); //Circulo relleno
+            e.Graphics.DrawString("Prueba de escritura", this.Font, Brushes.BlueViolet, 20, 25); //String
+        }
+
+        private void btn_pintar_Click(object sender, EventArgs e) //Mala practica pintar sin ser en el onpaint
+        {
+            pintar = !pintar;
+            this.Refresh();
+            this.Text = pintar.ToString();
+            //Graphics gr = this.CreateGraphics();
+            //gr.DrawString("Escribo fuera del OnPaint", this.Font, Brushes.BlueViolet, 10, 100);
+            //gr.DrawImage(new Bitmap(@"C:\Windows\Web\Wallpaper\Theme2\img7.jpg"), 10, 130);
+        }
+        bool pintar = true;
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            if (pintar)
+            {
+                base.OnPaint(e);
+                e.Graphics.DrawString("Prueba de escritura 2", this.Font, Brushes.BlueViolet, 20, 70);
+
+            }
+        }
+
+
     }
 }
