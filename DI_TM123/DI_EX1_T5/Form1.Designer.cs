@@ -31,6 +31,7 @@
             this.btnPosicion = new System.Windows.Forms.Button();
             this.btnSeparar = new System.Windows.Forms.Button();
             this.btnJuntar = new System.Windows.Forms.Button();
+            this.labelTextBox1 = new NuevosProgramas.LabelTextBox();
             this.SuspendLayout();
             // 
             // btnPosicion
@@ -63,11 +64,26 @@
             this.btnJuntar.UseVisualStyleBackColor = true;
             this.btnJuntar.Click += new System.EventHandler(this.btnJuntar_Click);
             // 
+            // labelTextBox1
+            // 
+            this.labelTextBox1.ColorSubrayado = System.Drawing.Color.Black;
+            this.labelTextBox1.Location = new System.Drawing.Point(32, 35);
+            this.labelTextBox1.Name = "labelTextBox1";
+            this.labelTextBox1.Posicion = NuevosProgramas.EPosicion.IZQUIERDA;
+            this.labelTextBox1.PswChr = '*';
+            this.labelTextBox1.Separacion = 0;
+            this.labelTextBox1.Size = new System.Drawing.Size(279, 20);
+            this.labelTextBox1.Subrayado = true;
+            this.labelTextBox1.TabIndex = 4;
+            this.labelTextBox1.TextLbl = "label1354453457357657336556734";
+            this.labelTextBox1.TextTxt = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(816, 472);
+            this.Controls.Add(this.labelTextBox1);
             this.Controls.Add(this.btnJuntar);
             this.Controls.Add(this.btnSeparar);
             this.Controls.Add(this.btnPosicion);
@@ -81,6 +97,7 @@
         private System.Windows.Forms.Button btnPosicion;
         private System.Windows.Forms.Button btnSeparar;
         private System.Windows.Forms.Button btnJuntar;
+        private NuevosProgramas.LabelTextBox labelTextBox1;
     }
 }
 

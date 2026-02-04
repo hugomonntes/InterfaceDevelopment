@@ -58,7 +58,7 @@
             this.Controls.Add(this.txt);
             this.Controls.Add(this.lbl);
             this.Name = "LabelTextBox";
-            this.Size = new System.Drawing.Size(271, 77);
+            this.Size = new System.Drawing.Size(270, 77);
             this.ResumeLayout(false);
             this.PerformLayout();
 
