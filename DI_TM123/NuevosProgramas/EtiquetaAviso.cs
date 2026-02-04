@@ -187,11 +187,8 @@ namespace NuevosProgramas
                     }
                     else
                     {
-<<<<<<< HEAD
                          marca = EMarca.Nada;
-=======
                         marca = EMarca.Nada;
->>>>>>> 5da58e5c3ed703d02ba39afb8edb877977e374b4
                     }
                     break;
             }

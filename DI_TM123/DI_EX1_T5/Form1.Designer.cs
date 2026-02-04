@@ -31,7 +31,6 @@
             this.btnPosicion = new System.Windows.Forms.Button();
             this.btnSeparar = new System.Windows.Forms.Button();
             this.btnJuntar = new System.Windows.Forms.Button();
-            this.labelTextBox1 = new NuevosProgramas.LabelTextBox();
             this.SuspendLayout();
             // 
             // btnPosicion
@@ -64,22 +63,6 @@
             this.btnJuntar.UseVisualStyleBackColor = true;
             this.btnJuntar.Click += new System.EventHandler(this.btnJuntar_Click);
             // 
-            // labelTextBox1
-            // 
-            this.labelTextBox1.ColorSubrayado = System.Drawing.Color.Black;
-            this.labelTextBox1.Location = new System.Drawing.Point(32, 27);
-            this.labelTextBox1.Name = "labelTextBox1";
-            this.labelTextBox1.Posicion = NuevosProgramas.EPosicion.IZQUIERDA;
-            this.labelTextBox1.PswChr = '·';
-            this.labelTextBox1.Separacion = 0;
-            this.labelTextBox1.Size = new System.Drawing.Size(156, 20);
-            this.labelTextBox1.Subrayado = true;
-            this.labelTextBox1.TabIndex = 0;
-            this.labelTextBox1.TextLbl = "bdskfalhfg";
-            this.labelTextBox1.TextTxt = "";
-            this.labelTextBox1.PosicionChanged += new System.EventHandler(this.labelTextBox1_PosicionChanged);
-            this.labelTextBox1.SeparacionChanged += new System.EventHandler(this.labelTextBox1_SeparacionChanged);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -88,7 +71,6 @@
             this.Controls.Add(this.btnJuntar);
             this.Controls.Add(this.btnSeparar);
             this.Controls.Add(this.btnPosicion);
-            this.Controls.Add(this.labelTextBox1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -96,8 +78,6 @@
         }
 
         #endregion
-
-        private NuevosProgramas.LabelTextBox labelTextBox1;
         private System.Windows.Forms.Button btnPosicion;
         private System.Windows.Forms.Button btnSeparar;
         private System.Windows.Forms.Button btnJuntar;
