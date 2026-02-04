@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.reproductorMultimedia1 = new NuevosProgramas.ReproductorMultimedia(this.components);
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
@@ -43,10 +42,6 @@
             this.reproductorMultimedia1.Size = new System.Drawing.Size(170, 56);
             this.reproductorMultimedia1.TabIndex = 0;
             this.reproductorMultimedia1.DesbordaTiempo += new System.EventHandler(this.reproductorMultimedia1_DesbordaTiempo);
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // comboBox1
             // 
@@ -72,7 +67,6 @@
         #endregion
 
         private NuevosProgramas.ReproductorMultimedia reproductorMultimedia1;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ComboBox comboBox1;
     }
 }
