@@ -42,6 +42,7 @@
             this.reproductorMultimedia1.Size = new System.Drawing.Size(170, 56);
             this.reproductorMultimedia1.TabIndex = 0;
             this.reproductorMultimedia1.DesbordaTiempo += new System.EventHandler(this.reproductorMultimedia1_DesbordaTiempo);
+            this.reproductorMultimedia1.Click += new System.EventHandler(this.reproductorMultimedia1_Click);
             // 
             // comboBox1
             // 

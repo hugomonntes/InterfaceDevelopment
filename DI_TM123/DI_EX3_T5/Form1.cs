@@ -19,11 +19,19 @@ namespace DI_EX3_T5
             {
                 comboBox1.Items.Add(i);
             }
+            
         }
 
         private void reproductorMultimedia1_DesbordaTiempo(object sender, EventArgs e)
         {
+            reproductorMultimedia1.Minutos++;
+            reproductorMultimedia1.Segundos++;
+        }
 
+        private void reproductorMultimedia1_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog dialog = new FolderBrowserDialog();
+            dialog.ShowDialog();
         }
     }
 }
