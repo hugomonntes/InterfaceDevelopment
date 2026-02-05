@@ -46,14 +46,14 @@ namespace NuevosProgramas
                     minutos = 0;
                     this.Refresh();
                 }
-                else if (minutos > 0 && minutos < 59)
+                else if (minutos < 0)
                 {
-                    minutos = value;
-                    this.Refresh();
+                    throw new ArgumentException();
                 }
                 else
                 {
-                    //throw new ArgumentException();
+                    minutos = value;
+                    this.Refresh();
                 }
             }
             get { return minutos; }
@@ -72,14 +72,14 @@ namespace NuevosProgramas
                     segundos = value % 60;
                     this.Refresh();
                 }
-                else if (segundos > 0 && segundos < 59)
+                else if (segundos < 0)
                 {
-                    segundos = value;
-                    this.Refresh();
+                    throw new ArgumentException();
                 }
                 else
                 {
-                    //throw new ArgumentException();
+                    segundos = value;
+                    this.Refresh();
                 }
             }
             get { return segundos; }
@@ -98,7 +98,7 @@ namespace NuevosProgramas
 
         private void ReproductorMultimedia_Click(object sender, EventArgs e)
         {
-            
+
         }
     }
 }
