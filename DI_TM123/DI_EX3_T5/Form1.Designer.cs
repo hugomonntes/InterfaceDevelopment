@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.reproductorMultimedia1 = new NuevosProgramas.ReproductorMultimedia(this.components);
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // reproductorMultimedia1
@@ -52,15 +54,25 @@
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 1;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(194, 128);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(560, 274);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.reproductorMultimedia1);
             this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -69,6 +81,7 @@
 
         private NuevosProgramas.ReproductorMultimedia reproductorMultimedia1;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

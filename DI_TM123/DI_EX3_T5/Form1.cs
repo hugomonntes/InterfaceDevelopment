@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Odbc;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +21,7 @@ namespace DI_EX3_T5
             {
                 comboBox1.Items.Add(i);
             }
-            
+
         }
 
         private void reproductorMultimedia1_DesbordaTiempo(object sender, EventArgs e)
@@ -31,7 +33,11 @@ namespace DI_EX3_T5
         private void reproductorMultimedia1_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog dialog = new FolderBrowserDialog();
-            dialog.ShowDialog();
+            DialogResult dialogResult = dialog.ShowDialog();
+            String path = dialogResult.ToString();
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Multiselect = true;
+            openFileDialog.ShowDialog();
         }
     }
 }
