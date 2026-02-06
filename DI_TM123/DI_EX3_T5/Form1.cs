@@ -30,14 +30,26 @@ namespace DI_EX3_T5
             reproductorMultimedia1.Segundos++;
         }
 
+        Timer timer = new Timer();
         private void reproductorMultimedia1_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog dialog = new FolderBrowserDialog();
-            DialogResult dialogResult = dialog.ShowDialog();
-            String path = dialogResult.ToString();
+            timer.Start();
+            timer.Interval = 100;
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Multiselect = true;
             openFileDialog.ShowDialog();
+            string[] archivos = openFileDialog.FileNames;
+            timer.Tick += (sender2, e2) =>
+            {
+                for (int i = 0; i < archivos.Length; i++)
+                {
+                    pictureBox1.ImageLocation = archivos[i];
+                    if (i >= archivos.Length)
+                    {
+                        i = 0;
+                    }
+                }
+            };
         }
     }
 }
