@@ -27,7 +27,6 @@ namespace NuevosProgramas
         public event EventHandler PlayClick;
         protected virtual void OnPlayClick(object sender, EventArgs e)
         {
-            button2.Text = button2.Text == "Play" ? "Stop" : "Play";
             if (PlayClick != null)
             {
                 PlayClick(this, EventArgs.Empty);
@@ -41,20 +40,19 @@ namespace NuevosProgramas
         {
             set
             {
-                if (minutos > 59)
+                if (value > 59)
                 {
                     minutos = 0;
-                    this.Refresh();
                 }
-                else if (minutos < 0)
+                else if (value < 0)
                 {
                     throw new ArgumentException();
                 }
                 else
                 {
                     minutos = value;
-                    this.Refresh();
                 }
+                label1.Text = $"{minutos:00}:{segundos:00}";
             }
             get { return minutos; }
         }
@@ -66,21 +64,20 @@ namespace NuevosProgramas
         {
             set
             {
-                if (segundos > 59)
+                if (value > 59)
                 {
                     OnDesbordaTiempo(this, EventArgs.Empty);
                     segundos = value % 60;
-                    this.Refresh();
                 }
-                else if (segundos < 0)
+                else if (value < 0)
                 {
                     throw new ArgumentException();
                 }
                 else
                 {
                     segundos = value;
-                    this.Refresh();
                 }
+                label1.Text = $"{minutos:00}:{segundos:00}";
             }
             get { return segundos; }
         }
@@ -96,9 +93,10 @@ namespace NuevosProgramas
             }
         }
 
-        private void ReproductorMultimedia_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-
+            button2.Text = button2.Text == "Play" ? "Stop" : "Play";
+            OnPlayClick(this, EventArgs.Empty);
         }
     }
 }
