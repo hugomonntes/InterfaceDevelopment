@@ -33,6 +33,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -46,7 +47,7 @@
             this.reproductorMultimedia1.Size = new System.Drawing.Size(170, 56);
             this.reproductorMultimedia1.TabIndex = 0;
             this.reproductorMultimedia1.DesbordaTiempo += new System.EventHandler(this.reproductorMultimedia1_DesbordaTiempo);
-            this.reproductorMultimedia1.Click += new System.EventHandler(this.reproductorMultimedia1_Click);
+            this.reproductorMultimedia1.Click += new System.EventHandler(this.btnSeleccionarDirectorio_Click);
             // 
             // comboBox1
             // 
@@ -95,6 +96,7 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
     }
 }
 
