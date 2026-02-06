@@ -32,7 +32,7 @@ namespace DI_EX3_T5
                 if (fbd.ShowDialog() == DialogResult.OK)
                 {
                     archivos = Directory.GetFiles(fbd.SelectedPath);
-
+                    
                     if (archivos.Length > 0)
                     {
                         indiceActual = 0;
@@ -40,7 +40,7 @@ namespace DI_EX3_T5
                     }
                     else
                     {
-                        MessageBox.Show("No se encontraron imágenes en la carpeta.");
+                        MessageBox.Show("No se encontraron imagenes en la carpeta.");
                     }
                 }
                 timerPresentacion.Start();
@@ -53,7 +53,7 @@ namespace DI_EX3_T5
             MostrarImagen();
 
             reproductorMultimedia1.Segundos++;
-        }
+        }   
 
         private void MostrarImagen()
         {
