@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -71,6 +72,18 @@ namespace NuevosProgramas
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
+            Graphics g = e.Graphics;
+            int grosor = 10;
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            switch (errores)
+            {
+                case 1:
+                    g.DrawLine(new Pen(Color.Black), new Point(100, 100), new Point(120, 100));
+                    break;
+                case 2:
+                    g.DrawLine(new Pen(Color.Black), new Point(110, 70), new Point(110, 70));
+                    break;
+            }
         }
     }
 }
