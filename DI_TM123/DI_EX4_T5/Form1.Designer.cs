@@ -35,7 +35,7 @@
             // dibujoAhorcado1
             // 
             this.dibujoAhorcado1.Cursor = System.Windows.Forms.Cursors.UpArrow;
-            this.dibujoAhorcado1.Errores = 2;
+            this.dibujoAhorcado1.Errores = 7;
             this.dibujoAhorcado1.Location = new System.Drawing.Point(12, 12);
             this.dibujoAhorcado1.Name = "dibujoAhorcado1";
             this.dibujoAhorcado1.Size = new System.Drawing.Size(532, 370);

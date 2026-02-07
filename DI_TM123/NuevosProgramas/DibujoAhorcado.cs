@@ -74,7 +74,7 @@ namespace NuevosProgramas
             }
         }
 
-        protected override void OnPaint(PaintEventArgs e) // TODO arreglar pintar
+        protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
             Graphics g = e.Graphics;
