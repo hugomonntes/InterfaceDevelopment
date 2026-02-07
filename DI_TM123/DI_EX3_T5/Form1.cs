@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace DI_EX3_T5
 {
-    public partial class Form1 : Form // TODO eee cambiar teimpo rne ejecucion y play sin dir elegido. filtro archivos
+    public partial class Form1 : Form
     {
         private string[] archivos;
         private int indiceActual = 0;
@@ -23,6 +23,7 @@ namespace DI_EX3_T5
                 comboBox1.Items.Add(i);
             }
             comboBox1.SelectedIndex = 2;
+            reproductorMultimedia1.Enabled = false;
         }
 
         private void btnSeleccionarDirectorio_Click(object sender, EventArgs e)
@@ -32,9 +33,9 @@ namespace DI_EX3_T5
                 if (fbd.ShowDialog() == DialogResult.OK)
                 {
                     archivos = Directory.GetFiles(fbd.SelectedPath);
-
                     if (archivos.Length > 0)
                     {
+                        reproductorMultimedia1.Enabled = true;
                         indiceActual = 0;
                         MostrarImagen();
                     }
@@ -53,7 +54,7 @@ namespace DI_EX3_T5
             if (contadorSegundosImagen == duracionImagen)
             {
                 indiceActual++;
-                if (indiceActual >= archivos.Length) // NULLREFERENCE
+                if (indiceActual >= archivos.Length)
                 {
                     indiceActual = 0;
                 }
@@ -67,7 +68,6 @@ namespace DI_EX3_T5
             if (indiceActual < archivos.Length)
             {
                 pictureBox1.ImageLocation = archivos[indiceActual];
-                //timerPresentacion.Interval = (comboBox1.SelectedIndex + 1) * 100;
             }
         }
 
