@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace NuevosProgramas
 {
-    public partial class ReproductorMultimedia : UserControl
+    public partial class ReproductorMultimedia : UserControl//Revisa cat desc
     {
         public ReproductorMultimedia()
         {
@@ -23,7 +23,7 @@ namespace NuevosProgramas
         }
 
         [Category("Play")]
-        [Description("Cambiar texto boton")]
+        [Description("Cambiar texto boton")]//////
         public event EventHandler PlayClick;
         protected virtual void OnPlayClick(object sender, EventArgs e)
         {

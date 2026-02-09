@@ -32,8 +32,18 @@ namespace DI_EX3_T5
             {
                 if (fbd.ShowDialog() == DialogResult.OK)
                 {
-                    archivos = Directory.GetFiles(fbd.SelectedPath);
-                    if (archivos.Length > 0)
+                    DirectoryInfo dir = new DirectoryInfo(fbd.SelectedPath);
+                    List<FileInfo> files = dir.GetFiles().ToList();
+                    for (int i = 0; i < files.Count; i++)
+                    {
+                        if (files[i].Extension != ".jpg" && files[i].Extension != ".png")
+                        {
+                            files.Remove(files[i]);
+                            i--;
+                        }
+                    }
+                    
+                    if (files.Count > 0)
                     {
                         reproductorMultimedia1.Enabled = true;
                         indiceActual = 0;
