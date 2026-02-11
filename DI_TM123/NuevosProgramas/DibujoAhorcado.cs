@@ -108,6 +108,9 @@ namespace NuevosProgramas
                     case 1:
                         g.DrawLine(pen, w / 4, h - 20, w / 2, h - 20);
                         break;
+                    default:
+                        g.Clear(Color.Black);
+                        break;
                 }
             }
         }
