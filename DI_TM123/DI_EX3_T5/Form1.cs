@@ -9,7 +9,7 @@ namespace DI_EX3_T5
 {
     public partial class Form1 : Form
     {
-        private string[] archivos;
+        List<FileInfo> archivos;
         private int indiceActual = 0;
         private int duracionImagen = 0; // Segundos que dura la imagen en pantalla
         private int contadorSegundosImagen = 0; // Tiempo que lleva la imagen estando en pantalla
@@ -33,17 +33,17 @@ namespace DI_EX3_T5
                 if (fbd.ShowDialog() == DialogResult.OK)
                 {
                     DirectoryInfo dir = new DirectoryInfo(fbd.SelectedPath);
-                    List<FileInfo> files = dir.GetFiles().ToList();
-                    for (int i = 0; i < files.Count; i++)
+                    archivos = dir.GetFiles().ToList();
+                    for (int i = 0; i < archivos.Count; i++)
                     {
-                        if (files[i].Extension != ".jpg" && files[i].Extension != ".png")
+                        if (archivos[i].Extension != ".jpg" && archivos[i].Extension != ".png")
                         {
-                            files.Remove(files[i]);
+                            archivos.Remove(archivos[i]);
                             i--;
                         }
                     }
                     
-                    if (files.Count > 0)
+                    if (archivos.Count > 0)
                     {
                         reproductorMultimedia1.Enabled = true;
                         indiceActual = 0;
@@ -64,7 +64,7 @@ namespace DI_EX3_T5
             if (contadorSegundosImagen == duracionImagen)
             {
                 indiceActual++;
-                if (indiceActual >= archivos.Length)
+                if (indiceActual >= archivos.Count)
                 {
                     indiceActual = 0;
                 }
@@ -75,9 +75,9 @@ namespace DI_EX3_T5
 
         private void MostrarImagen()
         {
-            if (indiceActual < archivos.Length)
+            if (indiceActual < archivos.Count)
             {
-                pictureBox1.ImageLocation = archivos[indiceActual];
+                pictureBox1.ImageLocation = archivos[indiceActual].FullName;
             }
         }
 
