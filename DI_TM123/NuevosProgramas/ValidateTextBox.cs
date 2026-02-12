@@ -34,17 +34,16 @@ namespace NuevosProgramas
         [Description("Texto del textbox")]
         public string Texto { get; set; }
 
-        private bool multilinea;
         [Category("Mis Propiedades")]
         [Description("Multilinea del textbox")]
         public bool Multilinea
         {
             set
             {
-                this.multilinea = value;
+                this.Multilinea = value;
             }
 
-            get { return this.multilinea; }
+            get { return this.Multilinea; }
         }
         private void ValidateTextBox_Load(object sender, EventArgs e)
         {
