@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,28 @@ namespace DI_EX5_T5_
         public Form2()
         {
             InitializeComponent();
+            comboBox1.Items.Add("a");
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = ".jpg|*.jpg|Todos los archivos|*.*";
+            DialogResult ds = openFileDialog.ShowDialog();
+            if (ds == DialogResult.OK)
+            {
+                textBox1.Text = openFileDialog.FileName;
+            }
         }
     }
 }

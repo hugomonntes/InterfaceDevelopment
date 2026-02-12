@@ -18,22 +18,31 @@ namespace DI_EX5_T5_
 
     internal class sFriki
     {
-        private string nombre;
         public string Nombre { set; get; }
 
-        private int edad;
-        public string Edad { set; get; }
+        public int Edad { set; get; }
 
-        private eAficion aficion;
         public eAficion Aficion { set; get; }
 
-        private eSexo sexo;
         public eSexo Sexo { set; get; }
 
-        private eSexo sexoOpuesto;
         public eSexo SexoOpuesto { set; get; }
 
-        private string foto;
         public string Foto { set; get; }
+
+        public sFriki(string nombre, int edad, eAficion aficion, eSexo sexo, eSexo sexoOpuesto, string foto)
+        {
+            this.Nombre = nombre;
+            this.Edad = edad;
+            this.Aficion = aficion;
+            this.Sexo = sexo;
+            this.SexoOpuesto = sexoOpuesto;
+            this.Foto = foto;
+        }
+
+        public sFriki()
+        {
+            
+        }
     }
 }
