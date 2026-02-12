@@ -1,6 +1,6 @@
 ﻿namespace NuevosProgramas
 {
-    partial class DibujoAbstracto
+    partial class ValidateTextBox
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -28,9 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.SuspendLayout();
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(17, 14);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 0;
+            // 
+            // ValidateTextBox
+            // 
+            this.Controls.Add(this.textBox1);
+            this.Name = "ValidateTextBox";
+            this.Size = new System.Drawing.Size(281, 167);
+            this.Load += new System.EventHandler(this.ValidateTextBox_Load);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
