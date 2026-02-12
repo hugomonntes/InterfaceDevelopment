@@ -28,14 +28,20 @@ namespace NuevosProgramas
             InitializeComponent();
         }
 
+        private string figura;
         public string Figura
         {
             set
             {
-                if (value == Figuras.Linea.ToString())
+                if (Enum.IsDefined(typeof(Figuras), value))
                 {
-                    value = Figuras.Linea.ToString();
+                    figura = value;
                 }
+            }
+
+            get
+            {
+                return figura;
             }
         }
     }
