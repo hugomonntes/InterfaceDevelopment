@@ -23,9 +23,9 @@ namespace NuevosProgramas
             InitializeComponent();
         }
 
+        private int errores;
         [Category("Props Personalizadas")]
         [Description("Número de errores en el juego")]
-        private int errores;
         public int Errores
         {
             get
@@ -87,26 +87,26 @@ namespace NuevosProgramas
                 switch (errores)
                 {
                     case 7:
-                        g.DrawLine(pen, w / 2, 120, w / 2 - 20, 160);
-                        g.DrawLine(pen, w / 2, 120, w / 2 + 20, 160);
+                        g.DrawLine(pen, w * 0.6f, 120, w * 0.5f, 160);
+                        g.DrawLine(pen, w * 0.6f, 120, w * 0.7f, 160);
                         goto case 6;
                     case 6:
-                        g.DrawLine(pen, w / 2, 70, w / 2, 120);
+                        g.DrawLine(pen, w * 0.6f, 70, w * 0.6f, 120);
                         goto case 5;
                     case 5:
-                        g.DrawEllipse(pen, w / 2 - 15, 40, 30, 30);
+                        g.DrawEllipse(pen, w * 0.55f, 40, 30, 30);
                         goto case 4;
                     case 4:
-                        g.DrawLine(pen, w / 2, 20, w / 2, 40);
+                        g.DrawLine(pen, w * 0.6f, 20, w * 0.6f, 40);
                         goto case 3;
                     case 3:
-                        g.DrawLine(pen, w / 3, 20, w / 2, 20);
+                        g.DrawLine(pen, w * 0.4f, 20, w * 0.6f, 20);
                         goto case 2;
                     case 2:
-                        g.DrawLine(pen, w / 3, h - 20, w / 3, 20);
+                        g.DrawLine(pen, w * 0.4f, h - 20, w * 0.4f, 20);
                         goto case 1;
                     case 1:
-                        g.DrawLine(pen, w / 4, h - 20, w / 2, h - 20);
+                        g.DrawLine(pen, 0, h - 20, w * 0.8f, h - 20);
                         break;
                     default:
                         g.Clear(Color.Black);
