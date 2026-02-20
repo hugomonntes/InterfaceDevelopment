@@ -49,6 +49,7 @@ namespace NuevosProgramas
                     errores = value;
                     this.Refresh();
                 }
+
             }
         }
 
@@ -84,7 +85,7 @@ namespace NuevosProgramas
             g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             using (Pen pen = new Pen(Color.Black,grosor))
             {
-                switch (errores)
+                switch (errores) // Cambiar proporciones
                 {
                     case 7:
                         g.DrawLine(pen, w * 0.6f, 120, w * 0.5f, 160);

@@ -29,26 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.validateTextBox1 = new NuevosProgramas.ValidateTextBox(this.components);
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.btnBorrar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
+            this.validateTextBox1 = new NuevosProgramas.ValidateTextBox(this.components);
             this.SuspendLayout();
-            // 
-            // validateTextBox1
-            // 
-            this.validateTextBox1.Location = new System.Drawing.Point(12, 12);
-            this.validateTextBox1.Multilinea = true;
-            this.validateTextBox1.Name = "validateTextBox1";
-            this.validateTextBox1.Size = new System.Drawing.Size(374, 40);
-            this.validateTextBox1.TabIndex = 0;
-            this.validateTextBox1.Texto = "";
-            this.validateTextBox1.Tipo = NuevosProgramas.eTipo.Textual;
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 58);
+            this.listBox1.Location = new System.Drawing.Point(12, 25);
             this.listBox1.Name = "listBox1";
             this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.listBox1.Size = new System.Drawing.Size(120, 95);
@@ -56,7 +46,7 @@
             // 
             // btnBorrar
             // 
-            this.btnBorrar.Location = new System.Drawing.Point(171, 68);
+            this.btnBorrar.Location = new System.Drawing.Point(159, 25);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(75, 23);
             this.btnBorrar.TabIndex = 2;
@@ -66,7 +56,7 @@
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(171, 97);
+            this.btnNuevo.Location = new System.Drawing.Point(159, 54);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 23);
             this.btnNuevo.TabIndex = 3;
@@ -74,15 +64,24 @@
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
+            // validateTextBox1
+            // 
+            this.validateTextBox1.Location = new System.Drawing.Point(308, -77);
+            this.validateTextBox1.Multilinea = false;
+            this.validateTextBox1.Name = "validateTextBox1";
+            this.validateTextBox1.Size = new System.Drawing.Size(281, 40);
+            this.validateTextBox1.TabIndex = 4;
+            this.validateTextBox1.Texto = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.validateTextBox1);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.validateTextBox1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -91,10 +90,11 @@
 
         #endregion
 
-        private NuevosProgramas.ValidateTextBox validateTextBox1;
+        //private NuevosProgramas.ValidateTextBox validateTextBox1;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.Button btnNuevo;
+        private NuevosProgramas.ValidateTextBox validateTextBox1;
     }
 }
 
